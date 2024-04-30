@@ -5,7 +5,7 @@ import TextFormat from "../textFormat/textFormat";
 import laptop from '../../media/laptop.jpg'
 import { TextParallaxContentExample } from "../parallaxText/parallaxText";
 import MultiLayerParallax from "../mountainParallax/mountainParallax";
-import ParticlesComponent from "../particles/particles";
+
 const Homepage: React.FC = () => {
 
     return (
@@ -24,7 +24,7 @@ const Homepage: React.FC = () => {
             /> */}
 
          
-<ParticlesComponent/>
+
             <MultiLayerParallax/>
 
             <TextParallaxContentExample/>

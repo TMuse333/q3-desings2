@@ -24,7 +24,7 @@ const Homepage: React.FC = () => {
             /> */}
 
          
-<ParticlesComponent/>
+{/* <ParticlesComponent/> */}
             <MultiLayerParallax/>
 
             <TextParallaxContentExample/>

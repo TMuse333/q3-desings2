@@ -2,17 +2,15 @@ import React, { ReactNode, useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, motionValue } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 import laptop from '../../media/laptop.jpg'
-import {useTextYPositionContext} from '../../context/context'
-import q3laptop from '../../media/q3-imac.jpg'
+import {useTextYPositionContext} from '../context/context'
 
 export const TextParallaxContentExample = () => {
   return (
     <div className="bg-white relative">
       <TextParallaxContent
-        imgUrl={q3laptop}
-        subheading="Welcome to Q3 Designs"
-        heading="Websites are essential"
-        video={false}
+        imgUrl={laptop}
+        subheading="Collaborate"
+        heading="Built for all of us."
       >
        
       </TextParallaxContent>
@@ -34,7 +32,7 @@ const TextParallaxContent = ({
   subheading: string;
   heading: string;
   children: ReactNode;
-  video: boolean
+  video
 }) => {
   return (
     <div
@@ -44,9 +42,8 @@ const TextParallaxContent = ({
       }}
     >
       <div className="relative h-[150vh]">
-        <StickyImage video={video}
-        imgUrl={imgUrl}
-       />
+        <StickyImage imgUrl={imgUrl}
+        textPosition={21} />
         <OverlayCopy heading={heading} subheading={subheading} />
       </div>
       {children}
@@ -54,7 +51,7 @@ const TextParallaxContent = ({
   );
 };
 
-const StickyImage = ({ imgUrl, video }: { imgUrl: string, video: boolean }) => {
+const StickyImage = ({ imgUrl, textPosition }: { imgUrl: string, textPosition: number }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -130,7 +127,7 @@ const OverlayCopy = ({
       offset: ["start end", "end start"],
     });
 
-    const { setTextYPosition} = useTextYPositionContext()
+    const {textYPosition, setTextYPosition} = useTextYPositionContext()
   
     const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
     const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
@@ -138,7 +135,7 @@ const OverlayCopy = ({
     // Log the y position
     useEffect(() => {
         const unsubscribe = y.onChange((value) => {
-         
+          console.log("Y position:", value);
 
           setTextYPosition(value)
         });

@@ -2,7 +2,7 @@ import React, { ReactNode, useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, motionValue } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 import laptop from '../../media/laptop.jpg'
-import {useTextYPositionContext} from '../../context/context'
+import {useTextYPositionContext} from '../context/context'
 import q3laptop from '../../media/q3-imac.jpg'
 
 export const TextParallaxContentExample = () => {
@@ -10,8 +10,8 @@ export const TextParallaxContentExample = () => {
     <div className="bg-white relative">
       <TextParallaxContent
         imgUrl={q3laptop}
-        subheading="Welcome to Q3 Designs"
-        heading="Websites are essential"
+        subheading="Collaborate"
+        heading="Built for all of us."
         video={false}
       >
        

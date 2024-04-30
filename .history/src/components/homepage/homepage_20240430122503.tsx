@@ -25,7 +25,7 @@ const Homepage: React.FC = () => {
 
          
 <ParticlesComponent/>
-            <MultiLayerParallax/>
+            {/* <MultiLayerParallax/>
 
             <TextParallaxContentExample/>
 
@@ -35,7 +35,7 @@ const Homepage: React.FC = () => {
             customText={null}
             reverse={false}
             description={null}
-            />
+            /> */}
             
         </section>
     )
