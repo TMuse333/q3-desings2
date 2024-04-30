@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button{
+    padding:0.5rem 2rem;
+    background-color: black;
+    color:white;
+    border-radius: 1rem;
+}
+
+h1{
+    color:white
+}
