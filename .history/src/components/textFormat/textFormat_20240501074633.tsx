@@ -1,24 +1,44 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, Variants } from "framer-motion";
-import useIntersectionObserver from '../intersectionObserver/intersectionObserver'
 
 interface TextFormatProps {
   isAnimated: boolean | null,
   reverse: boolean | null
 }
 
-const TextFormat: React.FC<TextFormatProps> = ({ isAnimated,  }) => {
+const TextFormat: React.FC<TextFormatProps> = ({ isAnimated, reverse }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const componentRef = useRef<HTMLDivElement>(null);
 
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.8,
-  };
-  const componentRef = useIntersectionObserver(setIsVisible,options)
+  useEffect(() => {
+    // Use Intersection Observer only if isAnimated is null
+    if (isAnimated === null) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          // Update the state based on whether the component is in view
+          setIsVisible(entry.isIntersecting);
+        },
+        {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.5
+        }
+      );
 
+      if (componentRef.current) {
+        observer.observe(componentRef.current);
+      }
 
-  
+      return () => {
+        if (componentRef.current) {
+          observer.unobserve(componentRef.current);
+        }
+      };
+    } else if (isAnimated) {
+      // Trigger animations immediately if isAnimated is true
+      setIsVisible(true);
+    }
+  }, [isAnimated]);
 
   const pointVariants = (index: number): Variants => {
     return {
@@ -35,16 +55,6 @@ const TextFormat: React.FC<TextFormatProps> = ({ isAnimated,  }) => {
       }
     };
   };
-
-
-  const nullVariants: Variants = {
-        initial:{
-
-        },
-        animate:{
-          
-        }
-  }
 
   const points: string[] = [
     'be a real one',
@@ -68,7 +78,8 @@ const TextFormat: React.FC<TextFormatProps> = ({ isAnimated,  }) => {
      sm:pl-0
        sm:max-w-[668px]
       md:max-w-[350px] "   
-      
+      initial={{ opacity: 1 }}
+      animate={isVisible ? { opacity: 1 } : { opacity: 1 }}
     >
        
      
@@ -83,9 +94,7 @@ const TextFormat: React.FC<TextFormatProps> = ({ isAnimated,  }) => {
       <motion.ul className="text-left  pl-4 pt-5 list-disc
      ">
         {points.map((point, index) => (
-          <motion.li className="text-white disc-none"
-           key={index} 
-          variants={isAnimated ? pointVariants(index) : nullVariants}
+          <motion.li key={index} variants={pointVariants(index)}
            initial="initial" 
            animate={isVisible ? "animate" : "initial"}
            >

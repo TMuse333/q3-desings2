@@ -38,12 +38,7 @@ const TextFormat: React.FC<TextFormatProps> = ({ isAnimated,  }) => {
 
 
   const nullVariants: Variants = {
-        initial:{
 
-        },
-        animate:{
-          
-        }
   }
 
   const points: string[] = [

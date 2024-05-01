@@ -36,7 +36,7 @@ const Homepage: React.FC = () => {
             mainTitle='Benefits of a website'
             image={moneyBall}
             customText={<TextFormat
-            isAnimated={true}
+            isAnimated={false}
             reverse={false}/>}
             reverse={false}
             description={null}

@@ -41,7 +41,7 @@ const Homepage: React.FC = () => {
             reverse={false}
             description={null}
             floatingImage={true}
-            hasAnimation={true}
+            hasAnimation={f}
             
             />
             

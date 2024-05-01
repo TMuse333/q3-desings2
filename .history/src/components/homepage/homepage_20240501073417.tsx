@@ -8,9 +8,7 @@ import MultiLayerParallax from "../mountainParallax/mountainParallax";
 import ParticlesComponent from "../particles/particles";
 import nobgLaptop from '../../media/Gemini_Generated_Image_r055a1r055a1r055-removebg-preview.png'
 import moneyBall from '../../media/futuristic-money-ball-removebg-preview.png'
-import { description1 } from "../../data/data";
-
-
+import {description1} from '../'
 const Homepage: React.FC = () => {
 
     return (
@@ -27,7 +25,7 @@ const Homepage: React.FC = () => {
             image={nobgLaptop}
             customText={null}
             reverse={true}
-            description={description1}
+            description={null}
             floatingImage={true}
             hasAnimation={true}
             />
@@ -35,14 +33,11 @@ const Homepage: React.FC = () => {
 <Content
             mainTitle='Benefits of a website'
             image={moneyBall}
-            customText={<TextFormat
-            isAnimated={true}
-            reverse={false}/>}
+            customText={null}
             reverse={false}
             description={null}
             floatingImage={true}
             hasAnimation={true}
-            
             />
             
         </section>

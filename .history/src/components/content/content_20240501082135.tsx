@@ -103,7 +103,7 @@ const nullVariant: Variants = {
 
   return (
     <article
-      ref={componentRef}
+      ref={ref}
       className={`flex flex-col justify-center align-center pt-8 pb-8
        relative mr-auto ml-auto
        md:w-[95vw] md:max-w-[1200px] sm:max-w-[668px]

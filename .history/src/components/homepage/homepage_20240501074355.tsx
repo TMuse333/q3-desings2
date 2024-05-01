@@ -37,7 +37,7 @@ const Homepage: React.FC = () => {
             image={moneyBall}
             customText={<TextFormat
             isAnimated={true}
-            reverse={false}/>}
+            />}
             reverse={false}
             description={null}
             floatingImage={true}

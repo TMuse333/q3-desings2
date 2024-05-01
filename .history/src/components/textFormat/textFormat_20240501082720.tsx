@@ -1,21 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, Variants } from "framer-motion";
-import useIntersectionObserver from '../intersectionObserver/intersectionObserver'
 
 interface TextFormatProps {
   isAnimated: boolean | null,
   reverse: boolean | null
 }
 
-const TextFormat: React.FC<TextFormatProps> = ({ isAnimated,  }) => {
+const TextFormat: React.FC<TextFormatProps> = ({ isAnimated, reverse }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.8,
-  };
-  const componentRef = useIntersectionObserver(setIsVisible,options)
+    
+  }
+  const componentRef = useRef<HTMLDivElement>(null);
 
 
   
@@ -35,16 +32,6 @@ const TextFormat: React.FC<TextFormatProps> = ({ isAnimated,  }) => {
       }
     };
   };
-
-
-  const nullVariants: Variants = {
-        initial:{
-
-        },
-        animate:{
-          
-        }
-  }
 
   const points: string[] = [
     'be a real one',
@@ -85,7 +72,7 @@ const TextFormat: React.FC<TextFormatProps> = ({ isAnimated,  }) => {
         {points.map((point, index) => (
           <motion.li className="text-white disc-none"
            key={index} 
-          variants={isAnimated ? pointVariants(index) : nullVariants}
+          variants={pointVariants(index)}
            initial="initial" 
            animate={isVisible ? "animate" : "initial"}
            >

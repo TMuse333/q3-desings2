@@ -23,15 +23,7 @@ const Content: React.FC<contentProps> = ({
 }) => {
   const [inView, setInView] = useState(false);
 
-  // Configure intersection observer options
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.8,
-  };
-
-  // Use the custom hook to get a ref and observe intersection
-  const componentRef = useIntersectionObserver(setInView, options);
+  
 
  
 
@@ -98,12 +90,40 @@ const nullVariant: Variants = {
 
 
 
-
+useEffect(() => {
+    // Only set up the observer if inView is false
+    if (!inView) {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.8,
+      };
+  
+      const observer = new IntersectionObserver(([entry]) => {
+        // Update state when the element enters the viewport
+        if (entry.isIntersecting) {
+          setInView(true);
+          // Stop observing once inView is set to true
+          observer.disconnect();
+        }
+      }, options);
+  
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+  
+      return () => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      };
+    }
+  }, [inView, ref]);
   
 
   return (
     <article
-      ref={componentRef}
+      ref={ref}
       className={`flex flex-col justify-center align-center pt-8 pb-8
        relative mr-auto ml-auto
        md:w-[95vw] md:max-w-[1200px] sm:max-w-[668px]
