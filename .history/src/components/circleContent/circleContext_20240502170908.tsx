@@ -62,34 +62,20 @@ const CircleContent: React.FC = () => {
 
             // Draw circle border
             c.beginPath();
-            c.arc(canvasSize.width / 2, canvasSize.height / 2, circleRadius, 0, 2 * Math.PI);
+            c.arc(canvasSize.width / 2, canvasSize.height / 2, 75, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
             c.stroke();
 
             // Increase radius until it reaches maxRadius
-            
-                
+            if () {
+                setCircleRadius((prev)=> prev + growthRate)
                 requestAnimationFrame(animate);
             }
-   
-        
+        };
 
         // Start animation
         animate();
-    }, [canvasSize,circleRadius]);
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            if (circleRadius < 80) {
-                console.log('circle radius',circleRadius)
-                setCircleRadius(prev => prev + 1);
-            } else {
-                clearInterval(intervalId);
-            }
-        }, 5); // Adjust the interval time as needed
-
-        return () => clearInterval(intervalId); // Cleanup function to clear the interval
-    }, [circleRadius]);
+    }, [canvasSize]);
 
     return (
         <canvas className='relative' ref={canvasRef}></canvas>

@@ -67,29 +67,20 @@ const CircleContent: React.FC = () => {
             c.stroke();
 
             // Increase radius until it reaches maxRadius
-            
-                
+            if (circleRadius < 75) {
+                console.log('circle isnt complete')
+                setCircleRadius((prev)=> prev + growthRate)
+                console
                 requestAnimationFrame(animate);
             }
-   
-        
+            else{
+                setCircleComplete(true)
+            }
+        };
 
         // Start animation
         animate();
-    }, [canvasSize,circleRadius]);
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            if (circleRadius < 80) {
-                console.log('circle radius',circleRadius)
-                setCircleRadius(prev => prev + 1);
-            } else {
-                clearInterval(intervalId);
-            }
-        }, 5); // Adjust the interval time as needed
-
-        return () => clearInterval(intervalId); // Cleanup function to clear the interval
-    }, [circleRadius]);
+    }, [canvasSize,setCircleRadius]);
 
     return (
         <canvas className='relative' ref={canvasRef}></canvas>

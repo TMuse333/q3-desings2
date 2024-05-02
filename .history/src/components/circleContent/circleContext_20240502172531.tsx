@@ -76,7 +76,7 @@ const CircleContent: React.FC = () => {
 
         // Start animation
         animate();
-    }, [canvasSize,circleRadius]);
+    }, [canvasSize]);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -86,7 +86,7 @@ const CircleContent: React.FC = () => {
             } else {
                 clearInterval(intervalId);
             }
-        }, 5); // Adjust the interval time as needed
+        }, 20); // Adjust the interval time as needed
 
         return () => clearInterval(intervalId); // Cleanup function to clear the interval
     }, [circleRadius]);
