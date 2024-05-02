@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 const CircleContent: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
+    const [circleRadius, setCircleRadius] = useState<number>(0)
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -44,6 +45,8 @@ const CircleContent: React.FC = () => {
 
         // Animation function
         const animate = () => {
+
+
             // Clear canvas
             c.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -60,12 +63,13 @@ const CircleContent: React.FC = () => {
 
             // Draw circle border
             c.beginPath();
-            c.arc(canvasSize.width / 2, canvasSize.height / 2, 75, 0, 2 * Math.PI);
+            c.arc(canvasSize.width / 2, canvasSize.height / 2, radius, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
             c.stroke();
 
             // Increase radius until it reaches maxRadius
-            if (radius < maxRadius) {
+            if (circleRadius < maxRadius) {
+               
                 radius += growthRate;
                 requestAnimationFrame(animate);
             }

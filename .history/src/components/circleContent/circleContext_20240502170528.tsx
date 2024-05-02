@@ -60,7 +60,7 @@ const CircleContent: React.FC = () => {
 
             // Draw circle border
             c.beginPath();
-            c.arc(canvasSize.width / 2, canvasSize.height / 2, 75, 0, 2 * Math.PI);
+            c.arc(canvasSize.width / 2, canvasSize.height / 2, radius, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
             c.stroke();
 

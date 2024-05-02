@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const CircleContent: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
+    const [canvasSize, setCanvasSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+    const [circleRadius, setCircleRadius] = useState(0);
+    const animationRef = useRef<number>();
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -11,34 +13,11 @@ const CircleContent: React.FC = () => {
         const c = canvas.getContext('2d');
         if (!c) return;
 
-        const resizeCanvas = () => {
-            // Update canvas size
-            setCanvasSize({ width: window.innerWidth, height: window.innerHeight });
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
-
-        // Resize canvas when the window is resized
-        window.addEventListener('resize', resizeCanvas);
-
-        // Initialize canvas size
-        resizeCanvas();
-
-        // Cleanup event listener
-        return () => {
-            window.removeEventListener('resize', resizeCanvas);
-        };
-    }, []);
-
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-
-        const c = canvas.getContext('2d');
-        if (!c) return;
+        // Set canvas size
+        canvas.width = canvasSize.width;
+        canvas.height = canvasSize.height;
 
         // Initial circle properties
-        let radius = 0;
         const maxRadius = 75;
         const growthRate = 1;
 
@@ -60,20 +39,42 @@ const CircleContent: React.FC = () => {
 
             // Draw circle border
             c.beginPath();
-            c.arc(canvasSize.width / 2, canvasSize.height / 2, 75, 0, 2 * Math.PI);
+            c.arc(canvasSize.width / 2, canvasSize.height / 2, circleRadius, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
             c.stroke();
 
             // Increase radius until it reaches maxRadius
-            if (radius < maxRadius) {
-                radius += growthRate;
-                requestAnimationFrame(animate);
+            if (circleRadius < maxRadius) {
+                setCircleRadius(prevRadius => prevRadius + growthRate);
             }
         };
 
-        // Start animation
-        animate();
-    }, [canvasSize]);
+        // Start animation loop
+        const animationLoop = () => {
+            animate();
+            animationRef.current = requestAnimationFrame(animationLoop);
+        };
+
+        animationLoop();
+
+        // Cleanup animation loop
+        return () => cancelAnimationFrame(animationRef.current);
+    }, [canvasSize, circleRadius]);
+
+    useEffect(() => {
+        const resizeCanvas = () => {
+            // Update canvas size
+            setCanvasSize({ width: window.innerWidth, height: window.innerHeight });
+        };
+
+        // Resize canvas when the window is resized
+        window.addEventListener('resize', resizeCanvas);
+
+        // Cleanup event listener
+        return () => {
+            window.removeEventListener('resize', resizeCanvas);
+        };
+    }, []);
 
     return (
         <canvas className='relative' ref={canvasRef}></canvas>
