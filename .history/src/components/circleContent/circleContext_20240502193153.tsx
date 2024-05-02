@@ -5,7 +5,7 @@ const CircleContent: React.FC = () => {
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
     const [circleRadius, setCircleRadius] = useState<number>(0)
 
-    const [fraction, setFraction] = useState<number>(0.1)
+    const [fraction, setFraction] = useState<number>(1/3)
 
     const [firstCircleComplete, setFirstCircleComplete] = useState<boolean>(false)
 

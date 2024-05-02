@@ -10,7 +10,7 @@ const CircleContent: React.FC = () => {
     const [firstCircleComplete, setFirstCircleComplete] = useState<boolean>(false)
 
     const quarter = Math.PI/2
-    const circle = Math.PI *2
+    const circ = Math.PI/
 
 
     useEffect(() => {
@@ -72,12 +72,9 @@ const CircleContent: React.FC = () => {
             // c.stroke();
 
             c.beginPath()
-
-
-
-            //working circle below
-            // c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0,  fraction * Math.PI * 2);
-            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, -quarter,  (fraction * Math.PI) - quarter * 2);
+            // c.moveTo(canvasSize.width * 0.75, canvasSize.height)
+            
+            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0,  fraction * Math.PI * 2);
             c.lineWidth = 4; // Set border width
             c.strokeStyle = 'red'
             c.stroke();
@@ -113,7 +110,7 @@ const CircleContent: React.FC = () => {
 
       useEffect(() => {
         const intervalId = setInterval(() => {
-            if (fraction < 1) {
+            if (fraction < 1/3) {
                 console.log('circle radius',circleRadius)
                 setFraction(prev => prev + 0.01);
 
@@ -121,7 +118,6 @@ const CircleContent: React.FC = () => {
             } 
             
             else {
-                console.log('fraction complete',fraction)
                 clearInterval(intervalId);
             }
         }, 16); // Adjust the interval time as needed

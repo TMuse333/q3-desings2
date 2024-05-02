@@ -113,7 +113,7 @@ const CircleContent: React.FC = () => {
 
       useEffect(() => {
         const intervalId = setInterval(() => {
-            if (fraction < 1) {
+            if (fraction < 1/3) {
                 console.log('circle radius',circleRadius)
                 setFraction(prev => prev + 0.01);
 
@@ -121,7 +121,6 @@ const CircleContent: React.FC = () => {
             } 
             
             else {
-                console.log('fraction complete',fraction)
                 clearInterval(intervalId);
             }
         }, 16); // Adjust the interval time as needed

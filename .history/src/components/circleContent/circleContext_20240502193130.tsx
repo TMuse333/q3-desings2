@@ -5,7 +5,7 @@ const CircleContent: React.FC = () => {
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
     const [circleRadius, setCircleRadius] = useState<number>(0)
 
-    const [fraction, setFraction] = useState<number>(0.1)
+    const [fraction, setFraction] = useState<number>(1/3)
 
     const [firstCircleComplete, setFirstCircleComplete] = useState<boolean>(false)
 
@@ -77,7 +77,7 @@ const CircleContent: React.FC = () => {
 
             //working circle below
             // c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0,  fraction * Math.PI * 2);
-            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, -quarter,  (fraction * Math.PI) - quarter * 2);
+            // c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0,  (fraction * Math.PI) - quarter * 2);
             c.lineWidth = 4; // Set border width
             c.strokeStyle = 'red'
             c.stroke();
