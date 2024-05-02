@@ -65,9 +65,9 @@ const CircleContent: React.FC = () => {
             c.stroke();
 
             c.beginPath()
-            // c.moveTo(canvasSize.width * 0.75, canvasSize.height)
+            c.moveTo(canvasSize.width * 0.75, canvasSize.height)
             
-            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0, 2 * Math.PI);
+            c.arc(canvasSize.width / 2, canvasSize.height / 2, 75, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
             c.strokeStyle = 'red'
             c.stroke();

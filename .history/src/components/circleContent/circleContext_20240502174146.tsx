@@ -64,13 +64,7 @@ const CircleContent: React.FC = () => {
             c.lineWidth = 4; // Set border width
             c.stroke();
 
-            c.beginPath()
-            // c.moveTo(canvasSize.width * 0.75, canvasSize.height)
             
-            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0, 2 * Math.PI);
-            c.lineWidth = 4; // Set border width
-            c.strokeStyle = 'red'
-            c.stroke();
 
             // Increase radius until it reaches maxRadius
             

@@ -40,7 +40,9 @@ const CircleContent: React.FC = () => {
         if (!c) return;
 
         // Initial circle properties
-
+        let radius = 0;
+        const maxRadius = 75;
+        const growthRate = 1;
 
         // Animation function
         const animate = () => {
@@ -62,14 +64,6 @@ const CircleContent: React.FC = () => {
             c.beginPath();
             c.arc(canvasSize.width / 2, canvasSize.height / 2, circleRadius, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
-            c.stroke();
-
-            c.beginPath()
-            // c.moveTo(canvasSize.width * 0.75, canvasSize.height)
-            
-            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0, 2 * Math.PI);
-            c.lineWidth = 4; // Set border width
-            c.strokeStyle = 'red'
             c.stroke();
 
             // Increase radius until it reaches maxRadius

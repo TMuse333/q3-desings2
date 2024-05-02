@@ -59,17 +59,15 @@ const CircleContent: React.FC = () => {
             c.strokeStyle = '#00bfff';
 
             // Draw circle border
-            c.beginPath();
+            // c.beginPath();
+            // c.arc(canvasSize.width / 2, canvasSize.height / 2, circleRadius, 0, 2 * Math.PI);
+            // c.lineWidth = 4; // Set border width
+            // c.stroke();
+
+            c.moveTo(canvasSize.width * 0.75, canvasSize.height)
+            c.beginPath()
             c.arc(canvasSize.width / 2, canvasSize.height / 2, circleRadius, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
-            c.stroke();
-
-            c.beginPath()
-            // c.moveTo(canvasSize.width * 0.75, canvasSize.height)
-            
-            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0, 2 * Math.PI);
-            c.lineWidth = 4; // Set border width
-            c.strokeStyle = 'red'
             c.stroke();
 
             // Increase radius until it reaches maxRadius
