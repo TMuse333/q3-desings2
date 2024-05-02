@@ -5,7 +5,7 @@ const CircleContent: React.FC = () => {
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
     const [circleRadius, setCircleRadius] = useState<number>(0)
 
-    const [fraction, setFraction] = useState<number>(0.1)
+    const [fraction, setFraction] = useState<number>(0.0001)
 
     const [firstCircleComplete, setFirstCircleComplete] = useState<boolean>(false)
 
@@ -71,7 +71,7 @@ const CircleContent: React.FC = () => {
             c.beginPath()
             // c.moveTo(canvasSize.width * 0.75, canvasSize.height)
             
-            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0,  fraction * Math.PI * 2);
+            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0,  (fraction/1) * Math.PI * 2);
             c.lineWidth = 4; // Set border width
             c.strokeStyle = 'red'
             c.stroke();
@@ -107,9 +107,9 @@ const CircleContent: React.FC = () => {
 
       useEffect(() => {
         const intervalId = setInterval(() => {
-            if (fraction < 1/3) {
+            if (fraction < 80) {
                 console.log('circle radius',circleRadius)
-                setFraction(prev => prev + 0.01);
+                setFraction(prev => prev + 0.05);
 
                 
             } 
@@ -117,7 +117,7 @@ const CircleContent: React.FC = () => {
             else {
                 clearInterval(intervalId);
             }
-        }, 16); // Adjust the interval time as needed
+        }, 405); // Adjust the interval time as needed
 
         return () => clearInterval(intervalId); // Cleanup function to clear the interval
     }, [fraction]);
