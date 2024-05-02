@@ -71,7 +71,7 @@ const CircleContent: React.FC = () => {
             c.beginPath()
             // c.moveTo(canvasSize.width * 0.75, canvasSize.height)
             
-            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0,  (fraction/1) * Math.PI * 2);
+            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0,  (fraction/100) * Math.PI * 2);
             c.lineWidth = 4; // Set border width
             c.strokeStyle = 'red'
             c.stroke();
@@ -105,25 +105,17 @@ const CircleContent: React.FC = () => {
     //     return () => clearInterval(intervalId); // Cleanup function to clear the interval
     // }, [circleRadius]);
 
-      useEffect(() => {
-        const intervalId = setInterval(() => {
-            if (fraction < 80) {
-                console.log('circle radius',circleRadius)
-                setFraction(prev => prev + 0.1);
 
-                
-            } 
-            
-            else {
-                clearInterval(intervalId);
-            }
-        }, 405); // Adjust the interval time as needed
+    const increaseFraction = () => {
+        if (fraction < 3) { // Adjust the condition as needed
+            setFraction(prevFraction => prevFraction + 0.03); // Adjust the increment as needed
+            console.log('fraction',fraction)
+        }
+    };
 
-        return () => clearInterval(intervalId); // Cleanup function to clear the interval
+    useEffect(() => {
+        increaseFraction();
     }, [fraction]);
-
-
-
 
     
     // Call increaseFraction to gradually increase the fraction

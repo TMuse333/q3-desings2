@@ -71,7 +71,7 @@ const CircleContent: React.FC = () => {
             c.beginPath()
             // c.moveTo(canvasSize.width * 0.75, canvasSize.height)
             
-            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0,  (fraction/1) * Math.PI * 2);
+            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0,  (fraction/10) * Math.PI * 2);
             c.lineWidth = 4; // Set border width
             c.strokeStyle = 'red'
             c.stroke();
@@ -109,7 +109,7 @@ const CircleContent: React.FC = () => {
         const intervalId = setInterval(() => {
             if (fraction < 80) {
                 console.log('circle radius',circleRadius)
-                setFraction(prev => prev + 0.1);
+                setFraction(prev => prev + 1);
 
                 
             } 
@@ -117,10 +117,10 @@ const CircleContent: React.FC = () => {
             else {
                 clearInterval(intervalId);
             }
-        }, 405); // Adjust the interval time as needed
+        }, 5); // Adjust the interval time as needed
 
         return () => clearInterval(intervalId); // Cleanup function to clear the interval
-    }, [fraction]);
+    }, [circleRadius]);
 
 
 

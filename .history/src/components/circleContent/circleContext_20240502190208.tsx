@@ -5,7 +5,7 @@ const CircleContent: React.FC = () => {
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
     const [circleRadius, setCircleRadius] = useState<number>(0)
 
-    const [fraction, setFraction] = useState<number>(0.0001)
+    const [fraction, setFraction] = useState<number>(1)
 
     const [firstCircleComplete, setFirstCircleComplete] = useState<boolean>(false)
 
@@ -63,15 +63,15 @@ const CircleContent: React.FC = () => {
             c.strokeStyle = '#00bfff';
 
             // Draw circle border
-            // c.beginPath();
-            // c.arc(canvasSize.width / 2, canvasSize.height / 2, circleRadius, 0, 2 * Math.PI);
-            // c.lineWidth = 4; // Set border width
-            // c.stroke();
+            c.beginPath();
+            c.arc(canvasSize.width / 2, canvasSize.height / 2, circleRadius, 0, 2 * Math.PI);
+            c.lineWidth = 4; // Set border width
+            c.stroke();
 
             c.beginPath()
             // c.moveTo(canvasSize.width * 0.75, canvasSize.height)
             
-            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0,  (fraction/1) * Math.PI * 2);
+            c.arc(canvasSize.width * 2/3, canvasSize.height / 2, 75, 0,  ( fraction*Math.PI)/3);
             c.lineWidth = 4; // Set border width
             c.strokeStyle = 'red'
             c.stroke();
@@ -105,26 +105,12 @@ const CircleContent: React.FC = () => {
     //     return () => clearInterval(intervalId); // Cleanup function to clear the interval
     // }, [circleRadius]);
 
-      useEffect(() => {
-        const intervalId = setInterval(() => {
-            if (fraction < 80) {
-                console.log('circle radius',circleRadius)
-                setFraction(prev => prev + 0.1);
 
-                
-            } 
-            
-            else {
-                clearInterval(intervalId);
-            }
-        }, 405); // Adjust the interval time as needed
-
-        return () => clearInterval(intervalId); // Cleanup function to clear the interval
-    }, [fraction]);
-
-
-
-
+    const increaseFraction = () => {
+        if (fraction < 3) { // Adjust the condition as needed
+            setFraction(prevFraction => prevFraction + 0.5); // Adjust the increment as needed
+        }
+    };
     
     // Call increaseFraction to gradually increase the fraction
  
