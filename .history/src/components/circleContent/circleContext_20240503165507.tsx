@@ -35,7 +35,7 @@ const CircleContent: React.FC = () => {
         resizeCanvas();
 
         // Draw repeated objects on the offscreen canvas
-        offscreenCtx.fillStyle = 'transparent';
+        offscreenCtx.fillStyle = 'red';
         offscreenCtx.fillRect(0, 0, offscreenCanvas.width, offscreenCanvas.height); // Example drawing
         // Draw other repeated objects as needed
 

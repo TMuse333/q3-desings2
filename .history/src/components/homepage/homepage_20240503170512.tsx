@@ -16,10 +16,9 @@ import CircleContent from "../circleContent/circleContext";
 const Homepage: React.FC = () => {
 
 
-    useEffect(() => {
-        const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
-        console.log('Page load time:', loadTime, 'milliseconds');
-    }, []);
+    useEffect(()=> {
+
+    })
 
     
 
