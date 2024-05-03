@@ -8,44 +8,36 @@ const CircleContent: React.FC = () => {
     const [fraction, setFraction] = useState<number>(0.1)
 
     const [firstCircleComplete, setFirstCircleComplete] = useState<boolean>(false)
-    const [secondCircleComplete, setSecondCircleComplete] = useState<boolean>(false)
 
     const quarter = Math.PI/2
     const circle = Math.PI *2
-
-    
 
 
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
-    
+
         const c = canvas.getContext('2d');
         if (!c) return;
-    
+
         const resizeCanvas = () => {
-            // Calculate canvas width based on window.innerWidth but limit it to a maximum of 1200 pixels
-            const maxWidth = 1200;
-            const canvasWidth = Math.min(window.innerWidth, maxWidth);
-    
             // Update canvas size
-            setCanvasSize({ width: canvasWidth, height: window.innerHeight });
-            canvas.width = canvasWidth;
+            setCanvasSize({ width: window.innerWidth, height: window.innerHeight });
+            canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         };
-    
+
         // Resize canvas when the window is resized
         window.addEventListener('resize', resizeCanvas);
-    
+
         // Initialize canvas size
         resizeCanvas();
-    
+
         // Cleanup event listener
         return () => {
             window.removeEventListener('resize', resizeCanvas);
         };
     }, []);
-    
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -75,7 +67,7 @@ const CircleContent: React.FC = () => {
 
             // Draw circle border
             c.beginPath();
-            c.arc(canvasSize.width / 5, canvasSize.height / 2, circleRadius, 0, 2 * Math.PI);
+            c.arc(canvasSize.width / 2, canvasSize.height / 2, circleRadius, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
             c.stroke();
 
@@ -87,20 +79,9 @@ const CircleContent: React.FC = () => {
             if(firstCircleComplete){
 
             
-            c.arc(canvasSize.width /5, canvasSize.height / 2, 100, 0,  (fraction * Math.PI) *2 ,false );
+            c.arc(canvasSize.width /2, canvasSize.height / 2, 90, 0,  (fraction * Math.PI) *2 ,false );
             c.lineWidth = 4; // Set border width
             c.strokeStyle = 'red'
-            c.stroke();
-
-            const lineLength = 50; // Adjust the length of the line as needed
-            const endX = canvasSize.width / 2 + Math.cos(fraction * Math.PI) * 90; // X coordinate
-            const endY = canvasSize.height / 2 + Math.sin(fraction * Math.PI) * 90; // Y coordinate
-        
-            // Draw the horizontal line
-            c.beginPath();
-            c.moveTo(canvasSize.width / 2, (canvasSize.height / 2) + 20);
-            c.lineTo((canvasSize.width /2) + 5 , (canvasSize.height / 2) + 100);
-            c.strokeStyle = 'blue'; // Set the color of the line
             c.stroke();
             }
 
@@ -146,7 +127,6 @@ const CircleContent: React.FC = () => {
             else {
                 console.log('fraction complete',fraction)
                 clearInterval(intervalId);
-                setSecondCircleComplete(true)
             }
         }, 16); // Adjust the interval time as needed
 
@@ -158,10 +138,10 @@ const CircleContent: React.FC = () => {
 
     
     // Call increaseFraction to gradually increase the fraction
-
+ 
 
     return (
-        <canvas className='relative ml-auto mr-auto' ref={canvasRef}></canvas>
+        <canvas className='relative' ref={canvasRef}></canvas>
     );
 }
 

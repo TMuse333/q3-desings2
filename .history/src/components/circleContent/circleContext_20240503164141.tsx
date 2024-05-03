@@ -158,10 +158,10 @@ const CircleContent: React.FC = () => {
 
     
     // Call increaseFraction to gradually increase the fraction
-
+ 
 
     return (
-        <canvas className='relative ml-auto mr-auto' ref={canvasRef}></canvas>
+        <canvas className='relative bg-white' ref={canvasRef}></canvas>
     );
 }
 

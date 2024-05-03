@@ -19,33 +19,28 @@ const CircleContent: React.FC = () => {
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
-    
+
         const c = canvas.getContext('2d');
         if (!c) return;
-    
+
         const resizeCanvas = () => {
-            // Calculate canvas width based on window.innerWidth but limit it to a maximum of 1200 pixels
-            const maxWidth = 1200;
-            const canvasWidth = Math.min(window.innerWidth, maxWidth);
-    
             // Update canvas size
-            setCanvasSize({ width: canvasWidth, height: window.innerHeight });
-            canvas.width = canvasWidth;
+            setCanvasSize({ width: window.innerWidth, height: window.innerHeight });
+            canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         };
-    
+
         // Resize canvas when the window is resized
         window.addEventListener('resize', resizeCanvas);
-    
+
         // Initialize canvas size
         resizeCanvas();
-    
+
         // Cleanup event listener
         return () => {
             window.removeEventListener('resize', resizeCanvas);
         };
     }, []);
-    
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -75,7 +70,7 @@ const CircleContent: React.FC = () => {
 
             // Draw circle border
             c.beginPath();
-            c.arc(canvasSize.width / 5, canvasSize.height / 2, circleRadius, 0, 2 * Math.PI);
+            c.arc(canvasSize.width / 2, canvasSize.height / 2, circleRadius, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
             c.stroke();
 
@@ -158,10 +153,10 @@ const CircleContent: React.FC = () => {
 
     
     // Call increaseFraction to gradually increase the fraction
-
+ 
 
     return (
-        <canvas className='relative ml-auto mr-auto' ref={canvasRef}></canvas>
+        <canvas className='relative' ref={canvasRef}></canvas>
     );
 }
 

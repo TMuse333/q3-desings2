@@ -19,7 +19,7 @@ const Homepage: React.FC = () => {
         <section className="absolute top-0 left-0 w-screen">
 
          
-            {/* <ParticlesComponent/> */}
+            {/* <ParticlesComponent/>
             <MultiLayerParallax/>
 
             <TextParallaxContentExample/>
@@ -36,18 +36,18 @@ const Homepage: React.FC = () => {
 
             <AlternatingText/>
 
-            <Content
-            mainTitle='Benefits of a website'
-            image={moneyBall}
-            customText={<TextFormat
-            isAnimated={true}
-            reverse={false}/>}
-            reverse={false}
-            description={null}
-            floatingImage={true}
-            hasAnimation={true}
+            // <Content
+            // mainTitle='Benefits of a website'
+            // image={moneyBall}
+            // customText={<TextFormat
+            // isAnimated={true}
+            // reverse={false}/>}
+            // reverse={false}
+            // description={null}
+            // floatingImage={true}
+            // hasAnimation={true}
             
-            />
+            // /> */}
 
             <CircleContent/>
             

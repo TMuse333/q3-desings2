@@ -19,7 +19,7 @@ const Homepage: React.FC = () => {
         <section className="absolute top-0 left-0 w-screen">
 
          
-            {/* <ParticlesComponent/> */}
+            <ParticlesComponent/>
             <MultiLayerParallax/>
 
             <TextParallaxContentExample/>

@@ -161,7 +161,7 @@ const CircleContent: React.FC = () => {
 
 
     return (
-        <canvas className='relative ml-auto mr-auto' ref={canvasRef}></canvas>
+        <canvas className='relative bg-white' ref={canvasRef}></canvas>
     );
 }
 
