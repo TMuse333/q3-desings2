@@ -111,7 +111,6 @@ const CircleContent: React.FC = () => {
     useEffect(() => {
 
         if(!inView){
-            console.log('radius not increased')
             return
         }
    

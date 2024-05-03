@@ -109,11 +109,6 @@ const CircleContent: React.FC = () => {
     }, [canvasSize, circleRadius, fraction, firstCircleComplete, inView]);
 
     useEffect(() => {
-
-        if(!inView){
-            console.log('radius not increased')
-            return
-        }
    
         const intervalId = setInterval(() => {
         
@@ -150,7 +145,7 @@ const CircleContent: React.FC = () => {
         <>
             <div ref={componentRef} className='relative'> {/* Intersection observer target */}
             <canvas className='relative ml-auto mr-auto' ref={canvasRef}></canvas>
-            <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> 
+            {/* <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas>  */}
             {/* Offscreen canvas */}
             </div>
         </>

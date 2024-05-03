@@ -16,14 +16,16 @@ const CircleContent: React.FC = () => {
     // Configure intersection observer options
     const options = {
         root: null,
-        rootMargin: '175px',
+        rootMargin: '100px',
         threshold: 0.8,
     };
 
     // Apply intersection observer hook to detect when the component is in view
     const componentRef = useIntersectionObserver(setInView, options);
 
- 
+    useEffect(()=> {
+        console.log('circle in view',inView)
+    },[inView])
 
     useEffect(() => {
   
@@ -75,7 +77,7 @@ const CircleContent: React.FC = () => {
             c.clearRect(0, 0, canvas.width, canvas.height);
 
             // Render offscreen canvas onto main canvas
-            // c.drawImage(offscreenCanvasRef.current!, 0, 0);
+            c.drawImage(offscreenCanvasRef.current!, 0, 0);
 
             // Draw circle border
             c.beginPath();
@@ -109,18 +111,14 @@ const CircleContent: React.FC = () => {
     }, [canvasSize, circleRadius, fraction, firstCircleComplete, inView]);
 
     useEffect(() => {
-
         if(!inView){
-            console.log('radius not increased')
             return
         }
-   
         const intervalId = setInterval(() => {
         
-       
+
             if (circleRadius < 80 ) {
                 setCircleRadius(prev => prev + 1);
-                console.log('circle radius',circleRadius)
             } else {
                 clearInterval(intervalId);
                 setFirstCircleComplete(true);
@@ -150,8 +148,7 @@ const CircleContent: React.FC = () => {
         <>
             <div ref={componentRef} className='relative'> {/* Intersection observer target */}
             <canvas className='relative ml-auto mr-auto' ref={canvasRef}></canvas>
-            <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> 
-            {/* Offscreen canvas */}
+            <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> {/* Offscreen canvas */}
             </div>
         </>
     );

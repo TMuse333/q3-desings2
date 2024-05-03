@@ -110,10 +110,7 @@ const CircleContent: React.FC = () => {
 
     useEffect(() => {
 
-        if(!inView){
-            console.log('radius not increased')
-            return
-        }
+        if(!in)
    
         const intervalId = setInterval(() => {
         

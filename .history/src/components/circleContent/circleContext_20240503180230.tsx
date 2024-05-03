@@ -75,7 +75,7 @@ const CircleContent: React.FC = () => {
             c.clearRect(0, 0, canvas.width, canvas.height);
 
             // Render offscreen canvas onto main canvas
-            // c.drawImage(offscreenCanvasRef.current!, 0, 0);
+            c.drawImage(offscreenCanvasRef.current!, 0, 0);
 
             // Draw circle border
             c.beginPath();
@@ -109,11 +109,6 @@ const CircleContent: React.FC = () => {
     }, [canvasSize, circleRadius, fraction, firstCircleComplete, inView]);
 
     useEffect(() => {
-
-        if(!inView){
-            console.log('radius not increased')
-            return
-        }
    
         const intervalId = setInterval(() => {
         

@@ -3,7 +3,8 @@ import useIntersectionObserver from '../intersectionObserver/intersectionObserve
 
 const CircleContent: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const offscreenCanvasRef = useRef<HTMLCanvasElement>(null); // Ref for the offscreen canvas
+    // const offscreenCanvasRef = useRef<HTMLCanvasElement>(null);
+     // Ref for the offscreen canvas
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
     const [circleRadius, setCircleRadius] = useState<number>(0);
     const [fraction, setFraction] = useState<number>(0.1);
@@ -75,7 +76,7 @@ const CircleContent: React.FC = () => {
             c.clearRect(0, 0, canvas.width, canvas.height);
 
             // Render offscreen canvas onto main canvas
-            // c.drawImage(offscreenCanvasRef.current!, 0, 0);
+            c.drawImage(offscreenCanvasRef.current!, 0, 0);
 
             // Draw circle border
             c.beginPath();
@@ -109,11 +110,6 @@ const CircleContent: React.FC = () => {
     }, [canvasSize, circleRadius, fraction, firstCircleComplete, inView]);
 
     useEffect(() => {
-
-        if(!inView){
-            console.log('radius not increased')
-            return
-        }
    
         const intervalId = setInterval(() => {
         
@@ -150,7 +146,7 @@ const CircleContent: React.FC = () => {
         <>
             <div ref={componentRef} className='relative'> {/* Intersection observer target */}
             <canvas className='relative ml-auto mr-auto' ref={canvasRef}></canvas>
-            <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> 
+            {/* <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas>  */}
             {/* Offscreen canvas */}
             </div>
         </>

@@ -16,14 +16,12 @@ const CircleContent: React.FC = () => {
     // Configure intersection observer options
     const options = {
         root: null,
-        rootMargin: '175px',
+        rootMargin: '0px',
         threshold: 0.8,
     };
 
     // Apply intersection observer hook to detect when the component is in view
     const componentRef = useIntersectionObserver(setInView, options);
-
- 
 
     useEffect(() => {
   
@@ -75,18 +73,18 @@ const CircleContent: React.FC = () => {
             c.clearRect(0, 0, canvas.width, canvas.height);
 
             // Render offscreen canvas onto main canvas
-            // c.drawImage(offscreenCanvasRef.current!, 0, 0);
+            c.drawImage(offscreenCanvasRef.current!, 0, 0);
 
             // Draw circle border
             c.beginPath();
-            c.arc(canvasSize.width / 5, canvasSize.height / 5, circleRadius, 0, 2 * Math.PI);
+            c.arc(canvasSize.width / 5, canvasSize.height / 2, circleRadius, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
             c.stroke();
 
             // Draw second circle if first is complete and component is in view
             if (firstCircleComplete && inView) {
                 c.beginPath();
-                c.arc(canvasSize.width / 5, canvasSize.height / 5, 100, 0, (fraction * Math.PI) * 2, false);
+                c.arc(canvasSize.width / 5, canvasSize.height / 2, 100, 0, (fraction * Math.PI) * 2, false);
                 c.lineWidth = 4; // Set border width
                 c.strokeStyle = 'red';
                 c.stroke();
@@ -94,9 +92,9 @@ const CircleContent: React.FC = () => {
                 // Draw horizontal line
                 const lineLength = 50;
                 const endX = canvasSize.width / 2 + Math.cos(fraction * Math.PI) * 90;
-                const endY = canvasSize.height / 4 + Math.sin(fraction * Math.PI) * 90;
+                const endY = canvasSize.height / 2 + Math.sin(fraction * Math.PI) * 90;
                 c.beginPath();
-                c.moveTo(canvasSize.width / 5, (canvasSize.height / 4) + 20);
+                c.moveTo(canvasSize.width / 2, (canvasSize.height / 2) + 20);
                 c.lineTo(endX, endY);
                 c.strokeStyle = 'blue'; // Set the color of the line
                 c.stroke();
@@ -109,18 +107,9 @@ const CircleContent: React.FC = () => {
     }, [canvasSize, circleRadius, fraction, firstCircleComplete, inView]);
 
     useEffect(() => {
-
-        if(!inView){
-            console.log('radius not increased')
-            return
-        }
-   
         const intervalId = setInterval(() => {
-        
-       
-            if (circleRadius < 80 ) {
+            if (circleRadius < 80 && in) {
                 setCircleRadius(prev => prev + 1);
-                console.log('circle radius',circleRadius)
             } else {
                 clearInterval(intervalId);
                 setFirstCircleComplete(true);
@@ -128,12 +117,9 @@ const CircleContent: React.FC = () => {
         }, 5);
 
         return () => clearInterval(intervalId);
-    }, [circleRadius,inView]);
+    }, [circleRadius]);
 
     useEffect(() => {
-        if(!inView){
-            return
-        }
         const intervalId = setInterval(() => {
             if (fraction < 1 && firstCircleComplete) {
                 setFraction(prev => prev + 0.03);
@@ -144,15 +130,13 @@ const CircleContent: React.FC = () => {
         }, 16);
 
         return () => clearInterval(intervalId);
-    }, [fraction, firstCircleComplete,inView]);
+    }, [fraction, firstCircleComplete]);
 
     return (
         <>
-            <div ref={componentRef} className='relative'> {/* Intersection observer target */}
+            <div ref={componentRef}></div> {/* Intersection observer target */}
             <canvas className='relative ml-auto mr-auto' ref={canvasRef}></canvas>
-            <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> 
-            {/* Offscreen canvas */}
-            </div>
+            <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> {/* Offscreen canvas */}
         </>
     );
 };
