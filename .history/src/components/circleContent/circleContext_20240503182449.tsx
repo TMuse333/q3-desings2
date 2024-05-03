@@ -70,45 +70,34 @@ const CircleContent: React.FC = () => {
             c.clearRect(0, 0, canvas.width, canvas.height);
     
             // Draw circle border
-            c.strokeStyle = '#00bfff';
             c.beginPath();
             c.arc(canvasSize.width / 5, canvasSize.height / 5, circleRadius, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
-            
             c.stroke();
-
-        if(firstCircleComplete){
-            c.beginPath();
-            c.arc(canvasSize.width / 5, canvasSize.height / 5, 100, 0, (fraction * Math.PI) * 2, false);
-            c.lineWidth = 4; // Set border width
-            c.strokeStyle = '#FF0000'; // Set stroke color to red
-            c.stroke();
-        }
     
             requestAnimationFrame(animate);
         };
     
         animate();
-    }, [canvasSize, circleRadius,firstCircleComplete,fraction]);
+    }, [canvasSize, circleRadius]);
     
 
     useEffect(() => {
 
-        if(!inView){
-            console.log('radius not increased')
-            return
-        }
+        // if(!inView){
+        //     console.log('radius not increased')
+        //     return
+        // }
    
         const intervalId = setInterval(() => {
         
        
             if (circleRadius < 80 ) {
-                console.log('circle radius',circleRadius)
                 setCircleRadius(prev => prev + 1);
                
             } else {
                 clearInterval(intervalId);
-                setFirstCircleComplete(true);
+                // setFirstCircleComplete(true);
             }
         }, 16);
 
@@ -116,9 +105,9 @@ const CircleContent: React.FC = () => {
     }, [circleRadius,inView]);
 
     useEffect(() => {
-        if(!inView){
-            return
-        }
+        // if(!inView){
+        //     return
+        // }
         const intervalId = setInterval(() => {
             if (fraction < 1 && firstCircleComplete) {
                 setFraction(prev => prev + 0.03);
@@ -134,11 +123,11 @@ const CircleContent: React.FC = () => {
 
     return (
         <>
-            <div ref={componentRef} className='relative'>
+            {/* <div ref={componentRef} className='relative'> */}
             <canvas className='relative ml-auto mr-auto' ref={canvasRef}></canvas>
             <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> 
             {/* Offscreen canvas */}
-            </div>
+            {/* </div> */}
         </>
     );
 };

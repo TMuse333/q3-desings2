@@ -94,10 +94,10 @@ const CircleContent: React.FC = () => {
 
     useEffect(() => {
 
-        if(!inView){
-            console.log('radius not increased')
-            return
-        }
+        // if(!inView){
+        //     console.log('radius not increased')
+        //     return
+        // }
    
         const intervalId = setInterval(() => {
         
@@ -116,9 +116,9 @@ const CircleContent: React.FC = () => {
     }, [circleRadius,inView]);
 
     useEffect(() => {
-        if(!inView){
-            return
-        }
+        // if(!inView){
+        //     return
+        // }
         const intervalId = setInterval(() => {
             if (fraction < 1 && firstCircleComplete) {
                 setFraction(prev => prev + 0.03);

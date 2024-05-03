@@ -60,37 +60,53 @@ const CircleContent: React.FC = () => {
     }, []);
 
     useEffect(() => {
+
+        if(!inView ){
+            console.log('not in view')
+            return
+        }
         const canvas = canvasRef.current;
         if (!canvas) return;
-    
+
         const c = canvas.getContext('2d');
         if (!c) return;
-    
+
         const animate = () => {
             c.clearRect(0, 0, canvas.width, canvas.height);
-    
+
+            // Render offscreen canvas onto main canvas
+            // c.drawImage(offscreenCanvasRef.current!, 0, 0);
+
             // Draw circle border
-            c.strokeStyle = '#00bfff';
             c.beginPath();
             c.arc(canvasSize.width / 5, canvasSize.height / 5, circleRadius, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
-            
             c.stroke();
 
-        if(firstCircleComplete){
-            c.beginPath();
-            c.arc(canvasSize.width / 5, canvasSize.height / 5, 100, 0, (fraction * Math.PI) * 2, false);
-            c.lineWidth = 4; // Set border width
-            c.strokeStyle = '#FF0000'; // Set stroke color to red
-            c.stroke();
-        }
-    
+            // Draw second circle if first is complete and component is in view
+            if (firstCircleComplete && inView) {
+                c.beginPath();
+                c.arc(canvasSize.width / 5, canvasSize.height / 5, 100, 0, (fraction * Math.PI) * 2, false);
+                c.lineWidth = 4; // Set border width
+                c.strokeStyle = 'red';
+                c.stroke();
+
+                // Draw horizontal line
+                const lineLength = 50;
+                const endX = canvasSize.width / 2 + Math.cos(fraction * Math.PI) * 90;
+                const endY = canvasSize.height / 4 + Math.sin(fraction * Math.PI) * 90;
+                c.beginPath();
+                c.moveTo(canvasSize.width / 5, (canvasSize.height / 4) + 20);
+                c.lineTo(endX, endY);
+                c.strokeStyle = 'blue'; // Set the color of the line
+                c.stroke();
+            }
+
             requestAnimationFrame(animate);
         };
-    
+
         animate();
-    }, [canvasSize, circleRadius,firstCircleComplete,fraction]);
-    
+    }, [canvasSize, circleRadius, fraction, firstCircleComplete, inView]);
 
     useEffect(() => {
 
@@ -103,14 +119,13 @@ const CircleContent: React.FC = () => {
         
        
             if (circleRadius < 80 ) {
-                console.log('circle radius',circleRadius)
                 setCircleRadius(prev => prev + 1);
-               
+                console.log('circle radius',circleRadius)
             } else {
                 clearInterval(intervalId);
                 setFirstCircleComplete(true);
             }
-        }, 16);
+        }, 5);
 
         return () => clearInterval(intervalId);
     }, [circleRadius,inView]);
@@ -122,7 +137,6 @@ const CircleContent: React.FC = () => {
         const intervalId = setInterval(() => {
             if (fraction < 1 && firstCircleComplete) {
                 setFraction(prev => prev + 0.03);
-                console.log('fraction',fraction)
             } else {
                 clearInterval(intervalId);
                 setSecondCircleComplete(true);

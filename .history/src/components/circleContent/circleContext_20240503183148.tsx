@@ -9,7 +9,7 @@ const CircleContent: React.FC = () => {
     const [fraction, setFraction] = useState<number>(0.1);
     const [firstCircleComplete, setFirstCircleComplete] = useState<boolean>(false);
     const [secondCircleComplete, setSecondCircleComplete] = useState<boolean>(false);
-    const [inView, setInView] = useState(false); // State for tracking whether the component is in view
+    const [inView, setInView] = useState(true); // State for tracking whether the component is in view
     const quarter = Math.PI / 2;
     const circle = Math.PI * 2;
 
@@ -72,32 +72,24 @@ const CircleContent: React.FC = () => {
             // Draw circle border
             c.strokeStyle = '#00bfff';
             c.beginPath();
-            c.arc(canvasSize.width / 5, canvasSize.height / 5, circleRadius, 0, 2 * Math.PI);
+            c.arc(canvasSize.width / 5, canvasSize.height / 5, circ, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
             
             c.stroke();
-
-        if(firstCircleComplete){
-            c.beginPath();
-            c.arc(canvasSize.width / 5, canvasSize.height / 5, 100, 0, (fraction * Math.PI) * 2, false);
-            c.lineWidth = 4; // Set border width
-            c.strokeStyle = '#FF0000'; // Set stroke color to red
-            c.stroke();
-        }
     
             requestAnimationFrame(animate);
         };
     
         animate();
-    }, [canvasSize, circleRadius,firstCircleComplete,fraction]);
+    }, [canvasSize, circleRadius]);
     
 
     useEffect(() => {
 
-        if(!inView){
-            console.log('radius not increased')
-            return
-        }
+        // if(!inView){
+        //     console.log('radius not increased')
+        //     return
+        // }
    
         const intervalId = setInterval(() => {
         
@@ -108,7 +100,7 @@ const CircleContent: React.FC = () => {
                
             } else {
                 clearInterval(intervalId);
-                setFirstCircleComplete(true);
+                // setFirstCircleComplete(true);
             }
         }, 16);
 
@@ -116,9 +108,9 @@ const CircleContent: React.FC = () => {
     }, [circleRadius,inView]);
 
     useEffect(() => {
-        if(!inView){
-            return
-        }
+        // if(!inView){
+        //     return
+        // }
         const intervalId = setInterval(() => {
             if (fraction < 1 && firstCircleComplete) {
                 setFraction(prev => prev + 0.03);

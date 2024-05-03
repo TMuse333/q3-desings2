@@ -28,9 +28,9 @@ const Homepage: React.FC = () => {
 
          
             <ParticlesComponent/>
-            <MultiLayerParallax/>
+            {/* <MultiLayerParallax/> */}
 
-            {/* <TextParallaxContentExample/> */}
+            <TextParallaxContentExample/>
 
             <Content
             mainTitle='Your digital presence is important'

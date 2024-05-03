@@ -9,7 +9,7 @@ const CircleContent: React.FC = () => {
     const [fraction, setFraction] = useState<number>(0.1);
     const [firstCircleComplete, setFirstCircleComplete] = useState<boolean>(false);
     const [secondCircleComplete, setSecondCircleComplete] = useState<boolean>(false);
-    const [inView, setInView] = useState(false); // State for tracking whether the component is in view
+    const [inView, setInView] = useState(true); // State for tracking whether the component is in view
     const quarter = Math.PI / 2;
     const circle = Math.PI * 2;
 
@@ -89,15 +89,15 @@ const CircleContent: React.FC = () => {
         };
     
         animate();
-    }, [canvasSize, circleRadius,firstCircleComplete,fraction]);
+    }, [canvasSize, circleRadius,firstCircleComplete]);
     
 
     useEffect(() => {
 
-        if(!inView){
-            console.log('radius not increased')
-            return
-        }
+        // if(!inView){
+        //     console.log('radius not increased')
+        //     return
+        // }
    
         const intervalId = setInterval(() => {
         
@@ -116,9 +116,9 @@ const CircleContent: React.FC = () => {
     }, [circleRadius,inView]);
 
     useEffect(() => {
-        if(!inView){
-            return
-        }
+        // if(!inView){
+        //     return
+        // }
         const intervalId = setInterval(() => {
             if (fraction < 1 && firstCircleComplete) {
                 setFraction(prev => prev + 0.03);

@@ -116,9 +116,9 @@ const CircleContent: React.FC = () => {
     }, [circleRadius,inView]);
 
     useEffect(() => {
-        if(!inView){
-            return
-        }
+        // if(!inView){
+        //     return
+        // }
         const intervalId = setInterval(() => {
             if (fraction < 1 && firstCircleComplete) {
                 setFraction(prev => prev + 0.03);
