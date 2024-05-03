@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import useIntersectionObserver from '../intersectionObserver/intersectionObserver';
-
 const CircleContent: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const offscreenCanvasRef = useRef<HTMLCanvasElement>(null); // Ref for the offscreen canvas
@@ -9,19 +8,18 @@ const CircleContent: React.FC = () => {
     const [fraction, setFraction] = useState<number>(0.1);
     const [firstCircleComplete, setFirstCircleComplete] = useState<boolean>(false);
     const [secondCircleComplete, setSecondCircleComplete] = useState<boolean>(false);
-    const [inView, setInView] = useState(false); // State for tracking whether the component is in view
     const quarter = Math.PI / 2;
     const circle = Math.PI * 2;
 
-    // Configure intersection observer options
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.8,
-    };
 
-    // Apply intersection observer hook to detect when the component is in view
-    const componentRef = useIntersectionObserver(setInView, options);
+    const [inView, setInView] = useState(false);
+
+  // Configure intersection observer options
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.8,
+  };
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -75,8 +73,8 @@ const CircleContent: React.FC = () => {
             c.lineWidth = 4; // Set border width
             c.stroke();
 
-            // Draw second circle if first is complete and component is in view
-            if (firstCircleComplete && inView) {
+            // Draw second circle if first is complete
+            if (firstCircleComplete) {
                 c.beginPath();
                 c.arc(canvasSize.width / 5, canvasSize.height / 2, 100, 0, (fraction * Math.PI) * 2, false);
                 c.lineWidth = 4; // Set border width
@@ -98,7 +96,7 @@ const CircleContent: React.FC = () => {
         };
 
         animate();
-    }, [canvasSize, circleRadius, fraction, firstCircleComplete, inView]);
+    }, [canvasSize, circleRadius, fraction, firstCircleComplete]);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -128,7 +126,6 @@ const CircleContent: React.FC = () => {
 
     return (
         <>
-            <div ref={componentRef}></div> {/* Intersection observer target */}
             <canvas className='relative ml-auto mr-auto' ref={canvasRef}></canvas>
             <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> {/* Offscreen canvas */}
         </>
