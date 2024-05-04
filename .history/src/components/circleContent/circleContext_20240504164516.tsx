@@ -87,18 +87,15 @@ const CircleContent: React.FC = () => {
         }
 
         if(secondCircleComplete){
-            // console.log('line is ready!')
             c.beginPath()
-            c.moveTo(canvasSize.width / 5, (canvasSize.height / 5) + 90)
-            c.lineTo(canvasSize.width / 4, (canvasSize.height / 5) + 100)
-            c.stroke()
+            c
         }
     
             requestAnimationFrame(animate);
         };
     
         animate();
-    }, [canvasSize, circleRadius,firstCircleComplete,fraction,secondCircleComplete]);
+    }, [canvasSize, circleRadius,firstCircleComplete,fraction]);
     
 
     useEffect(() => {
@@ -132,18 +129,9 @@ const CircleContent: React.FC = () => {
             if (fraction < 1 && firstCircleComplete) {
                 setFraction(prev => prev + 0.03);
                 console.log('fraction',fraction)
-
-            }
-
-                else if(fraction > 0.96){
-                    setSecondCircleComplete(true);
-                    // console.warn('second circle complete')
-                }
-
-             else {
+            } else {
                 clearInterval(intervalId);
-               
-             
+                setSecondCircleComplete(true);
             }
         }, 16);
 

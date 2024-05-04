@@ -12,7 +12,7 @@ const CircleContent: React.FC = () => {
     const [inView, setInView] = useState(false); // State for tracking whether the component is in view
     const quarter = Math.PI / 2;
     const circle = Math.PI * 2;
-    
+    const [second]
 
     // Configure intersection observer options
     const options = {
@@ -85,20 +85,12 @@ const CircleContent: React.FC = () => {
             c.strokeStyle = '#FF0000'; // Set stroke color to red
             c.stroke();
         }
-
-        if(secondCircleComplete){
-            // console.log('line is ready!')
-            c.beginPath()
-            c.moveTo(canvasSize.width / 5, (canvasSize.height / 5) + 90)
-            c.lineTo(canvasSize.width / 4, (canvasSize.height / 5) + 100)
-            c.stroke()
-        }
     
             requestAnimationFrame(animate);
         };
     
         animate();
-    }, [canvasSize, circleRadius,firstCircleComplete,fraction,secondCircleComplete]);
+    }, [canvasSize, circleRadius,firstCircleComplete,fraction]);
     
 
     useEffect(() => {
@@ -132,18 +124,9 @@ const CircleContent: React.FC = () => {
             if (fraction < 1 && firstCircleComplete) {
                 setFraction(prev => prev + 0.03);
                 console.log('fraction',fraction)
-
-            }
-
-                else if(fraction > 0.96){
-                    setSecondCircleComplete(true);
-                    // console.warn('second circle complete')
-                }
-
-             else {
+            } else {
                 clearInterval(intervalId);
-               
-             
+                setSecondCircleComplete(true);
             }
         }, 16);
 

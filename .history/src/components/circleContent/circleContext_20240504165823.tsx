@@ -89,8 +89,8 @@ const CircleContent: React.FC = () => {
         if(secondCircleComplete){
             // console.log('line is ready!')
             c.beginPath()
-            c.moveTo(canvasSize.width / 5, (canvasSize.height / 5) + 90)
-            c.lineTo(canvasSize.width / 4, (canvasSize.height / 5) + 100)
+            c.moveTo(canvasSize.width / 5, canvasSize.height / 5)
+            c.lineTo(canvasSize.width / 4, (canvasSize.height / 5) )
             c.stroke()
         }
     

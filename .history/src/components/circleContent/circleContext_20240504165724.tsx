@@ -88,10 +88,10 @@ const CircleContent: React.FC = () => {
 
         if(secondCircleComplete){
             // console.log('line is ready!')
-            c.beginPath()
-            c.moveTo(canvasSize.width / 5, (canvasSize.height / 5) + 90)
-            c.lineTo(canvasSize.width / 4, (canvasSize.height / 5) + 100)
-            c.stroke()
+            // c.beginPath()
+            // c.moveTo(canvasSize.width / 5, canvasSize.height / 5)
+            // c.lineTo(canvasSize.width / 4, canvasSize.height / 5)
+            // c.stroke()
         }
     
             requestAnimationFrame(animate);
@@ -135,9 +135,9 @@ const CircleContent: React.FC = () => {
 
             }
 
-                else if(fraction > 0.96){
+                else if(fraction  0.96){
                     setSecondCircleComplete(true);
-                    // console.warn('second circle complete')
+                    console.warn('second circle complete')
                 }
 
              else {
