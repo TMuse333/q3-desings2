@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useTextYPositionContext } from '../../context/context';
 import useIntersectionObserver from '../intersectionObserver/intersectionObserver';
 
 const CircleContent: React.FC = () => {
@@ -13,8 +12,6 @@ const CircleContent: React.FC = () => {
     const [inView, setInView] = useState(false); // State for tracking whether the component is in view
     const quarter = Math.PI / 2;
     const circle = Math.PI * 2;
-
-    const {isMobile} = useTextYPositionContext()
     
 
     // Configure intersection observer options
@@ -89,26 +86,20 @@ const CircleContent: React.FC = () => {
             c.stroke();
         }
 
-        if (secondCircleComplete) {
-            // Calculate adjusted control points for the Bézier curve
-            const cp1x = (canvasSize.width / 4 + 90);
-            const cp1y = ((canvasSize.height / 5) + 60); // Adjusted y-coordinate
-           
-            const cp2x = (canvasSize.width / 4 + 90);
-            const cp2y = ((canvasSize.height / 5) + 50);
-        
-            // Define the ending point
-            const endX = (canvasSize.width / 4 + 320);
-            const endY = ((canvasSize.height / 5) + 48
-            );
-        
-            // Draw the adjusted Bézier curve
+        if(secondCircleComplete){
+            // console.log('line is ready!')
             c.beginPath();
-            c.moveTo((canvasSize.width / 5) + 110, (canvasSize.height / 5)); // Move to the starting point
-            c.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, endX, endY);  // Draw the curve
-            c.stroke();
+c.moveTo((canvasSize.width / 5) + 110, (canvasSize.height / 5));
+c.quadraticCurveTo(
+    (canvasSize.width / 4 +100), 
+    ((canvasSize.height / 5) + 90), 
+    (canvasSize.width / 4 +150), 
+    ((canvasSize.height / 5) + 50)
+);
+c.stroke();
+
+
         }
-        
     
             requestAnimationFrame(animate);
         };

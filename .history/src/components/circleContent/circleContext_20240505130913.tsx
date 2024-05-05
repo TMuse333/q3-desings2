@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useTextYPositionContext } from '../../context/context';
 import useIntersectionObserver from '../intersectionObserver/intersectionObserver';
 
 const CircleContent: React.FC = () => {
@@ -13,8 +12,6 @@ const CircleContent: React.FC = () => {
     const [inView, setInView] = useState(false); // State for tracking whether the component is in view
     const quarter = Math.PI / 2;
     const circle = Math.PI * 2;
-
-    const {isMobile} = useTextYPositionContext()
     
 
     // Configure intersection observer options
@@ -84,31 +81,18 @@ const CircleContent: React.FC = () => {
         if(firstCircleComplete){
             c.beginPath();
             c.arc(canvasSize.width / 5, canvasSize.height / 5, 100, 0, (fraction * Math.PI) * 2, false);
-            c.lineWidth = 4; 
+            c.lineWidth = 4; // Set border width
             c.strokeStyle = '#FF0000'; // Set stroke color to red
             c.stroke();
         }
 
-        if (secondCircleComplete) {
-            // Calculate adjusted control points for the Bézier curve
-            const cp1x = (canvasSize.width / 4 + 90);
-            const cp1y = ((canvasSize.height / 5) + 60); // Adjusted y-coordinate
-           
-            const cp2x = (canvasSize.width / 4 + 90);
-            const cp2y = ((canvasSize.height / 5) + 50);
-        
-            // Define the ending point
-            const endX = (canvasSize.width / 4 + 320);
-            const endY = ((canvasSize.height / 5) + 48
-            );
-        
-            // Draw the adjusted Bézier curve
-            c.beginPath();
-            c.moveTo((canvasSize.width / 5) + 110, (canvasSize.height / 5)); // Move to the starting point
-            c.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, endX, endY);  // Draw the curve
-            c.stroke();
+        if(secondCircleComplete){
+            // console.log('line is ready!')
+            c.beginPath()
+            c.moveTo((canvasSize.width / 5), (canvasSize.height / 5) )
+            c.lineTo(canvasSize.width / 4, (canvasSize.height / 5) + 100)
+            c.stroke()
         }
-        
     
             requestAnimationFrame(animate);
         };

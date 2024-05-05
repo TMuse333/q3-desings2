@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useTextYPositionContext } from '../../context/context';
 import useIntersectionObserver from '../intersectionObserver/intersectionObserver';
 
 const CircleContent: React.FC = () => {
@@ -13,8 +12,6 @@ const CircleContent: React.FC = () => {
     const [inView, setInView] = useState(false); // State for tracking whether the component is in view
     const quarter = Math.PI / 2;
     const circle = Math.PI * 2;
-
-    const {isMobile} = useTextYPositionContext()
     
 
     // Configure intersection observer options
@@ -95,11 +92,11 @@ const CircleContent: React.FC = () => {
             const cp1y = ((canvasSize.height / 5) + 60); // Adjusted y-coordinate
            
             const cp2x = (canvasSize.width / 4 + 90);
-            const cp2y = ((canvasSize.height / 5) + 50);
+            const cp2y = ((canvasSize.height / 5) + 40);
         
             // Define the ending point
-            const endX = (canvasSize.width / 4 + 320);
-            const endY = ((canvasSize.height / 5) + 48
+            const endX = (canvasSize.width / 4 + 300);
+            const endY = ((canvasSize.height / 5) + 50
             );
         
             // Draw the adjusted Bézier curve

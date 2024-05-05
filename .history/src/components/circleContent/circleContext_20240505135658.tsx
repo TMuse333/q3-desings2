@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useTextYPositionContext } from '../../context/context';
 import useIntersectionObserver from '../intersectionObserver/intersectionObserver';
 
 const CircleContent: React.FC = () => {
@@ -14,7 +13,7 @@ const CircleContent: React.FC = () => {
     const quarter = Math.PI / 2;
     const circle = Math.PI * 2;
 
-    const {isMobile} = useTextYPositionContext()
+    const {isMobile} = use
     
 
     // Configure intersection observer options
