@@ -14,6 +14,8 @@ const CircleContent: React.FC = () => {
     const quarter = Math.PI / 2;
     const circle = Math.PI * 2;
 
+    const [circleWidth, setCircleWidth] = useState<number>(2)
+
     const {isMobile} = useTextYPositionContext()
     
 
@@ -96,25 +98,28 @@ const CircleContent: React.FC = () => {
             c.stroke();
         }
 
-        if (secondCircleComplete) {
-            // Calculate adjusted control points for the Bézier curve
-            const cp1x = (canvasSize.width / 4 + 90);
-            const cp1y = ((canvasSize.height / 5) + 60); // Adjusted y-coordinate
+        // if (secondCircleComplete) {
+        //     // Calculate adjusted control points for the Bézier curve
+        //     const cp1x = !isMobile ? (canvasSize.width / 4 + 90) : (canvasSize.width / 4 + 70);
+        //     const cp1y = !isMobile ? ((canvasSize.height / 5) + 60) : ((canvasSize.height / 5) + 40); // Adjusted y-coordinate
            
-            const cp2x = (canvasSize.width / 4 + 90);
-            const cp2y = ((canvasSize.height / 5) + 50);
+        //     const cp2x = !isMobile ? (canvasSize.width / 4 + 90) : (canvasSize.width / 4 + 70);
+        //     const cp2y = !isMobile ? ((canvasSize.height / 5) + 50) : ((canvasSize.height / 5) + 30);
         
-            // Define the ending point
-            const endX = (canvasSize.width / 4 + 320);
-            const endY = ((canvasSize.height / 5) + 48
-            );
+        //     // Define the ending point
+        //     const endX = !isMobile ? (canvasSize.width / 4 + 320) : (canvasSize.width / 4 + 200);
+        //     const endY = !isMobile ? ((canvasSize.height / 5) + 48 ) : ((canvasSize.height / 5) + 30 );
+
+        //     const originX = !isMobile ? (canvasSize.width / 5) + 120 : 
+        //     140
+
         
-            // Draw the adjusted Bézier curve
-            c.beginPath();
-            c.moveTo((canvasSize.width / 5) + 110, (canvasSize.height / 5)); // Move to the starting point
-            c.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, endX, endY);  // Draw the curve
-            c.stroke();
-        }
+        //     // Draw the adjusted Bézier curve
+        //     c.beginPath();
+        //     c.moveTo(originX , (canvasSize.height / 5)); // Move to the starting point
+        //     c.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, endX, endY);  // Draw the curve
+        //     c.stroke();
+        // }
         
     
             requestAnimationFrame(animate);
@@ -169,6 +174,8 @@ const CircleContent: React.FC = () => {
                
              
             }
+
+            
         }, 16);
 
         return () => clearInterval(intervalId);

@@ -11,7 +11,6 @@ import moneyBall from '../../media/futuristic-money-ball-removebg-preview.png'
 import { description1 } from "../../data/data";
 import AlternatingText from "../alternatingText/alternatingText";
 import CircleContent from "../circleContent/appearingCircle";
-import CircleListElement from "../circleListElement/circleListElement";
 
 
 const Homepage: React.FC = () => {
@@ -28,7 +27,7 @@ const Homepage: React.FC = () => {
         <section className="absolute top-0 left-0 w-screen">
 
          
-            {/* <ParticlesComponent/> */}
+            <ParticlesComponent/>
             {/* <MultiLayerParallax/> */}
 
             {/* <TextParallaxContentExample/> */}
@@ -59,8 +58,6 @@ const Homepage: React.FC = () => {
             /> */}
 
             {/* <CircleContent/> */}
-
-            <CircleListElement/>
             
         </section>
     )

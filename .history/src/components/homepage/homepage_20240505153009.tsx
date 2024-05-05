@@ -11,7 +11,6 @@ import moneyBall from '../../media/futuristic-money-ball-removebg-preview.png'
 import { description1 } from "../../data/data";
 import AlternatingText from "../alternatingText/alternatingText";
 import CircleContent from "../circleContent/appearingCircle";
-import CircleListElement from "../circleListElement/circleListElement";
 
 
 const Homepage: React.FC = () => {
@@ -59,8 +58,6 @@ const Homepage: React.FC = () => {
             /> */}
 
             {/* <CircleContent/> */}
-
-            <CircleListElement/>
             
         </section>
     )
