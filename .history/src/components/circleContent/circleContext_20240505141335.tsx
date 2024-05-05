@@ -17,9 +17,6 @@ const CircleContent: React.FC = () => {
     const {isMobile} = useTextYPositionContext()
     
 
-    const circleRadiusLimit = isMobile ? 50 : 80
-
-    const secondCircleRadius = isMobile ? 60 : 100
     // Configure intersection observer options
     const options = {
         root: null,
@@ -80,8 +77,8 @@ const CircleContent: React.FC = () => {
             c.strokeStyle = '#00bfff';
             c.beginPath();
 
-            const circleOriginX =  canvasSize.width / 5
-            const circleOriginY =  canvasSize.height / 5
+            const circleOriginX = isMobile ? canvasSize.width / 2 : canvasSize.width / 5
+            const circleOriginY = isMobile ? canvasSize.height / 2 : canvasSize.height / 5
 
             c.arc(circleOriginX, circleOriginY, circleRadius, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
@@ -90,7 +87,7 @@ const CircleContent: React.FC = () => {
 
         if(firstCircleComplete){
             c.beginPath();
-            c.arc(circleOriginX, circleOriginY, secondCircleRadius, 0, (fraction * Math.PI) * 2, false);
+            c.arc(circleOriginX, circleOriginY, 100, 0, (fraction * Math.PI) * 2, false);
             c.lineWidth = 4; 
             c.strokeStyle = '#FF0000'; // Set stroke color to red
             c.stroke();
@@ -98,16 +95,22 @@ const CircleContent: React.FC = () => {
 
         if (secondCircleComplete) {
             // Calculate adjusted control points for the Bézier curve
-            const cp1x = (canvasSize.width / 4 + 90);
-            const cp1y = ((canvasSize.height / 5) + 60); // Adjusted y-coordinate
+
+            
+
+            const cp1x = !isMobile ? (canvasSize.width / 4 + 90) : canvasSize.width /2;
+            const cp1y = !isMobile ? ((canvasSize.height / 5) + 60) : ((canvasSize.height / 2) + 60); // Adjusted y-coordinate
            
-            const cp2x = (canvasSize.width / 4 + 90);
-            const cp2y = ((canvasSize.height / 5) + 50);
+            const cp2x = !isMobile ? (canvasSize.width / 4 + 90) : (canvasSize.width / 2 + 90);
+            const cp2y = !isMobile ? ((canvasSize.height / 5) + 50) : ((canvasSize.height / 2) + 50);
         
             // Define the ending point
-            const endX = (canvasSize.width / 4 + 320);
-            const endY = ((canvasSize.height / 5) + 48
+            const endX = !isMobile ? (canvasSize.width / 4 + 320) : (canvasSize.width / 2 + 320);
+            const endY = !isMobile ? (canvasSize.height / 5) + 48 : ((canvasSize.height / 2) + 48
             );
+
+            const lineOriginX = !isMobile ? (canvasSize.width / 5) + 110 : (canvasSize.width / 2) + 110
+            const lineOriginY = !isMobile ? (canvasSize.height / 5) : (canvasSize.height / 2)
         
             // Draw the adjusted Bézier curve
             c.beginPath();
@@ -133,9 +136,8 @@ const CircleContent: React.FC = () => {
    
         const intervalId = setInterval(() => {
         
-
        
-            if (circleRadius < circleRadiusLimit ) {
+            if (circleRadius < 80 ) {
                 console.log('circle radius',circleRadius)
                 setCircleRadius(prev => prev + 1);
                

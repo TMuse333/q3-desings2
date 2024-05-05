@@ -17,9 +17,6 @@ const CircleContent: React.FC = () => {
     const {isMobile} = useTextYPositionContext()
     
 
-    const circleRadiusLimit = isMobile ? 50 : 80
-
-    const secondCircleRadius = isMobile ? 60 : 100
     // Configure intersection observer options
     const options = {
         root: null,
@@ -66,62 +63,60 @@ const CircleContent: React.FC = () => {
         };
     }, []);
 
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-    
-        const c = canvas.getContext('2d');
-        if (!c) return;
-    
-        const animate = () => {
-            c.clearRect(0, 0, canvas.width, canvas.height);
-    
-            // Draw circle border
-            c.strokeStyle = '#00bfff';
+useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const c = canvas.getContext('2d');
+    if (!c) return;
+
+    const animate = () => {
+        c.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Adjust circle position and radius for mobile
+        const circleX = isMobile ? canvasSize.width / 2 : canvasSize.width / 5;
+        const circleY = isMobile ? canvasSize.height / 2 : canvasSize.height / 5;
+        const circleRadius = isMobile ? 50 : circleRadius;
+
+        // Draw circle border
+        c.strokeStyle = '#00bfff';
+        c.beginPath();
+        c.arc(circleX, circleY, circleRadius, 0, 2 * Math.PI);
+        c.lineWidth = 4; // Set border width
+        c.stroke();
+
+        if (firstCircleComplete) {
+            const secondCircleRadius = isMobile ? 30 : 100;
+
             c.beginPath();
-
-            const circleOriginX =  canvasSize.width / 5
-            const circleOriginY =  canvasSize.height / 5
-
-            c.arc(circleOriginX, circleOriginY, circleRadius, 0, 2 * Math.PI);
-            c.lineWidth = 4; // Set border width
-            
-            c.stroke();
-
-        if(firstCircleComplete){
-            c.beginPath();
-            c.arc(circleOriginX, circleOriginY, secondCircleRadius, 0, (fraction * Math.PI) * 2, false);
+            c.arc(circleX, circleY, secondCircleRadius, 0, (fraction * Math.PI) * 2, false);
             c.lineWidth = 4; 
             c.strokeStyle = '#FF0000'; // Set stroke color to red
             c.stroke();
         }
 
         if (secondCircleComplete) {
-            // Calculate adjusted control points for the Bézier curve
-            const cp1x = (canvasSize.width / 4 + 90);
-            const cp1y = ((canvasSize.height / 5) + 60); // Adjusted y-coordinate
-           
-            const cp2x = (canvasSize.width / 4 + 90);
-            const cp2y = ((canvasSize.height / 5) + 50);
-        
-            // Define the ending point
-            const endX = (canvasSize.width / 4 + 320);
-            const endY = ((canvasSize.height / 5) + 48
-            );
-        
+            // Adjust control points and ending point for the Bézier curve
+            const cp1x = isMobile ? circleX + 40 : canvasSize.width / 4 + 90;
+            const cp1y = isMobile ? circleY + 20 : ((canvasSize.height / 5) + 60);
+            const cp2x = isMobile ? circleX + 40 : canvasSize.width / 4 + 90;
+            const cp2y = isMobile ? circleY + 10 : ((canvasSize.height / 5) + 50);
+            const endX = isMobile ? circleX + 170 : canvasSize.width / 4 + 320;
+            const endY = isMobile ? circleY + 8 : ((canvasSize.height / 5) + 48);
+
             // Draw the adjusted Bézier curve
             c.beginPath();
-            c.moveTo((canvasSize.width / 5) + 110, (canvasSize.height / 5)); // Move to the starting point
+            c.moveTo(circleX + 60, circleY); // Move to the starting point
             c.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, endX, endY);  // Draw the curve
             c.stroke();
         }
-        
-    
-            requestAnimationFrame(animate);
-        };
-    
-        animate();
-    }, [canvasSize, circleRadius,firstCircleComplete,fraction,secondCircleComplete]);
+
+        requestAnimationFrame(animate);
+    };
+
+    animate();
+}, [canvasSize, circleRadius, firstCircleComplete, fraction, secondCircleComplete, isMobile]);
+
     
 
     useEffect(() => {
@@ -133,9 +128,8 @@ const CircleContent: React.FC = () => {
    
         const intervalId = setInterval(() => {
         
-
        
-            if (circleRadius < circleRadiusLimit ) {
+            if (circleRadius < 80 ) {
                 console.log('circle radius',circleRadius)
                 setCircleRadius(prev => prev + 1);
                

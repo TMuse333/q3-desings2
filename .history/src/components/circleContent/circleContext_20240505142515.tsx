@@ -80,8 +80,8 @@ const CircleContent: React.FC = () => {
             c.strokeStyle = '#00bfff';
             c.beginPath();
 
-            const circleOriginX =  canvasSize.width / 5
-            const circleOriginY =  canvasSize.height / 5
+            const circleOriginX = !isMobile ? canvasSize.width / 2 : canvasSize.width / 5
+            const circleOriginY = !isMobile ? canvasSize.height / 2 : canvasSize.height / 5
 
             c.arc(circleOriginX, circleOriginY, circleRadius, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width

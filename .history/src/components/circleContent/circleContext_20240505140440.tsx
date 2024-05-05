@@ -17,9 +17,6 @@ const CircleContent: React.FC = () => {
     const {isMobile} = useTextYPositionContext()
     
 
-    const circleRadiusLimit = isMobile ? 50 : 80
-
-    const secondCircleRadius = isMobile ? 60 : 100
     // Configure intersection observer options
     const options = {
         root: null,
@@ -80,17 +77,17 @@ const CircleContent: React.FC = () => {
             c.strokeStyle = '#00bfff';
             c.beginPath();
 
-            const circleOriginX =  canvasSize.width / 5
-            const circleOriginY =  canvasSize.height / 5
+            const circleOriginX = isMobile ? canvasSize.width / 2 : canvasSize.width / 5
+            const circleOriginY = isMobile ? canvasSize.height / 2 : canvasSize.height / 5
 
-            c.arc(circleOriginX, circleOriginY, circleRadius, 0, 2 * Math.PI);
+            c.arc(circleOriginX, circleOriginX, circleRadius, 0, 2 * Math.PI);
             c.lineWidth = 4; // Set border width
             
             c.stroke();
 
         if(firstCircleComplete){
             c.beginPath();
-            c.arc(circleOriginX, circleOriginY, secondCircleRadius, 0, (fraction * Math.PI) * 2, false);
+            c.arc(canvasSize.width / 5, canvasSize.height / 5, 100, 0, (fraction * Math.PI) * 2, false);
             c.lineWidth = 4; 
             c.strokeStyle = '#FF0000'; // Set stroke color to red
             c.stroke();
@@ -133,9 +130,8 @@ const CircleContent: React.FC = () => {
    
         const intervalId = setInterval(() => {
         
-
        
-            if (circleRadius < circleRadiusLimit ) {
+            if (circleRadius < 80 ) {
                 console.log('circle radius',circleRadius)
                 setCircleRadius(prev => prev + 1);
                
