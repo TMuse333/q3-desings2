@@ -6,7 +6,7 @@ interface CircleProps  {
     image: string
 }
 
-const AppearingCircle: React.FC<CircleProps> = ({image}) => {
+const AppearingCircle: React.FC<CircleProps> = ({}) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const offscreenCanvasRef = useRef<HTMLCanvasElement>(null); // Ref for the offscreen canvas
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
@@ -210,8 +210,6 @@ const AppearingCircle: React.FC<CircleProps> = ({image}) => {
     return (
         <>
             <div ref={componentRef} className='relative mr-auto ml-auto bg-blue-800'>
-                <img src={image}
-                className='absolute w-1/5 top-[40%] left-[50%] -translate-x-[50%]'/>
             <canvas className='relative' ref={canvasRef}></canvas>
             <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> 
             {/* Offscreen canvas */}

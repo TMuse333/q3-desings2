@@ -209,9 +209,9 @@ const AppearingCircle: React.FC<CircleProps> = ({image}) => {
 
     return (
         <>
-            <div ref={componentRef} className='relative mr-auto ml-auto bg-blue-800'>
+            <div ref={componentRef} className='relative mr-auto ml-auto'>
                 <img src={image}
-                className='absolute w-1/5 top-[40%] left-[50%] -translate-x-[50%]'/>
+                className='relative z-20'/>
             <canvas className='relative' ref={canvasRef}></canvas>
             <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> 
             {/* Offscreen canvas */}

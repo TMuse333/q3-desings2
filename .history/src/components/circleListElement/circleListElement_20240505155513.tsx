@@ -9,8 +9,7 @@ const CircleListElement: React.FC = () => {
     return (
         <div className=" relative flex flex-col">
 <AppearingCircle
-image={ball}
-/>
+imageSrc={ball}/>
 <h1 className="text-white">Slatty</h1>
         </div>
     )
