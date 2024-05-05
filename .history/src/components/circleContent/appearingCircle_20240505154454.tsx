@@ -50,7 +50,7 @@ const AppearingCircle: React.FC = () => {
         const offscreenCtx = offscreenCanvas.getContext('2d');
         if (!c || !offscreenCtx) return;
     
-        const padding = 65; // Adjust the padding as needed
+        const padding = 50; // Adjust the padding as needed
     
         const calculateCanvasSize = () => {
             const maxWidth = 1200;
@@ -205,7 +205,7 @@ const AppearingCircle: React.FC = () => {
 
     return (
         <>
-            <div ref={componentRef} className='relative mr-auto ml-auto '>
+            <div ref={componentRef} className='relative mr-auto ml-auto bg-blue-900'>
             <canvas className='relative' ref={canvasRef}></canvas>
             <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> 
             {/* Offscreen canvas */}

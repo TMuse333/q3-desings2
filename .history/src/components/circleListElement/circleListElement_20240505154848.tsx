@@ -20,9 +20,7 @@ const CircleList: React.FC = () => {
 
     return (
         <section className="relative">
-            <CircleListElement/>
+
         </section>
     )
 }
-
-export default CircleList

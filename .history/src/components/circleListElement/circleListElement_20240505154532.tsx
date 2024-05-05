@@ -9,20 +9,9 @@ const CircleListElement: React.FC = () => {
     return (
         <div className=" relative flex flex-col">
 <AppearingCircle/>
-<h1 className="text-white">Slatty</h1>
+<h2>Slatty</h2>
         </div>
     )
 }
 
-
-
-const CircleList: React.FC = () => {
-
-    return (
-        <section className="relative">
-            <CircleListElement/>
-        </section>
-    )
-}
-
-export default CircleList
+export default CircleListElement

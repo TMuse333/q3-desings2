@@ -25,4 +25,4 @@ const CircleList: React.FC = () => {
     )
 }
 
-export default CircleList
+export default Cir

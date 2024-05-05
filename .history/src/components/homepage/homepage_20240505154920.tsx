@@ -61,7 +61,7 @@ const Homepage: React.FC = () => {
 
             {/* <CircleContent/> */}
 
-       <CircleList/>
+       <CircleList
             
         </section>
     )

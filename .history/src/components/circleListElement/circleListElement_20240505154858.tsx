@@ -24,5 +24,3 @@ const CircleList: React.FC = () => {
         </section>
     )
 }
-
-export default CircleList

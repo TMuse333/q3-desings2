@@ -12,7 +12,6 @@ import { description1 } from "../../data/data";
 import AlternatingText from "../alternatingText/alternatingText";
 import CircleContent from "../circleContent/appearingCircle";
 import CircleListElement from "../circleListElement/circleListElement";
-import CircleList from "../circleListElement/circleListElement";
 
 
 const Homepage: React.FC = () => {
@@ -61,7 +60,7 @@ const Homepage: React.FC = () => {
 
             {/* <CircleContent/> */}
 
-       <CircleList/>
+            </>
             
         </section>
     )
