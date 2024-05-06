@@ -14,7 +14,7 @@ export const TextParallaxContentExample = () => {
         heading="Websites are essential"
        
       >
-       <p></p>
+       <p>slat</p>
       </TextParallaxContent>
     
     </div>

@@ -14,7 +14,7 @@ export const TextParallaxContentExample = () => {
         heading="Websites are essential"
        
       >
-       <p></p>
+       
       </TextParallaxContent>
     
     </div>
@@ -27,13 +27,13 @@ const TextParallaxContent = ({
   imgUrl,
   subheading,
   heading,
-  children,
+  // children,
  
 }: {
   imgUrl: string;
   subheading: string;
   heading: string;
-  children?: ReactNode;
+  // children?: ReactNode;
 
 }) => {
   return (
