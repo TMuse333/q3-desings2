@@ -1,4 +1,4 @@
-import  { ReactNode, useRef, useEffect, useState } from "react";
+import  { ReactNode, useRef, useEffect, useState, Children } from "react";
 import { motion, useScroll, useTransform, motionValue } from "framer-motion";
 // import { FiArrowUpRight } from "react-icons/fi";
 // import laptop from '../../media/laptop.jpg'
