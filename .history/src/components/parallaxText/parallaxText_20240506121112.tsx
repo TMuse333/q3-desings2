@@ -12,7 +12,7 @@ export const TextParallaxContentExample = () => {
         imgUrl={q3laptop}
         subheading="Welcome to Q3 Designs"
         heading="Websites are essential"
-       
+        video={false}
       >
        
       </TextParallaxContent>

@@ -12,7 +12,7 @@ export const TextParallaxContentExample = () => {
         imgUrl={q3laptop}
         subheading="Welcome to Q3 Designs"
         heading="Websites are essential"
-       
+        video={false}
       >
        
       </TextParallaxContent>
@@ -28,7 +28,7 @@ const TextParallaxContent = ({
   subheading,
   heading,
   children,
- 
+  video
 }: {
   imgUrl: string;
   subheading: string;
@@ -44,7 +44,7 @@ const TextParallaxContent = ({
       }}
     >
       <div className="relative h-[150vh]">
-        <StickyImage 
+        <StickyImage video={video}
         imgUrl={imgUrl}
        />
         <OverlayCopy heading={heading} subheading={subheading} />
@@ -54,7 +54,7 @@ const TextParallaxContent = ({
   );
 };
 
-const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
+const StickyImage = ({ imgUrl }: { imgUrl: string, video: boolean }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
