@@ -176,58 +176,36 @@ const AppearingCircle: React.FC<CircleProps> = ({image}) => {
     }, [canvasSize, circleRadius,firstCircleComplete,fraction,secondCircleComplete, circleThickness]);
     
 
-    useEffect(() => {
-
-        if(!inView){
-            console.log('radius not increased')
-            return
+useEffect(() => {
+        if (!inView) {
+            return;
         }
-   
-        const intervalId = setInterval(() => {
-        
 
-       
-            if (circleRadius < circleRadiusLimit ) {
-                // console.log('circle radius',circleRadius)
+        const radiusIntervalId = setInterval(() => {
+            if (circleRadius < circleRadiusLimit) {
                 setCircleRadius(prev => prev + 1);
-               
             } else {
-                clearInterval(intervalId);
+                clearInterval(radiusIntervalId);
                 setFirstCircleComplete(true);
             }
         }, 16);
 
-        return () => clearInterval(intervalId);
-    }, [circleRadius,inView]);
-
-
-    useEffect(() => {
-        if(!inView){
-            return
-        }
-        const intervalId = setInterval(() => {
+        const fractionIntervalId = setInterval(() => {
             if (fraction < 1 && firstCircleComplete) {
                 setFraction(prev => prev + 0.03);
-                // console.log('fraction',fraction)
-
+            } else if (fraction > 0.96) {
+                setSecondCircleComplete(true);
+            } else {
+                clearInterval(fractionIntervalId);
             }
-
-                else if(fraction > 0.96){
-                    setSecondCircleComplete(true);
-                    // console.warn('second circle complete')
-                }
-
-             else {
-                clearInterval(intervalId);
-               
-             
-            }
-
-           
         }, 16);
 
-        return () => clearInterval(intervalId);
-    }, [fraction, firstCircleComplete,inView]);
+        return () => {
+            clearInterval(radiusIntervalId);
+            clearInterval(fractionIntervalId);
+        };
+    }, [circleRadius, fraction, firstCircleComplete, inView]);
+
 
     return (
         <>

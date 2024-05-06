@@ -47,7 +47,7 @@ const CircleListElement: React.FC<CircleProps> = ({image,title, description}) =>
 
     return (
         <div className=" relative flex flex-col justify-center h-[220px] 
-        sm:flex-row w-screen sm:w-1/4 md:w-3/4 align-center mt-5 md:mt-3 
+        sm:flex-row w-screen sm:w-1/4 md:w-3/4 align-center 
    ">
 <AppearingCircle
 image={image}
@@ -59,8 +59,7 @@ onClick={handleDescriptionClick}
 variants={headerVariants}
 initial={'initial'}
 animate={secondCircleComplete ? 'animate' : 'initial'}
- className="text-white text-xl md:w-[100px]   mt-5">{title}
- </motion.h1>
+ className="text-white text-2xl w-1/5   mt-5">{title}</motion.h1>
 
 <p className={`rounded-lg text-left mt-3 pl-3 pr-3 bg-blue-600 transition-height ease-in duration-300 bg-blue-800 ${descriptionClicked ? 'h-[220px] w-[165px] overflow-scroll pt-5' : 'h-0  w-0 overflow-hidden pt-0'}`}>
   {description}

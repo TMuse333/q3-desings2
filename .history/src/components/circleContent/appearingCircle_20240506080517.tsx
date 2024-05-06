@@ -200,6 +200,14 @@ const AppearingCircle: React.FC<CircleProps> = ({image}) => {
         return () => clearInterval(intervalId);
     }, [circleRadius,inView]);
 
+    //a way to modify the thickness of the circle
+
+    // useEffect(()=>{
+    //     if(fraction > 0.5){
+    //         setCircleWidth(50)
+    //         console.log('fraction is halfway')
+    //     }
+    // },[fraction])
 
     useEffect(() => {
         if(!inView){
@@ -238,7 +246,7 @@ const AppearingCircle: React.FC<CircleProps> = ({image}) => {
                 // animate={secondCircleComplete ? 'animate' : 'initial'}
                 style={imageStyle}
                 src={image}
-                className='absolute w-3/5 top-[20%] left-[50%] -translate-x-[50%]'/>
+                className='absolute w-1/5 top-[20%] left-[50%] -translate-x-[50%]'/>
             <canvas className='relative ' ref={canvasRef}></canvas>
             <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> 
             {/* Offscreen canvas */}

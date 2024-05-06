@@ -46,23 +46,21 @@ const CircleListElement: React.FC<CircleProps> = ({image,title, description}) =>
 
 
     return (
-        <div className=" relative flex flex-col justify-center h-[220px] 
-        sm:flex-row w-screen sm:w-1/4 md:w-3/4 align-center mt-5 md:mt-3 
+        <div className=" relative flex flex-col justify-center h-52
+        sm:flex-row w-screen sm:w-1/4 md:w-3/4 align-center 
    ">
 <AppearingCircle
 image={image}
 />
-<section className="relative flex flex-col justify-center items-center
-h-auto min-h-0 max-h-full ">
+<section className="relative flex flex-col justify-center items-center">
 <motion.h1
 onClick={handleDescriptionClick}
 variants={headerVariants}
 initial={'initial'}
 animate={secondCircleComplete ? 'animate' : 'initial'}
- className="text-white text-xl md:w-[100px]   mt-5">{title}
- </motion.h1>
+ className="text-white   mt-5">{title}</motion.h1>
 
-<p className={`rounded-lg text-left mt-3 pl-3 pr-3 bg-blue-600 transition-height ease-in duration-300 bg-blue-800 ${descriptionClicked ? 'h-[220px] w-[165px] overflow-scroll pt-5' : 'h-0  w-0 overflow-hidden pt-0'}`}>
+<p className={`text-left mt-3 pl-3 pr-3 bg-blue-600 transition-height ease-in duration-300 bg-blue-800 ${descriptionClicked ? 'h-[220px] w-[175px] overflow-scroll pt-5' : 'h-0  w-0 overflow-hidden pt-0'}`}>
   {description}
 </p>
 </section>
@@ -101,7 +99,7 @@ const CircleList: React.FC = () => {
 
             <CircleListElement
             image={ball}
-            title='Excellent Communication'
+            title='Outstanding Design'
             description='Gym. Code. Quantum Realm. Repeat'
             />
 

@@ -3,7 +3,6 @@ import AppearingCircle from "../circleContent/appearingCircle";
 import ball from '../../media/futuristic-money-ball-removebg-preview.png'
 import {motion, Variants} from 'framer-motion'
 import { useGeneralContext } from "../../context/context";
-import laptop from '../../media/Gemini_Generated_Image_r055a1r055a1r055-removebg-preview.png'
 
 interface CircleProps {
     image:string,
@@ -46,26 +45,24 @@ const CircleListElement: React.FC<CircleProps> = ({image,title, description}) =>
 
 
     return (
-        <div className=" relative flex flex-col justify-center h-[220px] 
-        sm:flex-row w-screen sm:w-1/4 md:w-3/4 align-center mt-5 md:mt-3 
+        <div className=" relative flex flex-row justify-center
+        sm:flex-row w-screen sm:w-1/4 md:w-3/4 align-center
    ">
 <AppearingCircle
 image={image}
 />
-<section className="relative flex flex-col justify-center items-center
-h-auto min-h-0 max-h-full ">
+{/* <section> */}
 <motion.h1
 onClick={handleDescriptionClick}
 variants={headerVariants}
 initial={'initial'}
 animate={secondCircleComplete ? 'animate' : 'initial'}
- className="text-white text-xl md:w-[100px]   mt-5">{title}
- </motion.h1>
+ className="text-white text-lg w-3/5 bg-red-200">{title}</motion.h1>
 
-<p className={`rounded-lg text-left mt-3 pl-3 pr-3 bg-blue-600 transition-height ease-in duration-300 bg-blue-800 ${descriptionClicked ? 'h-[220px] w-[165px] overflow-scroll pt-5' : 'h-0  w-0 overflow-hidden pt-0'}`}>
+{/* <p className={`text-left mt-3 pl-3 pr-3 bg-blue-600 transition-height ease-in duration-300 bg-blue-800 ${descriptionClicked ? 'h-[220px] overflow-scroll pt-5' : 'h-0 overflow-hidden pt-0'}`}>
   {description}
-</p>
-</section>
+</p> */}
+{/* </section> */}
 
         </div>
     )
@@ -76,17 +73,14 @@ animate={secondCircleComplete ? 'animate' : 'initial'}
 const CircleList: React.FC = () => {
 
     return (
-        <>
- <section className="relative 
+        <section className="relative w-screen
          sm:grid sm:grid-cols-2 gap-4 max-w-[1200px] ml-auto
          mr-auto justify-center items-center">
-            {/* <div className="-translate-x-5"> */}
             <CircleListElement
             image={ball}
-            title='Absolute Tenacity'
+            title='Absolute Determination'
             description='Be a man of your word'
             />
-            {/* </div> */}
             <CircleListElement
             image={ball}
             title='Extreme Discipline'
@@ -101,18 +95,6 @@ const CircleList: React.FC = () => {
 
             <CircleListElement
             image={ball}
-            title='Excellent Communication'
-            description='Gym. Code. Quantum Realm. Repeat'
-            />
-
-<CircleListElement
-            image={ball}
-            title='Code over templates'
-            description='We are not template using pussies we write banging code'
-            />
-
-            <CircleListElement
-            image={ball}
             title='Outstanding Design'
             description='Gym. Code. Quantum Realm. Repeat'
             />
@@ -120,7 +102,6 @@ const CircleList: React.FC = () => {
 
             
         </section>
-        </>
     )
 }
 

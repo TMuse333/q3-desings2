@@ -200,6 +200,14 @@ const AppearingCircle: React.FC<CircleProps> = ({image}) => {
         return () => clearInterval(intervalId);
     }, [circleRadius,inView]);
 
+    //a way to modify the thickness of the circle
+
+    // useEffect(()=>{
+    //     if(fraction > 0.5){
+    //         setCircleWidth(50)
+    //         console.log('fraction is halfway')
+    //     }
+    // },[fraction])
 
     useEffect(() => {
         if(!inView){

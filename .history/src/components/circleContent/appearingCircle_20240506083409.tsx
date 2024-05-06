@@ -201,6 +201,7 @@ const AppearingCircle: React.FC<CircleProps> = ({image}) => {
     }, [circleRadius,inView]);
 
 
+
     useEffect(() => {
         if(!inView){
             return

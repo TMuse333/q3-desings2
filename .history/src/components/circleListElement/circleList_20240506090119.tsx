@@ -47,7 +47,7 @@ const CircleListElement: React.FC<CircleProps> = ({image,title, description}) =>
 
     return (
         <div className=" relative flex flex-col justify-center h-[220px] 
-        sm:flex-row w-screen sm:w-1/4 md:w-3/4 align-center mt-5 md:mt-3 
+        sm:flex-row w-screen sm:w-1/4 md:w-3/4 align-center mt-5 md: 
    ">
 <AppearingCircle
 image={image}
