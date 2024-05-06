@@ -1,4 +1,4 @@
-import  { ReactNode, useRef, useEffect, useState, Children } from "react";
+import  { ReactNode, useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, motionValue } from "framer-motion";
 // import { FiArrowUpRight } from "react-icons/fi";
 // import laptop from '../../media/laptop.jpg'
@@ -12,7 +12,7 @@ export const TextParallaxContentExample = () => {
         imgUrl={q3laptop}
         subheading="Welcome to Q3 Designs"
         heading="Websites are essential"
-       
+       ch
       >
        
       </TextParallaxContent>
@@ -33,7 +33,7 @@ const TextParallaxContent = ({
   imgUrl: string;
   subheading: string;
   heading: string;
-  children?: ReactNode;
+  children: ReactNode;
 
 }) => {
   return (

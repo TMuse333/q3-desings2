@@ -33,7 +33,7 @@ const TextParallaxContent = ({
   imgUrl: string;
   subheading: string;
   heading: string;
-  children?: ReactNode;
+  children: ReactNode;
 
 }) => {
   return (
