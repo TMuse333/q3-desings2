@@ -10,7 +10,8 @@ import nobgLaptop from '../../media/Gemini_Generated_Image_r055a1r055a1r055-remo
 import moneyBall from '../../media/futuristic-money-ball-removebg-preview.png'
 import { description1 } from "../../data/data";
 import AlternatingText from "../alternatingText/alternatingText";
-
+import CircleContent from "../circleContent/appearingCircle";
+import CircleListElement from "../circleListElement/circleList";
 import CircleList from "../circleListElement/circleList";
 
 

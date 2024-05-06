@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import Content from "../content/content";
-// import q3 from '../../media/q3-visuals-logo-2.png'
+import q3 from '../../media/q3-visuals-logo-2.png'
 import TextFormat from "../textFormat/textFormat";
 import laptop from '../../media/laptop.jpg'
-// import { TextParallaxContentExample } from "../parallaxText/parallaxText";
-// import MultiLayerParallax from "../mountainParallax/mountainParallax";
+import { TextParallaxContentExample } from "../parallaxText/parallaxText";
+import MultiLayerParallax from "../mountainParallax/mountainParallax";
 // import ParticlesComponent from "../particles/particles";
 import nobgLaptop from '../../media/Gemini_Generated_Image_r055a1r055a1r055-removebg-preview.png'
 import moneyBall from '../../media/futuristic-money-ball-removebg-preview.png'
 import { description1 } from "../../data/data";
 import AlternatingText from "../alternatingText/alternatingText";
-
+import CircleContent from "../circleContent/appearingCircle";
+import CircleListElement from "../circleListElement/circleList";
 import CircleList from "../circleListElement/circleList";
 
 

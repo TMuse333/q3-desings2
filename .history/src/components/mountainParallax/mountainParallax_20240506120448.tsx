@@ -1,6 +1,6 @@
-import  { useRef } from "react";
+import  { useRef, useState } from "react";
 import bottom from '../../media/bottom-mountain.png'
-
+import top from '../../media/top-mountain.png'
 import full from '../../media/no-bg-mountain.png'
 import q3 from '../../media/q3-words.png'
 import { motion, useScroll, useTransform } from 'framer-motion'

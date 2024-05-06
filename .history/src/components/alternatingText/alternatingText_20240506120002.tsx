@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import TypedJS from 'typed.js';
+import Typed from 'typed.js';
 
 
 const AlternatingText: React.FC = () => {
@@ -14,8 +14,10 @@ const AlternatingText: React.FC = () => {
         'The difference between being average and great'
     ];
 
+    // UseEffect hook to create and update Typed.js instance
     useEffect(() => {
-        const options = {
+      
+        const options: TypedOptions = {
             strings: [text[index]], // Set the current text based on index
             typeSpeed: 40, // Typing speed in milliseconds
             // startDelay: 1000, // Delay before typing starts (adjust as needed)
@@ -30,16 +32,15 @@ const AlternatingText: React.FC = () => {
                 }, 2000); // Delay before moving to the next text (adjust as needed)
             }
         };
-    
+
         // Create a new instance of Typed.js
-        const typed = new TypedJS('.typed-text', options);
-    
+        const typed = new Typed('.typed-text', options);
+
         // Clean up function to destroy Typed instance
         return () => {
             typed.destroy();
         };
-    }, [index, text]);
-    
+    }, [index, text]); // Re-run effect whenever index or text array changes
 
     return (
         <section className="alternating-text-container relative mb-4 h-[30vh] sm:h-[25vh] bg-blue-700">

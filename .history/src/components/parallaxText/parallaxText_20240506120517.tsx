@@ -1,7 +1,7 @@
 import  { ReactNode, useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, motionValue } from "framer-motion";
-// import { FiArrowUpRight } from "react-icons/fi";
-// import laptop from '../../media/laptop.jpg'
+import { FiArrowUpRight } from "react-icons/fi";
+import laptop from '../../media/laptop.jpg'
 import {useGeneralContext} from '../../context/context'
 import q3laptop from '../../media/q3-imac.jpg'
 

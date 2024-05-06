@@ -20,7 +20,7 @@ const AppearingCircle: React.FC<CircleProps> = ({image}) => {
     // const quarter = Math.PI / 2;
     // const circle = Math.PI * 2;
 
-    const [circleThickness] = useState<number>(4)
+    const [circleThickness, setCircleThickness] = useState<number>(4)
 
     const {isMobile2} = useGeneralContext()
 
@@ -41,7 +41,26 @@ const AppearingCircle: React.FC<CircleProps> = ({image}) => {
     }
 
 
+    const imageVariants: Variants = {
+        initial: {
+            opacity: 0,
+            x:-40
+        },
+        animate: {
+            opacity: 1,
+            y: [0, 5, 0],
+            x:-40,
+            transition:{
+                y: {
+                    duration:4,
+                    repeat: Infinity
+                }
 
+            }
+            
+        }
+       
+    };
     
 
    

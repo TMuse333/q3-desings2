@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import TypedJS from 'typed.js';
+import TypedJ from 'typed.js';
 
 
 const AlternatingText: React.FC = () => {

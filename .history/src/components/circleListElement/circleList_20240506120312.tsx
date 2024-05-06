@@ -19,7 +19,7 @@ const CircleListElement: React.FC<CircleProps> = ({image,title, description}) =>
         setDescriptionClicked(!descriptionClicked)
     }
 
-    
+    const descriptionStyle = {
 
 
     const { secondCircleComplete, isMobile }  = useGeneralContext()
