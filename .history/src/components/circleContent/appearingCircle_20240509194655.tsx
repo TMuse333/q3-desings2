@@ -8,11 +8,10 @@ interface CircleProps  {
     secondCircleComplete: boolean;
    
     handleCircleComplete: (index: number, value: boolean) => void;
-    index:number
 }
 
 const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
-    handleCircleComplete,index}) => {
+    handleCircleComplete}) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const offscreenCanvasRef = useRef<HTMLCanvasElement>(null); // Ref for the offscreen canvas
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
@@ -57,7 +56,7 @@ const imageVariants: Variants = {
     // Configure intersection observer options
     const options = {
         root: null,
-        rootMargin: '-25px',
+        rootMargin: '-50px',
         threshold: 1,
     };
 
@@ -204,7 +203,7 @@ const imageVariants: Variants = {
             }
 
                 else if(fraction > 0.96){
-                    handleCircleComplete(index,true);
+                    setSecondCircleComplete(true);
                     setRedraw(false)
                     // console.warn('second circle complete')
                 }

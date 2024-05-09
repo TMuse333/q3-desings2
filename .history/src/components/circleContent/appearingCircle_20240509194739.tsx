@@ -57,7 +57,7 @@ const imageVariants: Variants = {
     // Configure intersection observer options
     const options = {
         root: null,
-        rootMargin: '-25px',
+        rootMargin: '-50px',
         threshold: 1,
     };
 

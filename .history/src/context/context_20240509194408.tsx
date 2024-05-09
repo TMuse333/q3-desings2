@@ -10,7 +10,6 @@ interface GeneralContextType {
   secondCircleComplete: boolean[];
   isMobile2: boolean;
   setIsMobile2: React.Dispatch<React.SetStateAction<boolean>>;
-  handleCircleComplete: (index: number, value: boolean) => void;
 }
 
 // Create the context

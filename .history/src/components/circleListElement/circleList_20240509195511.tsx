@@ -126,7 +126,7 @@ const CircleList: React.FC = () => {
             <CircleListElement
             secondCircleComplete={secondCircleComplete[3]}
             handleCircleComplete={handleCircleComplete}
-            index={3}
+            index={1}
             image={ball}
             title='Excellent Communication'
             description='Gym. Code. Quantum Realm. Repeat'
@@ -134,8 +134,7 @@ const CircleList: React.FC = () => {
 
 <CircleListElement
 secondCircleComplete={secondCircleComplete[4]}
-handleCircleComplete={handleCircleComplete}
-index={4}
+setSecondCircleComplete={setSecondCircleComplete[4]}
             image={ball}
             title='Code over templates'
             description='We are not template using pussies we write banging code'
@@ -143,8 +142,7 @@ index={4}
 
             <CircleListElement
             secondCircleComplete={secondCircleComplete[5]}
-            handleCircleComplete={handleCircleComplete}
-            index={5}
+            setSecondCircleComplete={setSecondCircleComplete[5]}
             image={ball}
             title='Outstanding Design'
             description='Gym. Code. Quantum Realm. Repeat'

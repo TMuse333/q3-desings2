@@ -6,11 +6,10 @@ interface GeneralContextType {
   setTextYPosition: React.Dispatch<React.SetStateAction<number>>;
   isMobile: boolean;
   setIsMobile: React.Dispatch<React.SetStateAction<boolean>>;
-  setSecondCircleComplete:React.Dispatch<React.SetStateAction<boolean[]>>;
-  secondCircleComplete: boolean[];
+  setSecondCircleComplete:React.Dispatch<React.SetStateAction<boolean>>;
+  secondCircleComplete: boolean;
   isMobile2: boolean;
   setIsMobile2: React.Dispatch<React.SetStateAction<boolean>>;
-  handleCircleComplete: (index: number, value: boolean) => void;
 }
 
 // Create the context
@@ -26,18 +25,9 @@ export const ContextProvider: React.FC<{ children: ReactNode }> = ({ children })
 
   const [isMobile2, setIsMobile2] = useState<boolean>(window.innerWidth <= 680);
 
-  const [secondCircleComplete, setSecondCircleComplete] = useState<boolean[]>(
+  const [circleCompletes, setCircleCompletes] = useState<boolean[]>(
     Array.from({ length: 7 }, () => false)
   );
-
-  const handleCircleComplete = (index: number, value: boolean) => {
-    setSecondCircleComplete((prev) => {
-      const newState = [...prev]; // Create a copy of the previous state array
-      newState[index] = value; // Update the value at the specified index
-      return newState; // Return the new state array
-    });
-  };
-  
   
 
   useEffect(() => {
@@ -77,7 +67,6 @@ export const ContextProvider: React.FC<{ children: ReactNode }> = ({ children })
     setSecondCircleComplete,
     isMobile2,
     setIsMobile2,
-    handleCircleComplete
   };
 
   return <GeneralContext.Provider value={contextValue}>{children}</GeneralContext.Provider>;

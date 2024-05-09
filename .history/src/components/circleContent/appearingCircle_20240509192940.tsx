@@ -5,14 +5,10 @@ import {motion, Variants} from 'framer-motion'
 
 interface CircleProps  {
     image: string,
-    secondCircleComplete: boolean;
-   
-    handleCircleComplete: (index: number, value: boolean) => void;
-    index:number
+    circleComplete: boolean;
 }
 
-const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
-    handleCircleComplete,index}) => {
+const AppearingCircle: React.FC<CircleProps> = ({image,circleComplete}) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const offscreenCanvasRef = useRef<HTMLCanvasElement>(null); // Ref for the offscreen canvas
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
@@ -29,7 +25,7 @@ const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
 
     const {isMobile2} = useGeneralContext()
 
- 
+
     
 
     const circleRadiusLimit = isMobile2 ? 50 : 80
@@ -40,24 +36,20 @@ const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
     const circleOriginY = isMobile2 ? canvasSize.height / 2 : canvasSize.height /2
 
 
-  
-
-
-const imageVariants: Variants = {
-    initial:{
-        opacity:0,
-    },
-    animate:{
-        opacity:1
+    const imageStyle = {
+        opacity: circleComplete ? 1 : 0,
+        transition: 'all 0.3s ease-in'
     }
-}
+
+
+
     
 
    
     // Configure intersection observer options
     const options = {
         root: null,
-        rootMargin: '-25px',
+        rootMargin: '-50px',
         threshold: 1,
     };
 
@@ -204,7 +196,7 @@ const imageVariants: Variants = {
             }
 
                 else if(fraction > 0.96){
-                    handleCircleComplete(index,true);
+                    setSecondCircleComplete(true);
                     setRedraw(false)
                     // console.warn('second circle complete')
                 }

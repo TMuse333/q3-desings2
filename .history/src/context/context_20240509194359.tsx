@@ -10,7 +10,6 @@ interface GeneralContextType {
   secondCircleComplete: boolean[];
   isMobile2: boolean;
   setIsMobile2: React.Dispatch<React.SetStateAction<boolean>>;
-  handleCircleComplete: (index: number, value: boolean) => void;
 }
 
 // Create the context
@@ -77,7 +76,6 @@ export const ContextProvider: React.FC<{ children: ReactNode }> = ({ children })
     setSecondCircleComplete,
     isMobile2,
     setIsMobile2,
-    handleCircleComplete
   };
 
   return <GeneralContext.Provider value={contextValue}>{children}</GeneralContext.Provider>;

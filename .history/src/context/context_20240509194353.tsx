@@ -10,7 +10,6 @@ interface GeneralContextType {
   secondCircleComplete: boolean[];
   isMobile2: boolean;
   setIsMobile2: React.Dispatch<React.SetStateAction<boolean>>;
-  handleCircleComplete: (index: number, value: boolean) => void;
 }
 
 // Create the context
@@ -30,7 +29,7 @@ export const ContextProvider: React.FC<{ children: ReactNode }> = ({ children })
     Array.from({ length: 7 }, () => false)
   );
 
-  const handleCircleComplete = (index: number, value: boolean) => {
+  const setSecondCircleCompleteAtIndex = (index: number, value: boolean) => {
     setSecondCircleComplete((prev) => {
       const newState = [...prev]; // Create a copy of the previous state array
       newState[index] = value; // Update the value at the specified index
@@ -77,7 +76,6 @@ export const ContextProvider: React.FC<{ children: ReactNode }> = ({ children })
     setSecondCircleComplete,
     isMobile2,
     setIsMobile2,
-    handleCircleComplete
   };
 
   return <GeneralContext.Provider value={contextValue}>{children}</GeneralContext.Provider>;

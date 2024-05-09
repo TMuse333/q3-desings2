@@ -144,7 +144,7 @@ index={4}
             <CircleListElement
             secondCircleComplete={secondCircleComplete[5]}
             handleCircleComplete={handleCircleComplete}
-            index={5}
+            index={1}
             image={ball}
             title='Outstanding Design'
             description='Gym. Code. Quantum Realm. Repeat'

@@ -9,14 +9,12 @@ interface CircleProps {
     image:string,
     title: string,
     description:string
-   
-    index:number
-secondCircleComplete: boolean,
-handleCircleComplete: (index: number, value: boolean) => void;
+    secondCircleComplete: boolean;
+    setSecondCircleComplete: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const CircleListElement: React.FC<CircleProps> = ({image,title, description,
-    handleCircleComplete,secondCircleComplete,index
+    setSecondCircleComplete,secondCircleComplete
 }) => {
 
     const [descriptionClicked, setDescriptionClicked] = useState<boolean>(false)
@@ -54,10 +52,8 @@ const CircleListElement: React.FC<CircleProps> = ({image,title, description,
         rounded-3xl max-w-[490px] ml-auto mr-auto border border-q-blue">
 <AppearingCircle
 secondCircleComplete={secondCircleComplete}
-handleCircleComplete={handleCircleComplete}
+setSecondCircleComplete={setSecondCircleComplete}
 image={image}
-index={index}
-
 
 />
 <section className="relative flex flex-col bg-[#011f29] rounded-3xl pr-5
@@ -84,9 +80,6 @@ animate={secondCircleComplete ? 'animate' : 'initial'}
 
 const CircleList: React.FC = () => {
 
-    const {secondCircleComplete, handleCircleComplete}
-    = useGeneralContext()
-
     return (
         <>
         <h1>We get it done</h1>
@@ -96,55 +89,37 @@ const CircleList: React.FC = () => {
 ">
             {/* <div className="-translate-x-5"> */}
             <CircleListElement
-            handleCircleComplete={handleCircleComplete}
-            secondCircleComplete={secondCircleComplete[0]}
-        index={0}
+            
             image={ball}
             title='Absolute Tenacity'
             description='Be a man of your word'
             />
             {/* </div> */}
             <CircleListElement
-            secondCircleComplete={secondCircleComplete[1]}
-            handleCircleComplete={handleCircleComplete}
-            index={1}
             image={laptop}
-       
             title='Extreme Discipline'
             description='Gym. Code. Quantum Realm. Repeat'
             />
 
             <CircleListElement
-            secondCircleComplete={secondCircleComplete[2]}
-            handleCircleComplete={handleCircleComplete}
-            index={2}
             image={ball}
             title='Code over templates'
             description='We are not template using pussies we write banging code'
             />
 
             <CircleListElement
-            secondCircleComplete={secondCircleComplete[3]}
-            handleCircleComplete={handleCircleComplete}
-            index={3}
             image={ball}
             title='Excellent Communication'
             description='Gym. Code. Quantum Realm. Repeat'
             />
 
 <CircleListElement
-secondCircleComplete={secondCircleComplete[4]}
-handleCircleComplete={handleCircleComplete}
-index={4}
             image={ball}
             title='Code over templates'
             description='We are not template using pussies we write banging code'
             />
 
             <CircleListElement
-            secondCircleComplete={secondCircleComplete[5]}
-            handleCircleComplete={handleCircleComplete}
-            index={5}
             image={ball}
             title='Outstanding Design'
             description='Gym. Code. Quantum Realm. Repeat'
