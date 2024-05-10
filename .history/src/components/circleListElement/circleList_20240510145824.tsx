@@ -50,7 +50,7 @@ const CircleListElement: React.FC<CircleProps> = ({image,title, description,
 
     return (
         <div className=" relative flex  justify-center  md:h-[220px] 
-        md:flex-row w-[calc(100vw-5px)]  md:w-[40vw] sm2:w-[40vw] align-center mb-10 md:mt-3 bg-[#011f29] 
+        md:flex-row w-[calc(80vw-5px)]  md:w-[40vw] sm2:w-[40vw] align-center mb-10 md:mt-3 bg-[#011f29] 
         rounded-3xl max-w-[490px] ml-auto mr-auto border border-q-blue">
 <AppearingCircle
 secondCircleComplete={secondCircleComplete}
