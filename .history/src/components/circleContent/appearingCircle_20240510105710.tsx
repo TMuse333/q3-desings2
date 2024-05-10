@@ -58,7 +58,7 @@ const imageVariants: Variants = {
     const options = {
         root: null,
         rootMargin: '-25px',
-        threshold: 1,
+        threshold: 0.7,
     };
 
     // Apply intersection observer hook to detect when the component is in view
@@ -75,7 +75,7 @@ const imageVariants: Variants = {
         const offscreenCtx = offscreenCanvas.getContext('2d');
         if (!c || !offscreenCtx) return;
     
-        const padding = isMobile2 ? 65 : 110; // Adjust the padding as needed
+        const padding = isMobile2 ? 70 : 110; // Adjust the padding as needed
     
         const calculateCanvasSize = () => {
             const maxWidth = 1200;
@@ -223,15 +223,17 @@ const imageVariants: Variants = {
 
     return (
         <>
-            <div ref={componentRef} className='relative mr-auto ml-auto
-            h-[150px]'>
+            <div ref={componentRef} className='relative mr-auto ml-auto bg-red-200
+            flex flex-col justify-center items-center
+            h-[150px] 
+            md:h-[220px] '>
                 <motion.img 
                 variants={imageVariants}
                 initial={'initial'}
                 animate={secondCircleComplete ? 'animate' : 'initial'}
                 // style={imageStyle}
                 src={image}
-                className='absolute w-3/5 top-[20%] left-[50%] -translate-x-[50%]'/>
+                className='absolute w-3/5 top-[20%] md:top- left-[50%] -translate-x-[50%]'/>
             <canvas className='relative ' ref={canvasRef}></canvas>
             <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> 
             {/* Offscreen canvas */}

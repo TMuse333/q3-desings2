@@ -67,7 +67,7 @@ onClick={handleDescriptionClick}
 variants={headerVariants}
 initial={'initial'}
 animate={secondCircleComplete ? 'animate' : 'initial'}
- className="text-white text-xl w-[100px]  ml-auto mr-auto mt-5
+ className="text-white text-2xl w-[100px]  ml-auto mr-auto mt-5
  ">{title}
  </motion.h1>
 

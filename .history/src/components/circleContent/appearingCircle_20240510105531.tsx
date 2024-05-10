@@ -58,7 +58,7 @@ const imageVariants: Variants = {
     const options = {
         root: null,
         rootMargin: '-25px',
-        threshold: 1,
+        threshold: 0.7,
     };
 
     // Apply intersection observer hook to detect when the component is in view
@@ -223,8 +223,10 @@ const imageVariants: Variants = {
 
     return (
         <>
-            <div ref={componentRef} className='relative mr-auto ml-auto
-            h-[150px]'>
+            <div ref={componentRef} className='relative mr-auto ml-auto bg-red-200
+            flex flex-col justi
+            h-[150px] 
+            md:h-[220px] '>
                 <motion.img 
                 variants={imageVariants}
                 initial={'initial'}

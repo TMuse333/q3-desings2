@@ -67,11 +67,13 @@ onClick={handleDescriptionClick}
 variants={headerVariants}
 initial={'initial'}
 animate={secondCircleComplete ? 'animate' : 'initial'}
- className="text-white text-xl w-[100px]  ml-auto mr-auto mt-5
+ className="text-white md:text-2xl  w-[100px]  ml-auto mr-auto mt-5
+ text-md
  ">{title}
  </motion.h1>
 
-<p className={`rounded-lg text-left mt-3 pl-3 pr-3 bg-blue-600 transition-height ease-in duration-300 bg-blue-800 ${descriptionClicked ? ' h-[220px] w-[125px] overflow-scroll pt-5 border-2 border-rose-500' : 'h-0 w-[125px]  overflow-hidden pt-0'}`}>
+<p className={`rounded-lg 
+ text-left mt-3 pl-3 pr-3 bg-blue-600 transition-height ease-in duration-300 bg-blue-800 ${descriptionClicked ? ' h-[220px] w-[125px] overflow-scroll pt-5 border-2 border-rose-500' : 'h-0 w-[125px]  overflow-hidden pt-0'}`}>
   {description}
 </p>
 </section>

@@ -54,7 +54,7 @@ export const ContextProvider: React.FC<{ children: ReactNode }> = ({ children })
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsMobile2(window.innerWidth <= 800);
+      setIsMobile2(window.innerWidth <= 655);
     };
     window.addEventListener('scroll', handleScroll);
     handleScroll();

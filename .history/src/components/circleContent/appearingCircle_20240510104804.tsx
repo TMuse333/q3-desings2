@@ -223,8 +223,8 @@ const imageVariants: Variants = {
 
     return (
         <>
-            <div ref={componentRef} className='relative mr-auto ml-auto
-            h-[150px]'>
+            <div ref={componentRef} className='relative mr-auto ml-auto bg-red-200
+            h-'>
                 <motion.img 
                 variants={imageVariants}
                 initial={'initial'}
