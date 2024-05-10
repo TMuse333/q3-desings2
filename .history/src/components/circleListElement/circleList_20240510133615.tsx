@@ -60,16 +60,15 @@ index={index}
 
 
 />
-<section className="relative text-left pr-5 flex flex-col bg-[#011f29] rounded-3xl 
+<section className="relative flex flex-col bg-[#011f29] rounded-3xl 
 h-auto min-h-0 max-h-full   items-center z-1">
 <motion.h1
 onClick={handleDescriptionClick}
 variants={headerVariants}
 initial={'initial'}
 animate={secondCircleComplete ? 'animate' : 'initial'}
- className="text-white text-xl w-[80px]  ml-auto mr-auto mt-5
- "
->{title}
+ className="text-white text-lg w-[80px]  ml-auto mr-auto mt-5
+ ">{title}
  </motion.h1>
 
 <p className={`rounded-lg text-left mt-3 pl-3 pr-3 bg-blue-600 transition-height ease-in duration-300 bg-blue-800 ${descriptionClicked ? ' h-[220px] w-[125px] overflow-scroll pt-5 border-2 border-rose-500' : 'h-0 w-[125px]  overflow-hidden pt-0'}`}>
@@ -129,7 +128,7 @@ const CircleList: React.FC = () => {
             handleCircleComplete={handleCircleComplete}
             index={3}
             image={ball}
-            title='Refusal to fail'
+            title='Excellent Communication'
             description='Gym. Code. Quantum Realm. Repeat'
             />
 
@@ -138,7 +137,7 @@ secondCircleComplete={secondCircleComplete[4]}
 handleCircleComplete={handleCircleComplete}
 index={4}
             image={ball}
-            title='Keeps in touch'
+            title='Code over templates'
             description='We are not template using pussies we write banging code'
             />
 

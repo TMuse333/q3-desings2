@@ -228,7 +228,7 @@ const imageVariants: Variants = {
     return (
         <>
             <div ref={componentRef} className='relative mr-auto ml-auto
-    z-2'>
+         bg-red-200 z-2'>
                 <motion.img 
                 // variants={imageVariants}
                 // initial={'initial'}
@@ -237,7 +237,7 @@ const imageVariants: Variants = {
                 src={image}
                 className={`absolute  top-[20%] left-[50%] -translate-x-[50%]
                 ${isMobile2 ? 'w-2/5' : 'w-3/5'}`}/>
-            <canvas className='relative z-2' ref={canvasRef}></canvas>
+            <canvas className='relative ' ref={canvasRef}></canvas>
             <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> 
             {/* Offscreen canvas */}
             </div>

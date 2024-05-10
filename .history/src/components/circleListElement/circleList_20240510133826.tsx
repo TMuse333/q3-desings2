@@ -60,7 +60,7 @@ index={index}
 
 
 />
-<section className="relative text-left pr-5 flex flex-col bg-[#011f29] rounded-3xl 
+<section className="relative flex flex-col bg-[#011f29] rounded-3xl 
 h-auto min-h-0 max-h-full   items-center z-1">
 <motion.h1
 onClick={handleDescriptionClick}
@@ -129,7 +129,7 @@ const CircleList: React.FC = () => {
             handleCircleComplete={handleCircleComplete}
             index={3}
             image={ball}
-            title='Refusal to fail'
+            title='Excellent Communication'
             description='Gym. Code. Quantum Realm. Repeat'
             />
 
@@ -138,7 +138,7 @@ secondCircleComplete={secondCircleComplete[4]}
 handleCircleComplete={handleCircleComplete}
 index={4}
             image={ball}
-            title='Keeps in touch'
+            title='Code over templates'
             description='We are not template using pussies we write banging code'
             />
 

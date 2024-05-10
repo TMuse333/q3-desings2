@@ -129,7 +129,7 @@ const CircleList: React.FC = () => {
             handleCircleComplete={handleCircleComplete}
             index={3}
             image={ball}
-            title='Refusal to fail'
+            title='Excellent Communication'
             description='Gym. Code. Quantum Realm. Repeat'
             />
 
@@ -138,7 +138,7 @@ secondCircleComplete={secondCircleComplete[4]}
 handleCircleComplete={handleCircleComplete}
 index={4}
             image={ball}
-            title='Keeps in touch'
+            title='Code over templates'
             description='We are not template using pussies we write banging code'
             />
 
