@@ -17,10 +17,10 @@ import CircleList from "../circleListElement/circleList";
 const Homepage: React.FC = () => {
 
 
-    // useEffect(() => {
-    //     const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
-    //     console.log('Page load time:', loadTime, 'milliseconds');
-    // }, []);
+    useEffect(() => {
+        const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
+        console.log('Page load time:', loadTime, 'milliseconds');
+    }, []);
 
     
 
@@ -57,7 +57,7 @@ const Homepage: React.FC = () => {
             hasAnimation={true}
             
             /> */}
-            
+            //
 
            
 <div className="relative bg-gradient-to-b from-[#043747] via-[#032029] to-transparent w-screen">

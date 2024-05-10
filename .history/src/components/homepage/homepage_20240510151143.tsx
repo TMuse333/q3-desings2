@@ -17,10 +17,10 @@ import CircleList from "../circleListElement/circleList";
 const Homepage: React.FC = () => {
 
 
-    // useEffect(() => {
-    //     const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
-    //     console.log('Page load time:', loadTime, 'milliseconds');
-    // }, []);
+    useEffect(() => {
+        const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
+        console.log('Page load time:', loadTime, 'milliseconds');
+    }, []);
 
     
 
