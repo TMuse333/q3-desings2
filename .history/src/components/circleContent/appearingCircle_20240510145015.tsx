@@ -29,7 +29,7 @@ const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
 
     const {isMobile2} = useGeneralContext()
     const [imageWidth, setImageWidth]
-     = useState(isMobile2 ? 40 : 40)
+     = useState(isMobile2 ? 40 : 80)
 
      useEffect(()=> {
         if(isMobile2 ){
@@ -65,8 +65,6 @@ const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
                 setCircle2Radius(100)
                 setCircleRadiusLimit(80)
                 setCircleRadius(100)
-                console.log('not mobile so setting image to 80')
-                setImageWidth(80)
             }
         }
 
@@ -281,8 +279,8 @@ const imageVariants: Variants = {
                 // animate={secondCircleComplete ? 'animate' : 'initial'}
                 // style={imageStyle}
                 src={image}
-                className={`absolute  top-[20%] left-[50%] -translate-x-[50%]
-               `}
+            //     className={`absolute  top-[20%] left-[50%] -translate-x-[50%]
+            //    `}
                style={{
                 width:`${imageWidth}%`
                }}/>

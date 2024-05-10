@@ -28,34 +28,19 @@ const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
     const [circleThickness] = useState<number>(4)
 
     const {isMobile2} = useGeneralContext()
-    const [imageWidth, setImageWidth]
-     = useState(isMobile2 ? 40 : 40)
-
-     useEffect(()=> {
-        if(isMobile2 ){
-            
-        }
-        else{
-         
-        }
-     },[isMobile2])
-
 
     const [screenSize, setScreenSize]
     = useState(window.innerWidth)
 
     const [resize, setResize] = useState(false)
-   
+
     useEffect(()=> {
         const handleResize = () => {
             if(screenSize >= 400 && window.innerWidth < 400){
                 setRedraw(true)
                 setResize(true)
-                setCircle2Radius(60)
-                setCircleRadiusLimit(50)
-                setCircleRadius(80)
-                console.log('is mobile so setting image to 40')
-            setImageWidth(40)
+                // setCircle2Radius(60)
+                // setCircleRadiusLimit(50)
                 console.log('screen is being resized!')
             }
 
@@ -64,9 +49,6 @@ const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
                 setResize(true)
                 setCircle2Radius(100)
                 setCircleRadiusLimit(80)
-                setCircleRadius(100)
-                console.log('not mobile so setting image to 80')
-                setImageWidth(80)
             }
         }
 
@@ -184,27 +166,6 @@ const imageVariants: Variants = {
             c.strokeStyle = '#048dba'; // Set stroke color to red
             c.stroke();
         }
-
-        if(resize){
-          
-            c.clearRect(0, 0, canvas.width, canvas.height);
-            c.strokeStyle = '#00bfff';
-            c.beginPath();
-            c.arc(circleOriginX, circleOriginY, circleRadius, 0, 2 * Math.PI);
-            c.lineWidth = 4; // Set border width
-  
-            c.stroke();
-
-            c.beginPath();
-            c.arc(circleOriginX, circleOriginY, circle2Radius, 0, (fraction * Math.PI) * 2, false);
-            c.lineWidth = 2; 
-            c.strokeStyle = 
-            '#048dba'; // Set stroke color to red
-            c.stroke()
-            setResize(false)
-            
-     
-        }
  
         
        
@@ -214,7 +175,7 @@ const imageVariants: Variants = {
     
         animate();
     }, [canvasSize, circleRadius,firstCircleComplete,fraction, circleThickness,
-    circle2Radius,circleRadius,resize,circleRadiusLimit]);
+    circle2Radius,circleRadius,resize]);
     
 
     useEffect(() => {
@@ -282,10 +243,7 @@ const imageVariants: Variants = {
                 // style={imageStyle}
                 src={image}
                 className={`absolute  top-[20%] left-[50%] -translate-x-[50%]
-               `}
-               style={{
-                width:`${imageWidth}%`
-               }}/>
+                ${isMobile2 ? 'w-2/5' : 'w-3/5'}`}/>
             <canvas className='relative z-2' ref={canvasRef}></canvas>
             <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> 
             {/* Offscreen canvas */}

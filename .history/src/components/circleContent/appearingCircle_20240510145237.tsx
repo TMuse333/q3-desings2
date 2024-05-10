@@ -281,8 +281,8 @@ const imageVariants: Variants = {
                 // animate={secondCircleComplete ? 'animate' : 'initial'}
                 // style={imageStyle}
                 src={image}
-                className={`absolute  top-[20%] left-[50%] -translate-x-[50%]
-               `}
+            //     className={`absolute  top-[20%] left-[50%] -translate-x-[50%]
+            //    `}
                style={{
                 width:`${imageWidth}%`
                }}/>

@@ -29,16 +29,7 @@ const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
 
     const {isMobile2} = useGeneralContext()
     const [imageWidth, setImageWidth]
-     = useState(isMobile2 ? 40 : 40)
-
-     useEffect(()=> {
-        if(isMobile2 ){
-            
-        }
-        else{
-         
-        }
-     },[isMobile2])
+     = useState(isMobile2 ? 20 : 40)
 
 
     const [screenSize, setScreenSize]
@@ -54,8 +45,6 @@ const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
                 setCircle2Radius(60)
                 setCircleRadiusLimit(50)
                 setCircleRadius(80)
-                console.log('is mobile so setting image to 40')
-            setImageWidth(40)
                 console.log('screen is being resized!')
             }
 
@@ -65,8 +54,6 @@ const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
                 setCircle2Radius(100)
                 setCircleRadiusLimit(80)
                 setCircleRadius(100)
-                console.log('not mobile so setting image to 80')
-                setImageWidth(80)
             }
         }
 
@@ -198,8 +185,8 @@ const imageVariants: Variants = {
             c.beginPath();
             c.arc(circleOriginX, circleOriginY, circle2Radius, 0, (fraction * Math.PI) * 2, false);
             c.lineWidth = 2; 
-            c.strokeStyle = 
-            '#048dba'; // Set stroke color to red
+            c.strokeStyle = 'red'
+            // '#048dba'; // Set stroke color to red
             c.stroke()
             setResize(false)
             
@@ -284,8 +271,7 @@ const imageVariants: Variants = {
                 className={`absolute  top-[20%] left-[50%] -translate-x-[50%]
                `}
                style={{
-                width:`${imageWidth}%`
-               }}/>
+                width:${imageWidth/>
             <canvas className='relative z-2' ref={canvasRef}></canvas>
             <canvas style={{ display: 'none' }} ref={offscreenCanvasRef}></canvas> 
             {/* Offscreen canvas */}
