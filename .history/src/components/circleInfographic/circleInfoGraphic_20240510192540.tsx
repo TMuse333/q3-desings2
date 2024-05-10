@@ -8,14 +8,17 @@ interface CircleProps {
 const CircleElement: React.FC<CircleProps> = ({image}) => {
 
     return (
-        <section className="mt-5 mb-5 glow
-        rounded-full bg-[#003647] mr-auto ml-auto
+        <section className="  mt-5 mb-5 
+        rounded-full bg-[#232a91] mr-auto ml-auto
         h-[95vw] w-[95vw] border border-q-blue
         flex flex-col  shadow-xl max-w-[360px] 
         max-h-[360px] shadow-indigo-500/60
         sm:w-[48vw] sm:h-[48vw]
         lg:w-[32vw] lg:h-[32vw]">
-        
+            <div className="glow"
+            >
+                slt
+            </div>
             <div className="mt-4">
             <img className="w-[35vw]
             max-w-[115px] max-h-[115px] h-[35vw]
@@ -34,11 +37,10 @@ const CircleElement: React.FC<CircleProps> = ({image}) => {
 export const CircleInfoGraphic = () => {
 
     return (
-        <>
         <section className="flex
          justify-center flex-col items-center
           sm:grid sm:grid-cols-2 lg:grid-cols-3
-           gap-4 w-screen max-w-[1500px]  ml-auto mr-auto">
+           gap-4 w-screen max-w-[1500px] bg-blue-800 ml-auto mr-auto">
             <CircleElement
             image={ball}/>
              <CircleElement
@@ -52,12 +54,5 @@ export const CircleInfoGraphic = () => {
                   <CircleElement
             image={ball}/>
         </section>
-        <div className="mt-5
-        w-[90vw] h-[10px]
-         bg-gradient-to-r from-[#003647] via-[#3e7384] to-[#003647]
-        ml-auto mr-auto rounded-[200rem]">
-           
-       </div>
-       </>
     )
 }

@@ -32,8 +32,6 @@ button{
     background-color: #00769e;
 }
 
-.glow {
-    box-shadow: 0 0 20px 5px #3e7384;
-    box-shadow: 0 0 20px 5px #003647;
-box-shadow: 0 0 20px 5px rgba(2, 148, 245, 0.5);
+.glow{
+    
 }

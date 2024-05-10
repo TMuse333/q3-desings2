@@ -51,11 +51,13 @@ export const CircleInfoGraphic = () => {
             image={ball}/>
                   <CircleElement
             image={ball}/>
+
+
+
+
         </section>
-        <div className="mt-5
-        w-[90vw] h-[10px]
-         bg-gradient-to-r from-[#003647] via-[#3e7384] to-[#003647]
-        ml-auto mr-auto rounded-[200rem]">
+        <div className="w-[80vw] h-[100px] bg-blue-200
+        ml-auto mr-auto">
            
        </div>
        </>

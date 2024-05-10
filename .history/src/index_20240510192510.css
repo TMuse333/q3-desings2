@@ -33,7 +33,11 @@ button{
 }
 
 .glow {
-    box-shadow: 0 0 20px 5px #3e7384;
-    box-shadow: 0 0 20px 5px #003647;
-box-shadow: 0 0 20px 5px rgba(2, 148, 245, 0.5);
+
+    inset: 0;
+   
+    background-color: #fff; /* Set the color of the glow */
+    filter: blur(20px); /* Add a blur effect */
+    opacity: 0.75; /* Adjust the opacity of the glow */
+    z-index: -1; /* Ensure the glow is behind other content */
 }

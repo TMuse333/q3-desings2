@@ -65,10 +65,9 @@ const Homepage: React.FC = () => {
 <CircleList/>
 </div> */}
 
-<div className="relative bg-gradient-to-b from-[#043747] via-[#032029] to-transparent w-screen">
+<div className=""
 
 <CircleInfoGraphic/>
-</div>
 
             
         </section>

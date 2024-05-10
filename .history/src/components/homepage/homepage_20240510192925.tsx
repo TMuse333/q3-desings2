@@ -67,8 +67,9 @@ const Homepage: React.FC = () => {
 
 <div className="relative bg-gradient-to-b from-[#043747] via-[#032029] to-transparent w-screen">
 
+
+
 <CircleInfoGraphic/>
-</div>
 
             
         </section>

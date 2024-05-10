@@ -34,7 +34,6 @@ const CircleElement: React.FC<CircleProps> = ({image}) => {
 export const CircleInfoGraphic = () => {
 
     return (
-        <>
         <section className="flex
          justify-center flex-col items-center
           sm:grid sm:grid-cols-2 lg:grid-cols-3
@@ -51,13 +50,11 @@ export const CircleInfoGraphic = () => {
             image={ball}/>
                   <CircleElement
             image={ball}/>
+     <div className="w-screen max-w-[1500px] ml-auto mr-auto relative overflow-hidden">
+    <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white rounded-full"></div>
+</div>
+
+
         </section>
-        <div className="mt-5
-        w-[90vw] h-[10px]
-         bg-gradient-to-r from-[#003647] via-[#3e7384] to-[#003647]
-        ml-auto mr-auto rounded-[200rem]">
-           
-       </div>
-       </>
     )
 }
