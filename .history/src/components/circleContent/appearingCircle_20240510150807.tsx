@@ -5,13 +5,13 @@ import {motion,} from 'framer-motion'
 
 interface CircleProps  {
     image: string,
-    
+    secondCircleComplete: boolean;
    
     handleCircleComplete: (index: number, value: boolean) => void;
     index:number
 }
 
-const AppearingCircle: React.FC<CircleProps> = ({image,
+const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
     handleCircleComplete,index}) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const offscreenCanvasRef = useRef<HTMLCanvasElement>(null); // Ref for the offscreen canvas

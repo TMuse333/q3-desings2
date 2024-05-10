@@ -11,7 +11,7 @@ interface CircleProps  {
     index:number
 }
 
-const AppearingCircle: React.FC<CircleProps> = ({image,
+const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
     handleCircleComplete,index}) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const offscreenCanvasRef = useRef<HTMLCanvasElement>(null); // Ref for the offscreen canvas

@@ -1,17 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useGeneralContext } from '../../context/context';
 import useIntersectionObserver from '../intersectionObserver/intersectionObserver';
-import {motion,} from 'framer-motion'
+import {motion, Variants} from 'framer-motion'
 
 interface CircleProps  {
     image: string,
-    
+    secondCircleComplete: boolean;
    
     handleCircleComplete: (index: number, value: boolean) => void;
     index:number
 }
 
-const AppearingCircle: React.FC<CircleProps> = ({image,
+const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
     handleCircleComplete,index}) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const offscreenCanvasRef = useRef<HTMLCanvasElement>(null); // Ref for the offscreen canvas
@@ -92,14 +92,14 @@ const AppearingCircle: React.FC<CircleProps> = ({image,
   
 
 
-// const imageVariants: Variants = {
-//     initial:{
-//         opacity:0,
-//     },
-//     animate:{
-//         opacity:1
-//     }
-// }
+const imageVariants: Variants = {
+    initial:{
+        opacity:0,
+    },
+    animate:{
+        opacity:1
+    }
+}
     
 
    
