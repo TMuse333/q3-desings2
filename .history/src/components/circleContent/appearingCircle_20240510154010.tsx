@@ -1,17 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useGeneralContext } from '../../context/context';
 import useIntersectionObserver from '../intersectionObserver/intersectionObserver';
-import {motion,Variants} from 'framer-motion'
+import {motion,Variant} from 'framer-motion'
 
 interface CircleProps  {
     image: string,
     
-   secondCircleComplete:boolean
+   
     handleCircleComplete: (index: number, value: boolean) => void;
     index:number
 }
 
-const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
+const AppearingCircle: React.FC<CircleProps> = ({image,
     handleCircleComplete,index}) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const offscreenCanvasRef = useRef<HTMLCanvasElement>(null); // Ref for the offscreen canvas
@@ -92,14 +92,14 @@ const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
   
 
 
-const imageVariants: Variants = {
-    initial:{
-        opacity:0,
-    },
-    animate:{
-        opacity:1
-    }
-}
+// const imageVariants: Variants = {
+//     initial:{
+//         opacity:0,
+//     },
+//     animate:{
+//         opacity:1
+//     }
+// }
     
 
    
@@ -185,26 +185,26 @@ const imageVariants: Variants = {
             c.stroke();
         }
 
-        // if(resize){
+        if(resize){
           
-        //     c.clearRect(0, 0, canvas.width, canvas.height);
-        //     c.strokeStyle = '#00bfff';
-        //     c.beginPath();
-        //     c.arc(circleOriginX, circleOriginY, circleRadius, 0, 2 * Math.PI);
-        //     c.lineWidth = 4; // Set border width
+            c.clearRect(0, 0, canvas.width, canvas.height);
+            c.strokeStyle = '#00bfff';
+            c.beginPath();
+            c.arc(circleOriginX, circleOriginY, circleRadius, 0, 2 * Math.PI);
+            c.lineWidth = 4; // Set border width
   
-        //     c.stroke();
+            c.stroke();
 
-        //     c.beginPath();
-        //     c.arc(circleOriginX, circleOriginY, circle2Radius, 0, (fraction * Math.PI) * 2, false);
-        //     c.lineWidth = 2; 
-        //     c.strokeStyle = 
-        //     '#048dba'; // Set stroke color to red
-        //     c.stroke()
-        //     setResize(false)
+            c.beginPath();
+            c.arc(circleOriginX, circleOriginY, circle2Radius, 0, (fraction * Math.PI) * 2, false);
+            c.lineWidth = 2; 
+            c.strokeStyle = 
+            '#048dba'; // Set stroke color to red
+            c.stroke()
+            setResize(false)
             
      
-        // }
+        }
  
         
        
@@ -276,9 +276,9 @@ const imageVariants: Variants = {
             <div ref={componentRef} className='relative mr-auto ml-auto
     z-2'>
                 <motion.img 
-                variants={imageVariants}
-                initial={'initial'}
-                animate={secondCircleComplete ? 'animate' : 'initial'}
+                // variants={imageVariants}
+                // initial={'initial'}
+                // animate={secondCircleComplete ? 'animate' : 'initial'}
                 // style={imageStyle}
                 src={image}
                 className={`absolute  top-[20%] left-[50%] -translate-x-[50%]
