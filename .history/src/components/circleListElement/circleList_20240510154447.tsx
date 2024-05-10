@@ -148,7 +148,7 @@ index={4}
             handleCircleComplete={handleCircleComplete}
             index={5}
             image={ball}
-            title='Top Tier Design'
+            title='Top Teir Design'
             description='Gym. Code. Quantum Realm. Repeat'
             />
 

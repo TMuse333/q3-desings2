@@ -1,5 +1,4 @@
 import React from "react";
-import { CircleInfoGraphic } from "../circleInfographic/circleInfoGraphic";
 // import Content from "../content/content";
 // import q3 from '../../media/q3-visuals-logo-2.png'
 // import TextFormat from "../textFormat/textFormat";
@@ -64,8 +63,6 @@ const Homepage: React.FC = () => {
 {/* <div className="relative bg-gradient-to-b from-[#043747] via-[#032029] to-transparent w-screen">
 <CircleList/>
 </div> */}
-
-<CircleInfoGraphic/>
 
             
         </section>
