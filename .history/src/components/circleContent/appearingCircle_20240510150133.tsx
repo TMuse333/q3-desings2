@@ -49,7 +49,7 @@ const AppearingCircle: React.FC<CircleProps> = ({image,secondCircleComplete,
     useEffect(()=> {
         const handleResize = () => {
             if(screenSize >= 400 && window.innerWidth < 400){
-                // setRedraw(true)
+                setRedraw(true)
                 setResize(true)
                 setCircle2Radius(60)
                 setCircleRadiusLimit(50)
