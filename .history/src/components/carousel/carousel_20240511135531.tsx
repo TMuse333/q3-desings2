@@ -23,15 +23,14 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
         <section className='overflow-hidden relative  '>
 
             <div className='flex  relative '
-             >
+             style={{
+                transform:`translateX(-${imageIndex * 100}%)`
+            }}>
                 {images.map((image,index) => (
                     <img src={image}
                     key={index}
                     className='transition-transform bg-red-200
                     '
-                    style={{
-                        transform:`translateX(-${imageIndex * 100}%)`
-                    }}
                    
                     />
                 ))}

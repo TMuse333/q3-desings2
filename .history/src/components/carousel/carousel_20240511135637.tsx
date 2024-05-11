@@ -30,7 +30,7 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
                     className='transition-transform bg-red-200
                     '
                     style={{
-                        transform:`translateX(-${imageIndex * 100}%)`
+                        transform:`translateX(-${imageIndex * 10}%)`
                     }}
                    
                     />

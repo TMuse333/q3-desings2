@@ -35,7 +35,7 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
                    
                     />
                 ))}
-                    <div className=' w-[100%]
+                    {/* <div className=' w-[100%]
                     flex flex-row justify-between
                     top-[50%]'>
                       
@@ -54,7 +54,7 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
                  onClick={handleNext}
                  size={40}/>
                 </button>
-            </div>
+            </div> */}
             </div>
 
         

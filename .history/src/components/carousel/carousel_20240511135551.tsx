@@ -29,9 +29,6 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
                     key={index}
                     className='transition-transform bg-red-200
                     '
-                    style={{
-                        transform:`translateX(-${imageIndex * 100}%)`
-                    }}
                    
                     />
                 ))}

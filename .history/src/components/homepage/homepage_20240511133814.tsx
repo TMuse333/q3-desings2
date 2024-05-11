@@ -77,11 +77,11 @@ const Homepage: React.FC = () => {
 <CircleInfoGraphic/>
 </div>
 
-{/* <div className="max-w-lg mr-auto ml-auto"> */}
-<Carousel images={images}
+<div className="max-w-lg mr-auto ml-auto">
+<Carousel slides={images}
 
 />
-{/* </div> */}
+</div>
 
 
             

@@ -81,7 +81,7 @@ const Homepage: React.FC = () => {
 <Carousel images={images}
 
 />
-{/* </div> */}
+</div>
 
 
             

@@ -22,17 +22,14 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
       <div className="max-w-lg mr-auto ml-auto"> 
         <section className='overflow-hidden relative  '>
 
-            <div className='flex  relative '
-             >
+            <div className='flex  relative '>
                 {images.map((image,index) => (
                     <img src={image}
                     key={index}
-                    className='transition-transform bg-red-200
-                    '
+                    className='h-[500px]'
                     style={{
                         transform:`translateX(-${imageIndex * 100}%)`
                     }}
-                   
                     />
                 ))}
                     <div className=' w-[100%]
@@ -51,7 +48,7 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
                 <button className='bg-transparent absolute
                 right-[0%] top-[50%] p-0'>
                  <ChevronRight
-                 onClick={handleNext}
+                 onC
                  size={40}/>
                 </button>
             </div>
