@@ -68,7 +68,7 @@ sm:h-[60vw]
      ml-auto
    mr-auto
    mb-auto
-
+  bg-blue-200
    absolute transition-transform duration-500
 top-[25%]
    '
@@ -93,11 +93,8 @@ top-[25%]
    </>
    
         ))}
-<div className='absolute 
-w-screen flex justify-between
-sm:w-[70vw]
-max-w-[405px]
-
+<div className='absolute bg-red-200
+w-screen
 '>
 <button className=' bg-transparent p-0
 '>

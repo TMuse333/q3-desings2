@@ -70,7 +70,8 @@ sm:h-[60vw]
    mb-auto
 
    absolute transition-transform duration-500
-top-[25%]
+   max-w-[405px]
+   max-h-[434px]
    '
    key={index}
    style={{
@@ -93,27 +94,19 @@ top-[25%]
    </>
    
         ))}
-<div className='absolute 
-w-screen flex justify-between
-sm:w-[70vw]
-max-w-[405px]
 
-'>
-<button className=' bg-transparent p-0
-'>
-<ChevronLeft
+        <button className='absolute top-[50%]
+        left-0 bg-transparent p-0'>
+            <ChevronLeft
             onClick={handlePrevClick}
             size={40}/>
         </button>
-        <button className=' bg-transparent p-0'>
+        <button className='absolute top-[50%]
+        right-0 bg-transparent p-0'>
             <ChevronRight
             size={40}
             onClick={handleNextClick}/>
         </button>
-</div>
-
-          
-        
 
          </section>
      

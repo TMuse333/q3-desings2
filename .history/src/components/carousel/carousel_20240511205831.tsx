@@ -68,7 +68,7 @@ sm:h-[60vw]
      ml-auto
    mr-auto
    mb-auto
-
+  bg-blue-200
    absolute transition-transform duration-500
 top-[25%]
    '
