@@ -33,7 +33,7 @@ justify-center items-center'>
 
          
 
-            <div className='flex   relative'
+            <div className='flex   relative '
              >
                 {images.map((image,index) => (
                     <img src={image}
@@ -41,7 +41,7 @@ justify-center items-center'>
                     className='transition-transform
                ml-auto mr-auto
                     border border-white
-                    w-[500px] object-cover'
+                    '
                     style={{
                         transform:`translateX(-${imageIndex * 100}%)`
                     }}

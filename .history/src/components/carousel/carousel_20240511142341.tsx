@@ -33,7 +33,7 @@ justify-center items-center'>
 
          
 
-            <div className='flex   relative'
+            <div className='flex   relative w-[500px]'
              >
                 {images.map((image,index) => (
                     <img src={image}

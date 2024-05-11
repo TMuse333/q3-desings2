@@ -12,7 +12,7 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
 
     const handleNext = () => {
         setImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        console.log('image index',imageIndex)
+        
       };
     
       const handlePrev = () => {
@@ -27,23 +27,23 @@ flex
 justify-center items-center'>
 
    
-        <section className='overflow-hidden relative w-[500px]
-  flex justify-center items-center'>
-           
+        <section className=' relative w-[500px] bg-red-300
+        h-[400px]   '>
+            slat
 
          
 
-            <div className='flex   relative'
+            <div className='flex   relative '
              >
                 {images.map((image,index) => (
                     <img src={image}
                     key={index}
                     className='transition-transform
-               ml-auto mr-auto
+                    h-[500px]
                     border border-white
-                    w-[500px] object-cover'
+                    '
                     style={{
-                        transform:`translateX(-${imageIndex * 100}%)`
+                        transform:`translateX(-${imageIndex * 150}%)`
                     }}
                    
                     />

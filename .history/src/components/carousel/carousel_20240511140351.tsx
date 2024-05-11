@@ -12,7 +12,6 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
 
     const handleNext = () => {
         setImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        console.log('image index',imageIndex)
       };
     
       const handlePrev = () => {
@@ -20,28 +19,16 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
       };
 
     return (
-        <>
 
-        <div className='w-screen  z-3
-flex
-justify-center items-center'>
+        <section className='overflow-hidden relative  '>
 
-   
-        <section className='overflow-hidden relative w-[500px]
-  flex justify-center items-center'>
-           
-
-         
-
-            <div className='flex   relative'
+            <div className='flex  relative '
              >
                 {images.map((image,index) => (
                     <img src={image}
                     key={index}
-                    className='transition-transform
-               ml-auto mr-auto
-                    border border-white
-                    w-[500px] object-cover'
+                    className='transition-transform bg-red-200
+                    '
                     style={{
                         transform:`translateX(-${imageIndex * 100}%)`
                     }}
@@ -69,9 +56,10 @@ justify-center items-center'>
                 </button>
             </div>
             </div>
+
+        
+
         </section>
-        </div>
-            </>
    
     )
 }

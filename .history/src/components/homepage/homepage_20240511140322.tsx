@@ -68,17 +68,17 @@ const Homepage: React.FC = () => {
             
 
            
-{/* <div className="relative bg-gradient-to-b from-[#043747] via-[#032029] to-transparent w-screen">
+<div className="relative bg-gradient-to-b from-[#043747] via-[#032029] to-transparent w-screen">
 <CircleList/>
-</div> */}
+</div>
 
 <div className="relative bg-gradient-to-b from-[#043747] via-[#032029] to-transparent w-screen">
 
 <CircleInfoGraphic/>
 </div>
 
-
-<Carousel images={images}
+<div className="max-w-lg mr-auto ml-auto">
+<Carousel slides={images}
 
 />
 
