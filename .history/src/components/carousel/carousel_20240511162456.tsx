@@ -41,7 +41,7 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
    border border-white
     bg-green-200 ml-auto
    mr-auto
-   absolute '
+   absolute top-0'
    key={index}
    style={{
     transform: `translateX(${shift * (100 + image.imageIndex)}%)`

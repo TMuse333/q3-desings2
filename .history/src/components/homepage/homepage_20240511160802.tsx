@@ -22,10 +22,6 @@ const Homepage: React.FC = () => {
     {
         url:moneyBall,
         imageIndex:0
-    },
-    {
-        url:q3,
-        imageIndex:1
     }
    ]
 

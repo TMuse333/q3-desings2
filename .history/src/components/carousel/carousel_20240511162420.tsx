@@ -32,7 +32,7 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
        
         <section className='flex relative
         justify-center items-center ml-auto
-        mr-auto w-[500px] '>
+        mr-auto w-[500px] overflow-hidden'>
 
        
         {images.map((image,index) => (
@@ -41,10 +41,10 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
    border border-white
     bg-green-200 ml-auto
    mr-auto
-   absolute '
+   absolute top-0'
    key={index}
    style={{
-    transform: `translateX(${shift * (100 + image.imageIndex)}%)`
+    transform: `translateX(${shift * (100 + image.imageIndex)}%)`;
 
    }}>
        <img src={image.url}

@@ -24,7 +24,7 @@ const Homepage: React.FC = () => {
         imageIndex:0
     },
     {
-        url:q3,
+        url:nobgLaptop,
         imageIndex:1
     }
    ]

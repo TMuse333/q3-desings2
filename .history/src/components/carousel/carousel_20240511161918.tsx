@@ -15,12 +15,10 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
 
     function handlePrevClick(){
             setShift((prev)=> prev--)
-            console.log('current shift',shift)
     }
 
     function handleNextClick(){
         setShift((prev)=> prev++)
-        console.log('current shift',shift)
 }
 
 
@@ -41,13 +39,12 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
    border border-white
     bg-green-200 ml-auto
    mr-auto
-   absolute '
+   relative'
    key={index}
    style={{
-    transform: `translateX(${shift * (100 + image.imageIndex)}%)`
-
+    transform:`translateX(${(shift *100)+ image.imageIndex}%)`
    }}>
-       <img src={image.url}
+       <img src={moneyBall}
        className='w-[300px]
        ml-auto mr-auto'/>
    </div>
