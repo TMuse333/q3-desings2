@@ -27,7 +27,7 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
        
         <section className='flex relative
         justify-center items-center ml-auto
-        mr-auto w-[500px] overflow-scroll'>
+        mr-auto w-[500px] overflow-hidden'>
 
        
         {[...Array(1)].map((_,index) => (

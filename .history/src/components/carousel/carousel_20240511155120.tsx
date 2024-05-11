@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { ChevronLeft, ChevronRight } from "react-feather";
-import moneyBall from '../../media/futuristic-money-ball-removebg-preview.png'
+
 interface CarouselProps {
     images:string[]
 }
@@ -27,7 +27,7 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
        
         <section className='flex relative
         justify-center items-center ml-auto
-        mr-auto w-[500px] overflow-scroll'>
+        mr-auto w-[500px]'>
 
        
         {[...Array(1)].map((_,index) => (
@@ -38,11 +38,9 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
    mr-auto
    absolute'
    style={{
-    transform:`translateX(-${100 * index}%)`
+    transform:`translateX(-${100 * 0}%)`
    }}>
-       <img src={moneyBall}
-       className='w-[300px]
-       ml-auto mr-auto'/>
+       green
    </div>
 
    <div className='w-[500px] h-[500px]
