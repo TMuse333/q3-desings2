@@ -49,7 +49,7 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
        
         <section className='flex relative
         justify-center items-center ml-auto
-        mr-auto w-[100vw]
+        mr-auto w-[90vw]
         h-screen overflow-hidden
         max-w-[900px] z-3
         '>
@@ -59,9 +59,9 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
             <>
 
             {/*this dictates the height and width of the image*/}
-   <div className='w-[90vw] 
+   <div className='w-[100vw] 
 h-[80vw]
-     ml-auto
+    bg-red-200 ml-auto
    mr-auto
    mb-auto
 

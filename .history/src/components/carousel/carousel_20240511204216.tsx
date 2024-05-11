@@ -61,7 +61,7 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
             {/*this dictates the height and width of the image*/}
    <div className='w-[90vw] 
 h-[80vw]
-     ml-auto
+    bg-red-200 ml-auto
    mr-auto
    mb-auto
 

@@ -79,7 +79,7 @@ h-[80vw]
  
 
        h-[100%] object-cover
-       object-bottom
+      
        ml-auto mr-auto'/>
    </div>
 

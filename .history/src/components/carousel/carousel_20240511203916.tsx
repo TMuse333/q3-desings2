@@ -49,19 +49,17 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
        
         <section className='flex relative
         justify-center items-center ml-auto
-        mr-auto w-[100vw]
-        h-screen overflow-hidden
+        mr-auto w-[90vw]
+        h-[8vw] overflow-hidden
         max-w-[900px] z-3
         '>
 
        
         {images.map((image,index) => (
             <>
-
-            {/*this dictates the height and width of the image*/}
    <div className='w-[90vw] 
 h-[80vw]
-     ml-auto
+    bg-red-200 ml-auto
    mr-auto
    mb-auto
 
@@ -78,8 +76,8 @@ h-[80vw]
  
  
 
-       h-[100%] object-cover
-       object-bottom
+       h-[80vw] object-cover
+       
        ml-auto mr-auto'/>
    </div>
 

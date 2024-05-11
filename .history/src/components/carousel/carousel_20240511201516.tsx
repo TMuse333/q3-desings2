@@ -43,43 +43,28 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
     return (
         <>
 
-       <div className='mt-10
-       w-[100%]  flex
-       relative  h-screen'>
+       <div className='w-screen bg-blue-200 flex
+       relative h-screen'>
        
         <section className='flex relative
         justify-center items-center ml-auto
-        mr-auto w-[100vw]
-        h-screen overflow-hidden
-        max-w-[900px] z-3
-        '>
+        mr-auto w-[500px] overflow-hidden'>
 
        
         {images.map((image,index) => (
             <>
-
-            {/*this dictates the height and width of the image*/}
-   <div className='w-[90vw] 
-h-[80vw]
-     ml-auto
+   <div className='w-[500px] h-[500px]
+   border border-white
+    bg-transparent ml-auto
    mr-auto
-   mb-auto
-
-   absolute transition-transform duration-500
-   
-   '
+   absolute transition-transform duration-500'
    key={index}
    style={{
     transform: `translateX(${(shift * 100) + (100 * image.imageIndex)}%)`
 
    }}>
        <img src={image.url}
-       className='w-[80%] 
- 
- 
-
-       h-[100%] object-cover
-       object-bottom
+       className='w-[80%]
        ml-auto mr-auto'/>
    </div>
 

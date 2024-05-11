@@ -28,8 +28,8 @@ const Homepage: React.FC = () => {
         imageIndex:1
     },
     {
-        url:nobgLaptop,
-        imageIndex:2
+        url:q3,
+        imageIndex:1
     }
    ]
 
@@ -46,7 +46,7 @@ const Homepage: React.FC = () => {
 
          
             {/* <ParticlesComponent/> */}
-            {/* <MultiLayerParallax/> */}
+            <MultiLayerParallax/>
 
             {/* <TextParallaxContentExample/> */}
 
@@ -81,10 +81,10 @@ const Homepage: React.FC = () => {
 <CircleList/>
 </div> */}
 
-{/* <div className="relative bg-gradient-to-b from-[#043747] via-[#032029] to-transparent w-screen">
+<div className="relative bg-gradient-to-b from-[#043747] via-[#032029] to-transparent w-screen">
 
 <CircleInfoGraphic/>
-</div> */}
+</div>
 
 
 <Carousel images={images}

@@ -13,73 +13,42 @@ const Carousel:React.FC<CarouselProps> = ({images}) =>{
 
     const [shift,setShift] = useState<number>(0)
 
-    console.log('images length',images.length)
-
     function handlePrevClick(){
-
-        if(shift === 0){
-            setShift(-images.length + 1)
-        }
-        else{
-            setShift(prev => prev + 1);
-        }
-      
+            setShift((prev)=> prev--)
             console.log('current shift',shift)
     }
 
     function handleNextClick(){
-        if(shift === -images.length +1){
-            setShift(0)
-        }
-
-        else{
-            setShift(prev => prev - 1);
-        }
-       
+        setShift((prev)=> prev++)
         console.log('current shift',shift)
-
 }
+
 
     return (
         <>
 
-       <div className='mt-10
-       w-[100%]  flex
-       relative  h-screen'>
+       <div className='w-screen bg-blue-200 flex
+       relative h-screen'>
        
         <section className='flex relative
         justify-center items-center ml-auto
-        mr-auto w-[100vw]
-        h-screen overflow-hidden
-        max-w-[900px] z-3
-        '>
+        mr-auto w-[500px] '>
 
        
         {images.map((image,index) => (
             <>
-
-            {/*this dictates the height and width of the image*/}
-   <div className='w-[90vw] 
-h-[80vw]
-     ml-auto
+   <div className='w-[500px] h-[500px]
+   border border-white
+    bg-green-200 ml-auto
    mr-auto
-   mb-auto
-
-   absolute transition-transform duration-500
-   
-   '
+   absolute '
    key={index}
    style={{
-    transform: `translateX(${(shift * 100) + (100 * image.imageIndex)}%)`
+    transform: `translateX(${0 * (100 + 0)}%)`
 
    }}>
        <img src={image.url}
-       className='w-[80%] 
- 
- 
-
-       h-[100%] object-cover
-       object-bottom
+       className='w-[300px]
        ml-auto mr-auto'/>
    </div>
 
