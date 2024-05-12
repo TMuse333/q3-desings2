@@ -166,7 +166,7 @@ md:top-auto
        </div>
 
        {hasDescription && (
-      <AnimatePresence mode='wait'>
+      <AnimatePresence exitBeforeEnter>
       <motion.div
         key={currentImage}
         className="w-[100%] md:w-[50%] md:-translate-y-[5rem]"

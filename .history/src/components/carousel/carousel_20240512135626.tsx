@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { ChevronLeft, ChevronRight } from "react-feather";
-import {motion, AnimatePresence} from 'framer-motion'
+
 
 interface CarouselProps {
     images:{
@@ -88,8 +88,7 @@ const imageVariants = {
         max-h-[804px]
         h-[95vw] overflow-hidden
         max-w-[900px] z-3
-        max-h-[410px]
-        md:max-h-[520px]
+        max-h-[400px]
 
         '>
 
@@ -101,14 +100,12 @@ const imageVariants = {
    <div className='w-[90vw] 
    sm:w-[70vw]
 h-[80vw]
-sm:h-[80vw]
+sm:h-[60vw]
      ml-auto
    mr-auto
    mb-auto
-   max-h-[380px]
-   md:max-h-[520px]
+max-h-[520px]
    absolute transition-transform duration-500
-
 
    '
    key={index}
@@ -122,11 +119,9 @@ sm:h-[80vw]
         src={image.url}
        className='w-[80%] 
             max-w-[405px]
-            max-h-[424px]
+            max-h-[434px]
        h-[100%] object-cover
        object-bottom
-      
-       
        ml-auto mr-auto'/>
    </div>
 
@@ -166,19 +161,17 @@ md:top-auto
        </div>
 
        {hasDescription && (
-      <AnimatePresence mode='wait'>
-      <motion.div
-        key={currentImage}
-        className="w-[100%] md:w-[50%] md:-translate-y-[5rem]"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }} // Adjust duration as needed
-      >
-        <h1>{images[currentImage].title}</h1>
-        <p className="text-white">{images[currentImage].description}</p>
-      </motion.div>
-    </AnimatePresence>
+        <div className=' w-[100%]
+        md:w-[50%]
+        pb-10
+
+       
+   '>
+            <h1>{images[currentImage].title}</h1>
+        <p className='text-white'>
+            {images[currentImage].description}
+        </p>
+        </div>
        )}
        </section>
 

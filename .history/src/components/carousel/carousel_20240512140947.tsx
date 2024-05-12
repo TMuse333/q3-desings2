@@ -166,19 +166,18 @@ md:top-auto
        </div>
 
        {hasDescription && (
-      <AnimatePresence mode='wait'>
-      <motion.div
-        key={currentImage}
-        className="w-[100%] md:w-[50%] md:-translate-y-[5rem]"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }} // Adjust duration as needed
-      >
-        <h1>{images[currentImage].title}</h1>
-        <p className="text-white">{images[currentImage].description}</p>
-      </motion.div>
-    </AnimatePresence>
+        <div className=' w-[100%]
+        md:w-[50%]
+        md:-translate-y-[5rem]
+
+
+       
+   '>
+            <h1>{images[currentImage].title}</h1>
+        <p className='text-white'>
+            {images[currentImage].description}
+        </p>
+        </div>
        )}
        </section>
 
