@@ -58,15 +58,15 @@ const imageVariants = {
         <>
 
         <section
-        className='w-screen max-w-[1000px] relative
-        flex flex-col md:flex-row ml-auto mr-auto'>
+        className='w-screen max-w-[1000px]
+        flex flex-col sm:flex-row: ml-auto mr-auto'>
 
       
 
        <div className={`mt-10
         flex
        relative  h-screen
-       ${hasDescription ? 'md:w-[50%]' : 'w-[100%]'}`}>
+       ${hasDescription ? 'sm:w-[50%]' : 'w-[100%]'}`}>
        
         <section className='flex relative
         justify-center items-center ml-auto
@@ -142,9 +142,8 @@ max-w-[425px]
        </div>
 
        {hasDescription && (
-        <div className='  bg-red-200
-        sm:-translate-y-[8rem]
-        md:-translate-y-[5rem]'>
+        <div className='   sm:mt-auto mb-auto 
+        sm:-translate-y-[5rem]'>
             <h1>Title Here</h1>
         <p className='text-white'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error illo ex quae et fuga nobis est voluptatum architecto labore laudantium.
         </p>
