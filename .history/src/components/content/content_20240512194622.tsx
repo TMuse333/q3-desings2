@@ -136,7 +136,7 @@ const nullVariant: Variants = {
           initial={hasAnimation ? 'initial' : ''}
           animate={hasAnimation && inView ? 'animate' : ''}
            className="text-left pl-5 sm:pl-12 pt-5
-           bg-gradient-to-br from-white to-gray-400 bg-clip-text">{mainTitle}</motion.h1>
+           ">{mainTitle}</motion.h1>
           <motion.p
           variants={textVariants(0.25)}
        initial={hasAnimation ? 'initial' : ''}

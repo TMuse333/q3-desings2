@@ -4,7 +4,6 @@ import './App.css'
 
 import Homepage from './components/homepage/homepage'
 import {Route, Routes} from 'react-router-dom'
-import Contact from './components/contact/contact'
 function App() {
 
 
@@ -12,7 +11,7 @@ function App() {
     <>
     <Routes>
       <Route path='/' element={<Homepage/>}/>
-      <Route path='contact' element={<Contact/>}/>
+      <Route path='contact' element={<Cont}
     </Routes>
 
     </>

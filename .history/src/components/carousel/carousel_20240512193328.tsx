@@ -186,7 +186,7 @@ md:top-auto
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.7 }} // Adjust duration as needed
+        transition={{ duration: 0.8 }} // Adjust duration as needed
       >
         <h1 className='md2:text-left
         md2:pl-5'>{images[currentImage].title}</h1>
