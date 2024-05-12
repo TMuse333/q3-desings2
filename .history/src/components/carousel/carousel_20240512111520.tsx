@@ -1,20 +1,16 @@
 import React, {useState} from 'react'
 import { ChevronLeft, ChevronRight } from "react-feather";
-
+import { motion, AnimatePresence,Variants } from "framer-motion";
 
 interface CarouselProps {
     images:{
         url:string,
         imageIndex:number
-        description?:string
-    }[],
-    hasDescription?:boolean
-
+    }[]
 }
 
 
-const Carousel:React.FC<CarouselProps> = ({images,
-hasDescription}) =>{
+const Carousel:React.FC<CarouselProps> = ({images}) =>{
 
     const [shift,setShift] = useState<number>(0)
 
@@ -45,28 +41,21 @@ hasDescription}) =>{
 
 }
 
-const imageVariants = {
-    initial: { // Initial state
-      x: 30 // Initial X offset
-    },
-    animate: (custom:number) => ({ // Animated state, custom prop is passed
-      x: custom * 100 // Move the image horizontally based on its index
-    })
-  };
+    // const imageVarinats = (imageIndex:number) :Variants => {
+
+    //     return {
+    //         initial:{
+    //             x:`(${shift} * 100) + (100 * ${imageIndex})`
+    //         }
+    //     }
+    // }
 
     return (
         <>
 
-        <section
-        className='w-screen max-w-[1000px]
-        flex ml-auto mr-auto'>
-
-      
-
-       <div className={`mt-10
-        flex
-       relative  h-screen
-       ${hasDescription ? 'sm:w-[50%]' : 'w-[100%]'}`}>
+       <div className='mt-10
+       w-[100%]  flex
+       relative  h-screen'>
        
         <section className='flex relative
         justify-center items-center ml-auto
@@ -82,7 +71,7 @@ const imageVariants = {
             <>
 
             {/*this dictates the height and width of the image*/}
-   <div className='w-[90vw] 
+   <motion.div className='w-[90vw] 
    sm:w-[70vw]
 h-[80vw]
 sm:h-[60vw]
@@ -93,12 +82,18 @@ sm:h-[60vw]
    absolute transition-transform duration-500
 top-[25%]
    '
+   initial={{
+    x:`${(shift * 100) + (100 * image.imageIndex)}%`
+   }}
    key={index}
    style={{
-    transform: `translateX(${(shift * 100) + (100 * image.imageIndex)}%)`,
-    transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
+    transform: `translateX(${(shift * 100) + (100 * image.imageIndex)}%)`
    }}
->
+   transition={{
+    type: "spring", // Apply a spring transition
+    stiffness: 500, // Adjust the stiffness for the desired effect
+    damping: 30, // Adjust the damping for the desired effect
+  }}>
        <img
        
         src={image.url}
@@ -108,7 +103,7 @@ top-[25%]
        h-[100%] object-cover
        object-bottom
        ml-auto mr-auto'/>
-   </div>
+   </motion.div>
 
 
 
@@ -121,9 +116,9 @@ sm:w-[70vw]
 max-w-[425px]
 
 '>
-        <button className='bg-transparent p-0
+<button className=' bg-transparent p-0
 '>
-        <ChevronLeft
+<ChevronLeft
             onClick={handlePrevClick}
             size={40}/>
         </button>
@@ -132,7 +127,7 @@ max-w-[425px]
             size={40}
             onClick={handleNextClick}/>
         </button>
-        </div>
+</div>
 
           
         
@@ -140,9 +135,6 @@ max-w-[425px]
          </section>
      
        </div>
-       </section>
-
-
             </>
    
     )

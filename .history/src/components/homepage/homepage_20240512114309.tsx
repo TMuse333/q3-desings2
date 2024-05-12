@@ -95,7 +95,7 @@ const Homepage: React.FC = () => {
 </div>
 
 <Carousel images={images}
-hasDescription={false}
+halfScreen={true}
 />
 </div>
 

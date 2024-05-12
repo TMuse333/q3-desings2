@@ -59,7 +59,7 @@ const imageVariants = {
 
         <section
         className='w-screen max-w-[1000px]
-        flex ml-auto mr-auto'>
+        flex'>
 
       
 

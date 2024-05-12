@@ -8,13 +8,13 @@ interface CarouselProps {
         imageIndex:number
         description?:string
     }[],
-    hasDescription?:boolean
+    halfScreen?:boolean
 
 }
 
 
 const Carousel:React.FC<CarouselProps> = ({images,
-hasDescription}) =>{
+halfScreen}) =>{
 
     const [shift,setShift] = useState<number>(0)
 
@@ -57,16 +57,10 @@ const imageVariants = {
     return (
         <>
 
-        <section
-        className='w-screen max-w-[1000px]
-        flex ml-auto mr-auto'>
-
-      
-
        <div className={`mt-10
-        flex
+       w-[100%]  flex
        relative  h-screen
-       ${hasDescription ? 'sm:w-[50%]' : 'w-[100%]'}`}>
+       ${halfScreen ? ' w-[10%]'}`}>
        
         <section className='flex relative
         justify-center items-center ml-auto
@@ -121,9 +115,9 @@ sm:w-[70vw]
 max-w-[425px]
 
 '>
-        <button className='bg-transparent p-0
+<button className=' bg-transparent p-0
 '>
-        <ChevronLeft
+<ChevronLeft
             onClick={handlePrevClick}
             size={40}/>
         </button>
@@ -132,7 +126,7 @@ max-w-[425px]
             size={40}
             onClick={handleNextClick}/>
         </button>
-        </div>
+</div>
 
           
         
@@ -140,9 +134,6 @@ max-w-[425px]
          </section>
      
        </div>
-       </section>
-
-
             </>
    
     )

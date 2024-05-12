@@ -84,8 +84,7 @@ const Homepage: React.FC = () => {
 {/* <div className="relative bg-gradient-to-b from-[#043747] via-[#032029] to-transparent w-screen"> */}
 
 <CircleInfoGraphic/>
-<div className=" mt-[5rem]
--mb-[5rem]">
+<div className="-mb-[5rem]">
 
 
 <h1>Creating excellence</h1>
@@ -95,7 +94,6 @@ const Homepage: React.FC = () => {
 </div>
 
 <Carousel images={images}
-hasDescription={false}
 />
 </div>
 

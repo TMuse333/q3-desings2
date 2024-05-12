@@ -1,20 +1,15 @@
 import React, {useState} from 'react'
 import { ChevronLeft, ChevronRight } from "react-feather";
 
-
 interface CarouselProps {
     images:{
         url:string,
         imageIndex:number
-        description?:string
-    }[],
-    hasDescription?:boolean
-
+    }[]
 }
 
 
-const Carousel:React.FC<CarouselProps> = ({images,
-hasDescription}) =>{
+const Carousel:React.FC<CarouselProps> = ({images}) =>{
 
     const [shift,setShift] = useState<number>(0)
 
@@ -41,32 +36,16 @@ hasDescription}) =>{
             setShift(prev => prev - 1);
         }
        
-       
+        console.log('current shift',shift)
 
 }
-
-const imageVariants = {
-    initial: { // Initial state
-      x: 30 // Initial X offset
-    },
-    animate: (custom:number) => ({ // Animated state, custom prop is passed
-      x: custom * 100 // Move the image horizontally based on its index
-    })
-  };
 
     return (
         <>
 
-        <section
-        className='w-screen max-w-[1000px]
-        flex ml-auto mr-auto'>
-
-      
-
-       <div className={`mt-10
-        flex
-       relative  h-screen
-       ${hasDescription ? 'sm:w-[50%]' : 'w-[100%]'}`}>
+       <div className='mt-10
+       w-[100%]  flex
+       relative  h-screen'>
        
         <section className='flex relative
         justify-center items-center ml-auto
@@ -95,16 +74,15 @@ top-[25%]
    '
    key={index}
    style={{
-    transform: `translateX(${(shift * 100) + (100 * image.imageIndex)}%)`,
-    transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
-   }}
->
-       <img
-       
-        src={image.url}
+    transform: `translateX(${(shift * 100) + (100 * image.imageIndex)}%)`
+
+   }}>
+       <img src={image.url}
        className='w-[80%] 
             max-w-[405px]
             max-h-[434px]
+ 
+
        h-[100%] object-cover
        object-bottom
        ml-auto mr-auto'/>
@@ -121,9 +99,9 @@ sm:w-[70vw]
 max-w-[425px]
 
 '>
-        <button className='bg-transparent p-0
+<button className=' bg-transparent p-0
 '>
-        <ChevronLeft
+<ChevronLeft
             onClick={handlePrevClick}
             size={40}/>
         </button>
@@ -132,7 +110,7 @@ max-w-[425px]
             size={40}
             onClick={handleNextClick}/>
         </button>
-        </div>
+</div>
 
           
         
@@ -140,9 +118,6 @@ max-w-[425px]
          </section>
      
        </div>
-       </section>
-
-
             </>
    
     )

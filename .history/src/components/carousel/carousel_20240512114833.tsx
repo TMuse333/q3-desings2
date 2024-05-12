@@ -57,11 +57,7 @@ const imageVariants = {
     return (
         <>
 
-        <section
-        className='w-screen max-w-[1000px]
-        flex ml-auto mr-auto'>
-
-      
+        <div
 
        <div className={`mt-10
         flex
@@ -140,7 +136,6 @@ max-w-[425px]
          </section>
      
        </div>
-       </section>
 
 
             </>
