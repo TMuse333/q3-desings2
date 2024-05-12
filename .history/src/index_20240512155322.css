@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root{
+    background-color: black;
+    height:100vh;
+}
+
+body{
+    background-color: black;
+}
+
+button{
+    padding:0.5rem 2rem;
+    background-color: black;
+    color:white;
+    border-radius: 1rem;
+}
+
+h1{
+    color:white;
+    font-size: 2rem;
+}
+
+p{
+    color:white;
+    /* font-size: 1.5rem; */
+}
+
+button{
+    background-color: #00769e;
+}
+
+.glow {
+    box-shadow: 0 0 20px 5px #3e7384;
+    box-shadow: 0 0 20px 5px #003647;
+box-shadow: 0 0 20px 5px rgba(2, 148, 245, 0.5);
+transition:a
+}
+
+.glow:hover{
+    box-shadow: 0 0 40px 5px rgba(2, 148, 245, 0.5);
+}
