@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './booking.css';
 import emailjs from '@emailjs/browser';
 
-
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { Link } from 'react-router-dom';
 
@@ -65,7 +65,7 @@ const Booking: React.FC = () => {
   return (
     <>
      
-            <div>
+            
                   <p className="booking-p">Let's get in contact so we can work together</p>
                   <form onSubmit={sendEmail} ref={form}>
                     <div className="info-box-container">
@@ -75,12 +75,11 @@ const Booking: React.FC = () => {
                       <input type="text" placeholder="Company name (if applicable)" name="company_Name" />
                       <input type="text" placeholder="Phone number" name="phone_Number" />
                       <input type="text" placeholder="Project details" name="project_Details" />
- 
-                    </div>
-                    </form>
                     </div>
 
-                  </>
+              
+
+                  
   );
 };
 

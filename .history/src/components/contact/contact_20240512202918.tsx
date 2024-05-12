@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './booking.css';
 import emailjs from '@emailjs/browser';
 
-
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { Link } from 'react-router-dom';
 

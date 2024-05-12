@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './booking.css';
 import emailjs from '@emailjs/browser';
-
-
+\
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { Link } from 'react-router-dom';
 
@@ -64,8 +64,26 @@ const Booking: React.FC = () => {
 
   return (
     <>
-     
-            <div>
+      {/* <Navbar links={links} /> */}
+
+      <div className="booking-container">
+        <div className="booking-contents">
+          <div className="small">
+            <div className="le-box">
+            
+              <h1 className="title-text booking-title"></h1>
+              {submitted ? (
+                <div className='submitted-container'
+                style={{ height: '100vh' }}>
+                  <p className="description-text">Thank you for your service! We'll get in touch with you shortly.</p>
+                  <Link to='/'>
+
+ 
+                  <button className="button">Home</button>
+                  </Link>
+                </div>
+              ) : (
+                <>
                   <p className="booking-p">Let's get in contact so we can work together</p>
                   <form onSubmit={sendEmail} ref={form}>
                     <div className="info-box-container">
@@ -75,12 +93,29 @@ const Booking: React.FC = () => {
                       <input type="text" placeholder="Company name (if applicable)" name="company_Name" />
                       <input type="text" placeholder="Phone number" name="phone_Number" />
                       <input type="text" placeholder="Project details" name="project_Details" />
- 
-                    </div>
-                    </form>
                     </div>
 
-                  </>
+              
+
+                    <button className="button submit-button" type="submit">
+                      Submit request
+                    </button>
+                  </form>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="big">
+          {/* <img src={nobg} alt="nobg" /> */}
+          <h2 className="title-text">Dolce Vita</h2>
+       
+        </div>
+      </div>
+
+      {/* <Footer /> */}
+    </>
   );
 };
 
