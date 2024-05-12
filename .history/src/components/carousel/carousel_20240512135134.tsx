@@ -86,9 +86,8 @@ const imageVariants = {
         mr-auto w-[100vw]
         sm:w-[70vw]
         max-h-[804px]
-        h-[95vw] overflow-hidden
+        h-[90vw] overflow-hidden
         max-w-[900px] z-3
-        max-h-[500px]
 
         '>
 
@@ -106,7 +105,7 @@ sm:h-[60vw]
    mb-auto
 
    absolute transition-transform duration-500
-
+top-[50%] md:top-[25%]
    '
    key={index}
    style={{
@@ -136,7 +135,7 @@ items-end
 max-h-[434px]
 sm:w-[70vw]
 max-w-[425px]
-
+top-[80%]
 md:top-auto
 
 '>

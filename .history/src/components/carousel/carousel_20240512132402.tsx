@@ -6,13 +6,9 @@ interface CarouselProps {
     images:{
         url:string,
         imageIndex:number
-        title:string,
-        description:string
-     
-      
+        description?:string
     }[],
     hasDescription?:boolean
-    
 
 }
 
@@ -22,18 +18,15 @@ hasDescription}) =>{
 
     const [shift,setShift] = useState<number>(0)
 
-    const [currentImage, setCurrentImage] = useState<number>(0)
     
 
     function handlePrevClick(){
 
         if(shift === 0){
             setShift(-images.length + 1)
-            setCurrentImage(images.length -1)
         }
         else{
             setShift(prev => prev + 1);
-            setCurrentImage(prev => prev -1)
         }
       
             
@@ -42,12 +35,10 @@ hasDescription}) =>{
     function handleNextClick(){
         if(shift === -images.length +1){
             setShift(0)
-            setCurrentImage(0)
         }
 
         else{
             setShift(prev => prev - 1);
-            setCurrentImage(prev => prev + 1)
         }
        
        
@@ -69,9 +60,7 @@ const imageVariants = {
         <section
         className='w-screen max-w-[1000px] relative
         flex flex-col md:flex-row ml-auto mr-auto
-        
-    
-          justify-center items-center
+        h-[90vh] max-h-[800px] justify-center items-center
         mb-5'>
 
       
@@ -85,11 +74,9 @@ const imageVariants = {
         justify-center items-center ml-auto
         mr-auto w-[100vw]
         sm:w-[70vw]
-        max-h-[804px]
-        h-[95vw] overflow-hidden
-        max-w-[900px] z-3
-        max-h-[500px]
 
+        h-screen overflow-hidden
+        max-w-[900px] z-3
         '>
 
        
@@ -106,7 +93,7 @@ sm:h-[60vw]
    mb-auto
 
    absolute transition-transform duration-500
-
+top-[50%] md:top-[25%]
    '
    key={index}
    style={{
@@ -132,12 +119,8 @@ sm:h-[60vw]
         ))}
 <div className='absolute 
 w-screen flex justify-between
-items-end
-max-h-[434px]
 sm:w-[70vw]
 max-w-[425px]
-
-md:top-auto
 
 '>
         <button className='bg-transparent p-0
@@ -161,15 +144,11 @@ md:top-auto
        </div>
 
        {hasDescription && (
-        <div className=' w-[100%]
-        md:w-[50%]
-        pb-10
-
+        <div className=' 
        
    '>
-            <h1>{images[currentImage].title}</h1>
-        <p className='text-white'>
-            {images[currentImage].description}
+            <h1>Title Here</h1>
+        <p className='text-white'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error illo ex quae et fuga nobis est voluptatum architecto labore laudantium.
         </p>
         </div>
        )}

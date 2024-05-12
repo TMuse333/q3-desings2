@@ -36,8 +36,8 @@ const Homepage: React.FC = () => {
     {
         url:nobgLaptop,
         imageIndex:2,
-        title:'A Futuristic Laptop',
-        description:'A smooth futuristic Laptop that shows the modern designs that Q3 Designs like to do'
+            title:'A Futuristic Laptop',
+            description:'A smooth futuristic Laptop that shows the modern designs that Q3 Designs like to do'
         }
     
    ]

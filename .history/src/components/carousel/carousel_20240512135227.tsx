@@ -88,7 +88,6 @@ const imageVariants = {
         max-h-[804px]
         h-[95vw] overflow-hidden
         max-w-[900px] z-3
-        max-h-[500px]
 
         '>
 

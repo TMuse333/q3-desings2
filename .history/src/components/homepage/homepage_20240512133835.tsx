@@ -29,17 +29,19 @@ const Homepage: React.FC = () => {
     {
         url:q3,
         imageIndex:1,
+       
         title:'The original Q3 Logo',
-        description:'Inspired by the many trips the leader of Q3 Designs has taken to the quantum realm'
+    description:'Inspired by the many trips the leader of Q3 Designs has taken to the quantum realm'
         }
     ,
     {
         url:nobgLaptop,
         imageIndex:2,
-        title:'A Futuristic Laptop',
-        description:'A smooth futuristic Laptop that shows the modern designs that Q3 Designs like to do'
+        description:{
+            title:'A Futuristic Laptop',
+            description:'A smooth futuristic Laptop that shows the modern designs that Q3 Designs like to do'
         }
-    
+    }
    ]
 
 
