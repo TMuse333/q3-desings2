@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, {useState,useRef } from "react";
 import ball from '../../media/futuristic-money-ball-removebg-preview.png'
 import { motion,Variants} from 'framer-motion'
 import useIntersectionObserver from "../intersectionObserver/intersectionObserver";

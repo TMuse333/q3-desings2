@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, {useState,useRef } from "react";
 import ball from '../../media/futuristic-money-ball-removebg-preview.png'
 import { motion,Variants} from 'framer-motion'
 import useIntersectionObserver from "../intersectionObserver/intersectionObserver";
@@ -44,7 +44,7 @@ const CircleElement: React.FC<CircleProps> = ({image}) => {
         max-h-[360px]
         sm:w-[48vw] sm:h-[48vw]
         lg:w-[32vw] lg:h-[32vw]
-        ${inView ? 'glow' : ''}`}>
+        ${inView ? '' : ''}`}>
         
             <div className="mt-4">
             <img className="w-[35vw]

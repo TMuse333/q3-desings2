@@ -55,7 +55,14 @@ hasDescription}) =>{
 
 }
 
-
+const imageVariants = {
+    initial: { // Initial state
+      x: 30 // Initial X offset
+    },
+    animate: (custom:number) => ({ // Animated state, custom prop is passed
+      x: custom * 100 // Move the image horizontally based on its index
+    })
+  };
 
     return (
         <>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../../media/q3-words.png'
 import { motion, Variants } from 'framer-motion';
 import bg from '../../media/contact-bg.jpg'
