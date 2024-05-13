@@ -30,12 +30,12 @@ title, description}) => {
     
          className={`mt-5 mb-5 p-0
         rounded-full bg-[#071f26] hover:bg-[#0e3a47]
-        mr-auto ml-auto 
+        mr-auto ml-auto transition-all
         h-[95vw] w-[95vw] border border-[#2dc0eb]
         flex flex-col  shadow-xl max-w-[360px] 
         max-h-[360px]
         sm:w-[48vw] sm:h-[48vw]
-        xl:w-[32vw] xl:h-[32vw]
+        lg:w-[32vw] lg:h-[32vw]
       glow`}
 
         >
@@ -47,7 +47,7 @@ title, description}) => {
             mr-auto ml-auto"
             src={image}
             />
-            <h1 className="text-3xl sm:text-lm xl:text-lg ">{title}</h1>
+            <h1 className="text-3xl sm:text-lm lg:text-lg ">{title}</h1>
             <p className=" ml-auto mr-auto text-sm sm:text-xs pr-5 pl-5 pt-2">
                 {description}
             </p>

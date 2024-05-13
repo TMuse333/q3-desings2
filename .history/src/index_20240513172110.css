@@ -41,5 +41,5 @@ transition: box-shadow 0.3s ease-in, background-color 0.3s ease-in;
 
 .glow:hover{
     box-shadow: 0 0 40px 5px rgba(2, 148, 245, 0.5);
-    transition: box-shadow 0.3s ease-in, background-color 0.3s ease-in;
+    transition:all 0.3s ease-in;
 }

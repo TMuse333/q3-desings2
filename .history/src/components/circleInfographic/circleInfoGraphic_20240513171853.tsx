@@ -30,12 +30,12 @@ title, description}) => {
     
          className={`mt-5 mb-5 p-0
         rounded-full bg-[#071f26] hover:bg-[#0e3a47]
-        mr-auto ml-auto 
+        mr-auto ml-auto transition-all
         h-[95vw] w-[95vw] border border-[#2dc0eb]
         flex flex-col  shadow-xl max-w-[360px] 
         max-h-[360px]
         sm:w-[48vw] sm:h-[48vw]
-        xl:w-[32vw] xl:h-[32vw]
+        xl:w-[32vw] lg:h-[32vw]
       glow`}
 
         >

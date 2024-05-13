@@ -12,7 +12,7 @@ export const description1 = [
 // );
 
 
-export const circleInfographicDescriptions = [
+const circleInfographicDescriptions = [
     {
         title:'Extreme Discipline',
         description:'We are very dedicated to our craft and being the best web designers we can be.'+
@@ -28,10 +28,5 @@ export const circleInfographicDescriptions = [
         title:'Custom Code',
         description:'We have spent a great amount of time creating custom made designs '+
         'through many difficult hours of coding, as opposed to generic drag and drop'
-    },
-    {
-        title:'Fast Worker',
-        description:'We have been building websites for a long time and have developed an efficient system'+
-        ' to produces high quality websites as quickly as possible.'
     }
 ]

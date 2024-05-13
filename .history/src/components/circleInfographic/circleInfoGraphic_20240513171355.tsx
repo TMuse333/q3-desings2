@@ -30,12 +30,12 @@ title, description}) => {
     
          className={`mt-5 mb-5 p-0
         rounded-full bg-[#071f26] hover:bg-[#0e3a47]
-        mr-auto ml-auto 
+        mr-auto ml-auto transition-all
         h-[95vw] w-[95vw] border border-[#2dc0eb]
         flex flex-col  shadow-xl max-w-[360px] 
         max-h-[360px]
         sm:w-[48vw] sm:h-[48vw]
-        xl:w-[32vw] xl:h-[32vw]
+        lg:w-[32vw] lg:h-[32vw]
       glow`}
 
         >
@@ -47,7 +47,7 @@ title, description}) => {
             mr-auto ml-auto"
             src={image}
             />
-            <h1 className="text-3xl sm:text-lm xl:text-lg ">{title}</h1>
+            <h1 className="text-3xl sm:text-lm lg:text-lg ">{title}</h1>
             <p className=" ml-auto mr-auto text-sm sm:text-xs pr-5 pl-5 pt-2">
                 {description}
             </p>
@@ -56,7 +56,11 @@ title, description}) => {
     )
 }
 
-
+interface InfographicProps {
+    image?:string
+    title:string
+    description:string
+}
 
 
 export const CircleInfoGraphic:React.FC = ({
@@ -74,20 +78,20 @@ export const CircleInfoGraphic:React.FC = ({
        </div>
         <section className={`flex
          justify-center flex-col items-center
-          sm:grid sm:grid-cols-2 xl:grid-cols-3
+          sm:grid sm:grid-cols-2 lg:grid-cols-3
            gap-4 lg:gap-0 w-screen max-w-[1500px]  ml-auto mr-auto
           `}>
             <CircleElement
             {...circleInfographicDescriptions[0]}
             image={ball}/>
              <CircleElement
-              {...circleInfographicDescriptions[1]}
+              {...circleInfographicDescriptions[0]}
             image={ball}/>
                   <CircleElement
-                  {...circleInfographicDescriptions[2]}
+                  {...circleInfographicDescriptions[0]}
             image={ball}/>
              <CircleElement
-             {...circleInfographicDescriptions[3]}
+             {...circleInfographicDescriptions[0]}
             image={ball}/>
              <CircleElement
              {...circleInfographicDescriptions[0]}

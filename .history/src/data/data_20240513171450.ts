@@ -30,8 +30,6 @@ export const circleInfographicDescriptions = [
         'through many difficult hours of coding, as opposed to generic drag and drop'
     },
     {
-        title:'Fast Worker',
-        description:'We have been building websites for a long time and have developed an efficient system'+
-        ' to produces high quality websites as quickly as possible.'
+        
     }
 ]

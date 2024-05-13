@@ -31,7 +31,6 @@ export const circleInfographicDescriptions = [
     },
     {
         title:'Fast Worker',
-        description:'We have been building websites for a long time and have developed an efficient system'+
-        ' to produces high quality websites as quickly as possible.'
+        description:''
     }
 ]

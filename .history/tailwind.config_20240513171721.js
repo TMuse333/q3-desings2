@@ -12,7 +12,7 @@ export default {
         'sm2':'860px',
         'lg':'900px',
         'md2':'720px',
-        'xl':'950px'
+        'xl'
       },
       colors: {
         'q-blue' : '#00bfff'
