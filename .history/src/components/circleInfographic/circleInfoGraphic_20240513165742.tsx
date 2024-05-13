@@ -26,7 +26,7 @@ const CircleElement: React.FC<CircleProps> = ({image}) => {
         },
         animate:{
             opacity:1,
-            // y:0
+            y:0
         }
     }
 
