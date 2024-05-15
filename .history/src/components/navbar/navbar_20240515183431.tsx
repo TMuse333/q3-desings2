@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 interface NavbarProps {
@@ -49,26 +49,23 @@ interface SubMenuProps {
         // setSecondaryLinksIndex(null)
     }
 
-    function exitFullMobileNav(){
-        setSubMenuClicked(false)
-        setSecondarySubMenuClicked(false)
 
-    }
 
     return (
         <nav className={`fixed top-0 right-0 bg-black
-        h-screen w-[75vw] max-w-[470px] z-10 transition-transform
+        h-screen w-[75vw] z-10 transition-transform
       ${!subMenuClicked ? 'translate-x-full' : 'translate-x-0'}`}>
         <div className="relative h-full w-full z-40 ">
             {!secondarySubMenuClicked && (
                 <>
          <button onClick={handleSubMenuLeave}
          className="absolute top-[5%] right-[10%] z-[90] text-3xl
-         hover:text-q-blue transition-colors bg-transparent"
+         hover:text-q-blue"
          >X
          </button>
-      
-                    <ul
+         
+   
+            <ul
                         className={`text-left absolute mt-8
                         top-[25%]
                           overflow-hidden transition-[height]
@@ -78,24 +75,24 @@ interface SubMenuProps {
                            
                                 <li key={index}
                                 onClick={()=>handleSecondarySubClick(index)}
-                                className="text-md sm:text-xl mb-4
+                                className="text-md lg:text-lg mb-3
                                 mr-auto text-white
-                               
-                                 pl-2 pr-2 
-                                 hover:text-q-blue">{link.name}</li>
+                                
+                                 pl-2 pr-2 lg:mb-0
+                                 hover:text-red-400 ">{link.name}</li>
                            
                         ))}
                     </ul>
                     </>
-                        )}
+
+)}
 
                     <div className={`fixed top-0 h-full w-full transition-transform bg-black
                     ${!secondarySubMenuClicked ? 'translate-x-full': ''}`}>
 
                             <button className="bg-transparent
-                            top-[5%] absolute left-[10%] !text-2xl
-                            hover:text-q-blue"
-                            onClick={exitFullMobileNav}>
+                            top-[5%] absolute left-[5%] !text-2xl
+                            hover:text-[#3c3c3d]">
                                 X
                             </button>
 
@@ -113,7 +110,7 @@ interface SubMenuProps {
                                     to={link.destination}
                                     >
                                         <li className="mb-2 text-white transition-colors
-                                         hover:text-q-blue md:xl">
+                                         hover:text-q-blue">
                                             {link.name}
                                         </li>
                                     </Link>
@@ -134,83 +131,33 @@ interface SubMenuProps {
 
 const Navbar: React.FC<NavbarProps> = ({ links }) => {
     const [subMenuClicked, setSubMenuClicked] = useState(false);
-    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 900)
-
-    useEffect(()=> {
-        const handleResize = () => {
-            setIsDesktop(window.innerWidth >= 900)
-        }
-        handleResize()
-        window.addEventListener('resize',handleResize)
-
-        return () => {
-            window.removeEventListener('resize',handleResize)
-        }
-    })
 
     function handleSubmenuClick() {
         setSubMenuClicked(!subMenuClicked);
     }
 
-
-
     return (
-        <nav className="fixed top-0 z-50 w-screen left-0 bg-transparent h-[80px] flex justify-between items-center
-        lg:bg-q-blue
+        <nav className="fixed top-0 z-50 w-screen left-0 bg-q-blue h-[100px] flex justify-between items-center
         ">
-
-
 
             <MobileSubMenu
             subMenuClicked={subMenuClicked}
             setSubMenuClicked={setSubMenuClicked}
             links={links}
             />
-               <div className="relative w-full h-full flex items-center justify-end 
-               lg:justify-around max-w-[1200px] ml-auto mr-auto
+             <div className="relative w-full h-full flex items-center justify-end 
              ">
-
-{!isDesktop ? (
-
-<>
-          
-              
-            <div onClick={handleSubmenuClick}
-            className="lg:hidden  lg:w-auto flex flex-col justify-center items-center
-            z-20 relative
-            p-0 pr-7">
+                {!subMenuClicked && (
+    <div onClick={handleSubmenuClick}
+    className="lg:hidden  lg:w-auto flex flex-col justify-center items-center
+     p-0 pr-7">
             <div className="h-[3px] bg-white w-[20px] mb-1" />
             <div className="h-[3px] bg-white w-[20px] mb-1" />
             <div className="h-[3px] bg-white w-[20px]" />
         </div>
-       
-        </>
-
-        ) : (
-            <>
-            <h1>
-                Q3 Designs
-            </h1>
-            <section className="flex
-            w-[80%] bg-green-300 h-full
-            justify-around items-center">
-
-          
-            {links.map((link,index) => (
-                <div key={index}
-                 className="
-                 text-white">
-                    <h3>{link.name}</h3>
-                </div>
-            ))}
-              </section>
-            </>
-        )}
-
-</div>      
-               
+                )}
         
-          
+            </div>
             
         </nav>
     );

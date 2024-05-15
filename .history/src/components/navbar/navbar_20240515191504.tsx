@@ -166,8 +166,8 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
             setSubMenuClicked={setSubMenuClicked}
             links={links}
             />
-               <div className="relative w-full h-full flex items-center justify-end 
-               lg:justify-around max-w-[1200px] ml-auto mr-auto
+               <div className="relative w-[100vw] h-full flex items-center justify-end 
+               lg:justify-around max-w-[100px] ml-auto mr-auto bg-red-200
              ">
 
 {!isDesktop ? (
@@ -191,14 +191,12 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
             <h1>
                 Q3 Designs
             </h1>
-            <section className="flex
-            w-[80%] bg-green-300 h-full
-            justify-around items-center">
+            <section className="flex">
 
           
             {links.map((link,index) => (
                 <div key={index}
-                 className="
+                 className="bg-black
                  text-white">
                     <h3>{link.name}</h3>
                 </div>

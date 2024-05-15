@@ -155,62 +155,31 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
 
 
     return (
-        <nav className="fixed top-0 z-50 w-screen left-0 bg-transparent h-[80px] flex justify-between items-center
+        <nav className="fixed top-0 z-50 w-screen left-0 bg-transparent h-[100px] flex justify-between items-center
         lg:bg-q-blue
         ">
-
-
 
             <MobileSubMenu
             subMenuClicked={subMenuClicked}
             setSubMenuClicked={setSubMenuClicked}
             links={links}
             />
-               <div className="relative w-full h-full flex items-center justify-end 
-               lg:justify-around max-w-[1200px] ml-auto mr-auto
+             <div className="relative w-full h-full flex items-center justify-end 
              ">
-
-{!isDesktop ? (
-
-<>
-          
               
-            <div onClick={handleSubmenuClick}
-            className="lg:hidden  lg:w-auto flex flex-col justify-center items-center
-            z-20 relative
-            p-0 pr-7">
+    <div onClick={handleSubmenuClick}
+    className="lg:hidden  lg:w-auto flex flex-col justify-center items-center
+    z-20 relative
+     p-0 pr-7">
             <div className="h-[3px] bg-white w-[20px] mb-1" />
             <div className="h-[3px] bg-white w-[20px] mb-1" />
             <div className="h-[3px] bg-white w-[20px]" />
         </div>
-       
-        </>
 
-        ) : (
-            <>
-            <h1>
-                Q3 Designs
-            </h1>
-            <section className="flex
-            w-[80%] bg-green-300 h-full
-            justify-around items-center">
-
-          
-            {links.map((link,index) => (
-                <div key={index}
-                 className="
-                 text-white">
-                    <h3>{link.name}</h3>
-                </div>
-            ))}
-              </section>
-            </>
-        )}
-
-</div>      
+      
                
         
-          
+            </div>
             
         </nav>
     );

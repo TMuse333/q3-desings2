@@ -28,7 +28,7 @@ style={{
 
 }}
         src={q3}
-          className="relative z-10 mt-[5rem]"
+          className="relative z-10 mt-[-5rem]"
         />
         {/* <motion.h1 className="relative z-10"
         style={{
@@ -41,7 +41,7 @@ style={{
         <motion.p style={{
              y:textY
         }}
-         className="text-white text-2xl relative z-10  mt-[-30rem] sm:-mt-[30rem]">Elevating Brands with discipline and creativity
+         className="text-white text-2xl relative z-10  mt-[-30rem] sm:-mt-[40rem]">Elevating Brands with discipline and creativity
          </motion.p>
          {/* </motion.div> */}
        

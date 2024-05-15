@@ -131,24 +131,7 @@ const Homepage: React.FC = () => {
                     { destination: 'retail-homes', name: 'Retail Homes' }
                 ]
             },
-            {
-                name:'Extras',
-                secondaryLinks: [
-                    {
-                        destination:'Focus-tactics',
-                        name:'The value of focus'
-                        
-                    },
-                    {
-                        destination:'Mastery',
-                        name:'Master your craft'
-                    },
-                    {
-                        destination:'Work-tolerance',
-                        name:'Increasing Work Capacity'
-                    }
-                ]
-            }
+            
         ];
           
     

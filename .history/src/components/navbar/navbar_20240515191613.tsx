@@ -192,8 +192,7 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
                 Q3 Designs
             </h1>
             <section className="flex
-            w-[80%] bg-green-300 h-full
-            justify-around items-center">
+            ">
 
           
             {links.map((link,index) => (

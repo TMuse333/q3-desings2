@@ -41,7 +41,7 @@ style={{
         <motion.p style={{
              y:textY
         }}
-         className="text-white text-2xl relative z-10  mt-[-30rem] sm:-mt-[30rem]">Elevating Brands with discipline and creativity
+         className="text-white text-2xl relative z-10  mt-[-30rem] sm:-mt-[35rem]">Elevating Brands with discipline and creativity
          </motion.p>
          {/* </motion.div> */}
        

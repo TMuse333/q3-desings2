@@ -22,13 +22,13 @@ export default function MultiLayerParallax() {
        {/* <motion.div className="z-10 relative"
          style={{ y: textY }}> */}
         <motion.img
-        
+        classNam
 style={{
     y:textY
 
 }}
         src={q3}
-          className="relative z-10 mt-[5rem]"
+          className="relative z-10 "
         />
         {/* <motion.h1 className="relative z-10"
         style={{
@@ -41,7 +41,7 @@ style={{
         <motion.p style={{
              y:textY
         }}
-         className="text-white text-2xl relative z-10  mt-[-30rem] sm:-mt-[30rem]">Elevating Brands with discipline and creativity
+         className="text-white text-2xl relative z-10  mt-[-30rem] sm:-mt-[40rem]">Elevating Brands with discipline and creativity
          </motion.p>
          {/* </motion.div> */}
        

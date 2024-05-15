@@ -144,8 +144,7 @@ const Homepage: React.FC = () => {
                         name:'Master your craft'
                     },
                     {
-                        destination:'Work-tolerance',
-                        name:'Increasing Work Capacity'
+                        
                     }
                 ]
             }

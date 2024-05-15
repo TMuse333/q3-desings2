@@ -115,7 +115,7 @@ const Homepage: React.FC = () => {
         const navLinks = [
             {
                 name: 'Contact',
-               
+                // destination: 'contact',
                 secondaryLinks: [
                     { destination: 'dest1', name: 'Dest1' },
                     { destination: 'dest2', name: 'Dest2' },
@@ -124,29 +124,11 @@ const Homepage: React.FC = () => {
             },
             {
                 name: 'Our Work',
-              
+                // destination: '',
                 secondaryLinks: [
                     { destination: 'custom-homes', name: 'Custom Homes' },
                     { destination: 'commercial-construction', name: 'Commercial Construction' },
                     { destination: 'retail-homes', name: 'Retail Homes' }
-                ]
-            },
-            {
-                name:'Extras',
-                secondaryLinks: [
-                    {
-                        destination:'Focus-tactics',
-                        name:'The value of focus'
-                        
-                    },
-                    {
-                        destination:'Mastery',
-                        name:'Master your craft'
-                    },
-                    {
-                        destination:'Work-tolerance',
-                        name:'Increasing Work Capacity'
-                    }
                 ]
             }
         ];

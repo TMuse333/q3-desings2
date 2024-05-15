@@ -142,10 +142,6 @@ const Homepage: React.FC = () => {
                     {
                         destination:'Mastery',
                         name:'Master your craft'
-                    },
-                    {
-                        destination:'Work-tolerance',
-                        name:'Increasing Work Capacity'
                     }
                 ]
             }
