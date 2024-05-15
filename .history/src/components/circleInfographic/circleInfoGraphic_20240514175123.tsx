@@ -37,7 +37,7 @@ title, description}) => {
         max-h-[360px]
         sm:w-[48vw] sm:h-[48vw]
         xl:w-[32vw] xl:h-[32vw]
-        relative z-10
+        
       glow`}
 
         >

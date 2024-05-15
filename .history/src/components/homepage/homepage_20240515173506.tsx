@@ -114,27 +114,33 @@ const Homepage: React.FC = () => {
 
         const navLinks = [
             {
-                name: 'Contact',
-                // destination: 'contact',
-                secondaryLinks: [
-                    { destination: 'dest1', name: 'Dest1' },
-                    { destination: 'dest2', name: 'Dest2' },
-                    { destination: 'dest3', name: 'Dest3' }
-                ]
+                links: [
+                    {
+                        destination: 'contact',
+                        name: 'Email Us',
+                       
+                    }
+                ],
+                secondaryLinks:[
+                    {
+                    destination:'dest1',
+                    name:'dest1'
+                },
+                {
+                    destination:'dest2',
+                    name:'dest2'
+                },
+                {
+                    destination:'dest3',
+                    name:'dest3'
+                },
+            ]
             },
-            {
-                name: 'Our Work',
-                // destination: '',
-                secondaryLinks: [
-                    { destination: 'custom-homes', name: 'Custom Homes' },
-                    { destination: 'commercial-construction', name: 'Commercial Construction' },
-                    { destination: 'retail-homes', name: 'Retail Homes' }
-                ]
-            }
-        ];
-          
-    
-
+           
+           {
+            name:'Contact'
+           }
+        ]
 
     
 

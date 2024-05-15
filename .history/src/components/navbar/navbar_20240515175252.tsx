@@ -64,7 +64,7 @@ interface SubMenuProps {
    
             <ul
                         className={`text-left absolute mt-8
-                        top-[25%]
+                        top-[25]
                           overflow-hidden transition-[height]
                           flex flex-col items-start justify-center 
                             `}>
@@ -72,7 +72,7 @@ interface SubMenuProps {
                            
                                 <li key={index}
                                 onClick={()=>handleSecondarySubClick(index)}
-                                className="text-md lg:text-lg mb-3
+                                className="text-sm lg:text-lg mb-3
                                 mr-auto
                                 
                                  pl-2 pr-2 lg:mb-0

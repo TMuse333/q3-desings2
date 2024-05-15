@@ -66,20 +66,7 @@ const Homepage: React.FC = () => {
                 name: 'Retail Homes'
             }
         ],
-        secondaryLinks:[
-            {
-            destination:'dest1',
-            name:'dest1'
-        },
-        {
-            destination:'dest2',
-            name:'dest2'
-        },
-        {
-            destination:'dest3',
-            name:'dest3'
-        },
-    ]
+        
     };
     
     const contactLinks = {
@@ -113,28 +100,12 @@ const Homepage: React.FC = () => {
         ]
 
         const navLinks = [
-            {
-                name: 'Contact',
-                // destination: 'contact',
-                secondaryLinks: [
-                    { destination: 'dest1', name: 'Dest1' },
-                    { destination: 'dest2', name: 'Dest2' },
-                    { destination: 'dest3', name: 'Dest3' }
-                ]
-            },
-            {
-                name: 'Our Work',
-                // destination: '',
-                secondaryLinks: [
-                    { destination: 'custom-homes', name: 'Custom Homes' },
-                    { destination: 'commercial-construction', name: 'Commercial Construction' },
-                    { destination: 'retail-homes', name: 'Retail Homes' }
-                ]
-            }
-        ];
-          
-    
-
+            ...workLinks.links,
+           {
+            destination:'contact',
+            name:'Contact'
+           }
+        ]
 
     
 

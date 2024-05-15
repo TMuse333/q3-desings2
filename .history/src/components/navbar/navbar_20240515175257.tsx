@@ -72,7 +72,7 @@ interface SubMenuProps {
                            
                                 <li key={index}
                                 onClick={()=>handleSecondarySubClick(index)}
-                                className="text-md lg:text-lg mb-3
+                                className="text-sm lg:text-lg mb-3
                                 mr-auto
                                 
                                  pl-2 pr-2 lg:mb-0

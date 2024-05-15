@@ -124,7 +124,7 @@ const Homepage: React.FC = () => {
             },
             {
                 name: 'Our Work',
-                // destination: '',
+                destination: '',
                 secondaryLinks: [
                     { destination: 'custom-homes', name: 'Custom Homes' },
                     { destination: 'commercial-construction', name: 'Commercial Construction' },
