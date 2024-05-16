@@ -17,8 +17,6 @@ import Carousel from "../carousel/carousel";
 import { AuroraHero } from "../auroraHero/auroraHero";
 import Navbar from "../navbar/navbar";
 
-import lambo from '../../media/green-lambo-ref-2.svg'
-
 
 const Homepage: React.FC = () => {
 
@@ -122,18 +120,16 @@ const Homepage: React.FC = () => {
                     { destination: 'dest1', name: 'Dest1' },
                     { destination: 'dest2', name: 'Dest2' },
                     { destination: 'dest3', name: 'Dest3' }
-                ],
-                listSubMenu:false
+                ]
             },
             {
                 name: 'Our Work',
               
                 secondaryLinks: [
-                    { destination: 'custom-homes', name: 'Web Design' },
-                    { destination: 'commercial-construction', name: 'Logos' },
-                    { destination: 'retail-homes', name: 'Software solutions' }
-                ],
-                listSubMenu:true
+                    { destination: 'custom-homes', name: 'Custom Homes' },
+                    { destination: 'commercial-construction', name: 'Commercial Construction' },
+                    { destination: 'retail-homes', name: 'Retail Homes' }
+                ]
             },
             {
                 name:'Extras',
@@ -151,8 +147,7 @@ const Homepage: React.FC = () => {
                         destination:'Work-tolerance',
                         name:'Increasing Work Capacity'
                     }
-                ],
-                listSubMenu:false
+                ]
             }
         ];
           
@@ -172,10 +167,6 @@ const Homepage: React.FC = () => {
         <section className="absolute top-[0%] left-0 w-screen h-screen z-2
      ">
 
-{/* <img src={lambo}
-
- className='w-[23vw] ml-auto mr-auto mt-[15rem]'
- /> */}
 
 
             {/* <ParticlesComponent/> */}

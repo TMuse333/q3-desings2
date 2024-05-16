@@ -224,7 +224,7 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
                         {link.secondaryLinks.map((subLink, innerIndex) => (
                             <Link to={subLink.destination}>
                             <li 
-                            className="mb-3 hover:text-q-blue transition-colors"
+                            className="mb-3 hover:text-black transition-colors"
                             key={innerIndex}
                             >
                                 {subLink.name}

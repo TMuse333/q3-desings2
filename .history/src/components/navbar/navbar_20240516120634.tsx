@@ -169,7 +169,7 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
 
     return (
         <nav className="fixed top-0 z-50 w-screen left-0 bg-transparent h-[80px] flex justify-between items-center
-        lg:bg-[#032029]
+        lg:bg-q-blue
         ">
             <MobileSubMenu
             subMenuClicked={subMenuClicked}
@@ -216,15 +216,14 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
                  className=" relative 
                  text-white  pb-[2rem] pt-[0rem] mt-auto">
                     <h3 className="mt-auto">{link.name}</h3>
-                    {link.listSubMenu ? (
-                        <ul className={`absolute text-center bg-[#032029]
+                    <ul className={`absolute text-center bg-q-blue
                    pt-5 pb-5 pr-8 pl-8 left-[50%] mt-0  -translate-x-1/2 w-[175px]
                    h-[200px] ${hoveredSubMenuIndex === index ? 'opacity-1 z-20 ' : 'opacity-0 z-[-3] -translate-y-[30rem] '} `}>
-                        
+                        {link.listSubMenu ? ()}
                         {link.secondaryLinks.map((subLink, innerIndex) => (
                             <Link to={subLink.destination}>
                             <li 
-                            className="mb-3 hover:text-q-blue transition-colors"
+                            className="mb-3 hover:text-black transition-colors"
                             key={innerIndex}
                             >
                                 {subLink.name}
@@ -233,17 +232,6 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
 
                         ))}
                     </ul>
-                    ) : (
-                        <>
-                        <div className={`bg-[#032029] fixed top-[70px] w-screen
-                        h-[200px] left-0 transition-opacity transition-transform ${hoveredSubMenuIndex === index ? 'opacity-1 z-20 ' : 'opacity-0 z-[-3] -translate-y-[30rem] '}}`}>
-
-                        
-                        <p>slatty</p>
-                        </div>
-                        </>
-                    )}
-                    
                 </div>
             ))}
               </section>

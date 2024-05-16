@@ -122,18 +122,17 @@ const Homepage: React.FC = () => {
                     { destination: 'dest1', name: 'Dest1' },
                     { destination: 'dest2', name: 'Dest2' },
                     { destination: 'dest3', name: 'Dest3' }
-                ],
-                listSubMenu:false
+                ]
             },
             {
                 name: 'Our Work',
               
                 secondaryLinks: [
-                    { destination: 'custom-homes', name: 'Web Design' },
-                    { destination: 'commercial-construction', name: 'Logos' },
-                    { destination: 'retail-homes', name: 'Software solutions' }
+                    { destination: 'custom-homes', name: 'Custom Homes' },
+                    { destination: 'commercial-construction', name: 'Commercial Construction' },
+                    { destination: 'retail-homes', name: 'Retail Homes' }
                 ],
-                listSubMenu:true
+                listSubMenu:false
             },
             {
                 name:'Extras',

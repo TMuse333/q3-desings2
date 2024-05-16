@@ -8,8 +8,7 @@ interface NavbarProps {
         secondaryLinks:{
             name:string
             destination:string
-        }[],
-        listSubMenu:boolean
+        }[]
     }[]
 }
 
@@ -31,7 +30,7 @@ interface SubMenuProps {
 
     function handleSubMenuLeave(){
         setSubMenuClicked(false)
-     
+        console.log('button clicked')
     }
 
     const [secondaryLinksIndex, setSecondaryLinksIndex] =
@@ -136,8 +135,6 @@ interface SubMenuProps {
 const Navbar: React.FC<NavbarProps> = ({ links }) => {
     const [subMenuClicked, setSubMenuClicked] = useState(false);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 900)
-    const [hoveredSubMenuIndex, setHoveredSubMenuIndex] =
-    useState<number | null>(null)
 
     useEffect(()=> {
         const handleResize = () => {
@@ -156,21 +153,14 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
     }
 
 
-    function handleSubMenuHover(index:number){
-        setHoveredSubMenuIndex(index)
-    }
-
-    function handleSubMenuLeave(){
-        setHoveredSubMenuIndex(null)
-    }
-
-
-
 
     return (
         <nav className="fixed top-0 z-50 w-screen left-0 bg-transparent h-[80px] flex justify-between items-center
-        lg:bg-[#032029]
+        lg:bg-q-blue
         ">
+
+
+
             <MobileSubMenu
             subMenuClicked={subMenuClicked}
             setSubMenuClicked={setSubMenuClicked}
@@ -202,55 +192,21 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
                 Q3 Designs
             </h1>
             <section className="flex
-            w-[80%] h-full
+            w-[80%] bg-green-300 h-full
             justify-around items-center
-          
-            max-w-[1000px]
-            ">
+           ">
 
           
             {links.map((link,index) => (
                 <div key={index}
-                onMouseEnter={()=>handleSubMenuHover(index)}
-                            onMouseLeave={handleSubMenuLeave}
-                 className=" relative 
-                 text-white  pb-[2rem] pt-[0rem] mt-auto">
-                    <h3 className="mt-auto">{link.name}</h3>
-                    {link.listSubMenu ? (
-                        <ul className={`absolute text-center bg-[#032029]
-                   pt-5 pb-5 pr-8 pl-8 left-[50%] mt-0  -translate-x-1/2 w-[175px]
-                   h-[200px] ${hoveredSubMenuIndex === index ? 'opacity-1 z-20 ' : 'opacity-0 z-[-3] -translate-y-[30rem] '} `}>
-                        
-                        {link.secondaryLinks.map((subLink, innerIndex) => (
-                            <Link to={subLink.destination}>
-                            <li 
-                            className="mb-3 hover:text-q-blue transition-colors"
-                            key={innerIndex}
-                            >
-                                {subLink.name}
-                            </li>
-                            </Link>
-
-                        ))}
-                    </ul>
-                    ) : (
-                        <>
-                        <div className={`bg-[#032029] fixed top-[70px] w-screen
-                        h-[200px] left-0 transition-opacity transition-transform ${hoveredSubMenuIndex === index ? 'opacity-1 z-20 ' : 'opacity-0 z-[-3] -translate-y-[30rem] '}}`}>
-
-                        
-                        <p>slatty</p>
-                        </div>
-                        </>
-                    )}
-                    
+                 className="
+                 text-white">
+                    <h3>{link.name}</h3>
                 </div>
             ))}
               </section>
             </>
         )}
-
-       
 
 </div>      
                

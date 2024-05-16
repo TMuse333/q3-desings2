@@ -131,7 +131,7 @@ const Homepage: React.FC = () => {
                 secondaryLinks: [
                     { destination: 'custom-homes', name: 'Web Design' },
                     { destination: 'commercial-construction', name: 'Logos' },
-                    { destination: 'retail-homes', name: 'Software solutions' }
+                    { destination: 'retail-homes', name: 'Retail Homes' }
                 ],
                 listSubMenu:true
             },
