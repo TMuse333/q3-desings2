@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import { ChevronLeft, ChevronRight } from "react-feather";
 import {motion, AnimatePresence} from 'framer-motion'
 import { image } from '@tensorflow/tfjs';
-
 
 interface CarouselProps {
     images:{
@@ -26,19 +25,13 @@ hasDescription}) =>{
 
     const [currentImage, setCurrentImage] = useState<number>(0)
     
-console.log('image index', images[images.length -1].imageIndex)
 
-const [leftShift, setLeftShift] = useState<boolean>(false)
-
-const [leftEdgeCaseShift, setLeftEdgeShift] = useState<number>
-(-images.length)
 
     function handlePrevClick(){
 
         if(shift === 0){
-            setLeftShift(true)
-            setShift(prev => prev + 1);
-            setCurrentImage( 2)
+            setShift(-images.length + 1)
+            setCurrentImage(images.length -1)
         }
         else{
             setShift(prev => prev + 1);
@@ -50,7 +43,8 @@ const [leftEdgeCaseShift, setLeftEdgeShift] = useState<number>
 
     function handleNextClick(){
         if(shift === -images.length +1){
-           
+            setShift(0)
+            setCurrentImage(0)
         }
 
         else{
@@ -61,17 +55,6 @@ const [leftEdgeCaseShift, setLeftEdgeShift] = useState<number>
        
 
 }
-
-useEffect(()=>{
-    if(shift === 0){
-        setLeftEdgeShift(-images.length)
-    }
-    else{
-        setLeftEdgeShift(0)
-    }
-})
-
-        
 
 
 
@@ -95,18 +78,18 @@ useEffect(()=>{
        relative 
        ${hasDescription ? 'md:w-[50%]' : 'w-[100%]'}`}>
        
-      {/* put overflow hidden here*/}
+      
         <section className='flex relative
         justify-center items-center ml-auto
         mr-auto w-[100vw]
         w-[70vw]
         max-h-[804px]
        h-[95vw]
-        sm:h-[50vw] 
+        sm:h-[50vw] overflow-hidden
         max-w-[900px] z-3
         max-h-[420px]
         md:max-h-[520px]
-  
+    
         '>
 
        
@@ -131,8 +114,7 @@ sm:h-[50vw]
    '
   
    style={{
-    transform: `translateX(${image.imageIndex === images.length -1 ? (leftEdgeCaseShift * 100) + ( 100 * shift) + (100 * image.imageIndex)
-    : (shift * 100) + (100 * image.imageIndex)}%)`,
+    transform: `translateX(${(shift * 100) + (100 * image.imageIndex)}%)`,
     transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >
@@ -154,7 +136,7 @@ sm:h-[50vw]
    </>
    
         ))}
-<div key={0}
+<div 
 className='relative z-3 
 w-[100vw] flex justify-between
 items-center
@@ -189,11 +171,9 @@ md:top-auto
        </div>
 
        {hasDescription && (
-      <AnimatePresence
-      key={currentImage}
-       mode='wait'>
+      <AnimatePresence mode='wait'>
       <motion.div
-        
+        key={currentImage}
         className="w-[100%] relative
          md2:w-[50%] md:-translate-y-[5rem]
     ml-auto

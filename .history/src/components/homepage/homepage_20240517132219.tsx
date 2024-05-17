@@ -182,7 +182,7 @@ const Homepage: React.FC = () => {
             {/* <MultiLayerParallax/> */}
 
           
-            {/* <div className="relative z-1 bg-gradient-to-b from-[#043747] via-[#032029] to-transparent w-screen">
+            <div className="relative z-1 bg-gradient-to-b from-[#043747] via-[#032029] to-transparent w-screen">
             <Content
             mainTitle='Your digital presence is important'
             image={nobgLaptop}
@@ -211,10 +211,10 @@ const Homepage: React.FC = () => {
             </div>
                    
 <div className="relative bg-gradient-to-b from-[#043747] via-[#032029] to-transparent w-screen">
- <CircleList/> 
+{/* <CircleList/> */}
 
 
-</div> */}
+</div>
 
 {/* <div className="relative bg-gradient-to-b from-transparent via-[#043747] to-[#032029] w-screen
 flex flex-col justify-center items-center">

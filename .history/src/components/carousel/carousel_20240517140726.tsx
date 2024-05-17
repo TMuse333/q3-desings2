@@ -67,7 +67,7 @@ useEffect(()=>{
         setLeftEdgeShift(-images.length)
     }
     else{
-        setLeftEdgeShift(0)
+        setLeftEdgeShift(1)
     }
 })
 
@@ -131,8 +131,7 @@ sm:h-[50vw]
    '
   
    style={{
-    transform: `translateX(${image.imageIndex === images.length -1 ? (leftEdgeCaseShift * 100) + ( 100 * shift) + (100 * image.imageIndex)
-    : (shift * 100) + (100 * image.imageIndex)}%)`,
+    transform: `translateX(${image (shift * 100) + (100 * image.imageIndex)}%)`,
     transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >
