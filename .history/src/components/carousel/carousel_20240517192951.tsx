@@ -147,7 +147,7 @@ hasDescription}) =>{
         '>
 
        
-        {images.map((image,index) => (
+        {u.map((image,index) => (
             <>
 
             {/*this dictates the height and width of the image*/}
@@ -164,7 +164,7 @@ sm:h-[50vw]
    absolute  
 
    ${( updatedImages[index].transformValue === 0 || updatedImages[index].transformValue === 100
-    )? 'transition-transform duration-500' : ''}
+    || leftClicked && updatedImages.imageIndex === 0)? 'transition-transform duration-500' : ''}
 
 
    `}

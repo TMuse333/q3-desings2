@@ -33,19 +33,6 @@ hasDescription}) =>{
 
     const [leftEdgeCase, setLeftEdgeCase] = useState<boolean>(false)
 
-    const updatedImages = images.map((image, index) => ({
-        ...image,
-        transformValue: (shift * 100) + (100 * image.imageIndex)
-    }));
-
-    useEffect(() => {
-        updatedImages.forEach(image => {
-            console.log(`Title: ${image.title}, Transform Value: ${image.transformValue}`);
-        });
-    }, [shift, images, updatedImages]);
-
-    //(shift * 100) + (100 * image.imageIndex)
-
     function handlePrevClick(){
 
         setLeftClicked(true)
@@ -163,14 +150,13 @@ sm:h-[50vw]
    md:max-h-[520px]
    absolute  
 
-   ${( updatedImages[index].transformValue === 0 || updatedImages[index].transformValue === 100
-    )? 'transition-transform duration-500' : ''}
+   ${!( rightClicked  )? 'transition-transform duration-500' : ''}
 
 
    `}
    key={index}
    style={{
-    transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift : updatedImages[index].transformValue}%)`,
+    transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift : (shift * 100) + (100 * image.imageIndex)}%)`,
     // transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >

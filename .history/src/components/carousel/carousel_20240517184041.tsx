@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import { ChevronLeft, ChevronRight } from "react-feather";
 import {motion, AnimatePresence} from 'framer-motion'
+import { image } from '@tensorflow/tfjs';
+
 
 interface CarouselProps {
     images:{
@@ -23,48 +25,20 @@ hasDescription}) =>{
     const [shift,setShift] = useState<number>(0)
 
     const [currentImage, setCurrentImage] = useState<number>(0)
-
-    const [leftClicked, setLeftClicked] = useState<boolean>(false)
-
-    const [rightClicked, setRightClicked] = useState<boolean>(false)
     
-    
-    const [leftEdgeShift, setLeftEdgeShift] = useState<number>(-100)
+console.log('image index', images[images.length -1].imageIndex)
 
-    const [leftEdgeCase, setLeftEdgeCase] = useState<boolean>(false)
+const [leftShift, setLeftShift] = useState<boolean>(false)
 
-    const updatedImages = images.map((image, index) => ({
-        ...image,
-        transformValue: (shift * 100) + (100 * image.imageIndex)
-    }));
-
-    useEffect(() => {
-        updatedImages.forEach(image => {
-            console.log(`Title: ${image.title}, Transform Value: ${image.transformValue}`);
-        });
-    }, [shift, images, updatedImages]);
-
-    //(shift * 100) + (100 * image.imageIndex)
+const [leftEdgeCaseShift, setLeftEdgeShift] = useState<number>
+(-images.length)
 
     function handlePrevClick(){
 
-        setLeftClicked(true)
-        setRightClicked(false)
-
-        if(leftEdgeCase){
-            setLeftEdgeCase(false)
-            console.log('no longer on edge case')
-        }
-
-        
-
-        if(shift === 0 ){
-            console.warn('LEFT EDGE CASE!')
-            setLeftEdgeCase(true)
-           
-
-            // setShift(-images.length + 1)
-            // setCurrentImage(images.length -1)
+        if(shift === 0){
+            setLeftShift(true)
+            setShift(prev => prev + 1);
+            setCurrentImage( 2)
         }
         else{
             setShift(prev => prev + 1);
@@ -75,12 +49,8 @@ hasDescription}) =>{
     }
 
     function handleNextClick(){
-
-        setRightClicked(true)
-        setLeftClicked(false)
         if(shift === -images.length +1){
-            setShift(0)
-            setCurrentImage(0)
+           
         }
 
         else{
@@ -92,23 +62,16 @@ hasDescription}) =>{
 
 }
 
-        useEffect(()=> {
+useEffect(()=>{
+    if(shift === 0){
+        setLeftEdgeShift(-images.length)
+    }
+    else{
+        setLeftEdgeShift(0)
+    }
+})
 
-            if(leftEdgeCase){
-                setLeftEdgeShift(0)
-                setShift(-images.length + 1);
-                return
-            }
-
-            if(shift === 0){
-                console.warn('we are on left edge case')
-                setLeftEdgeShift(-100)
-            }
-            else{
-                console.warn('not on left edge case')
-                setLeftEdgeShift((shift * 100) + (100 * images.length - 1))
-            }
-        },[leftEdgeCase,shift])
+        
 
 
 
@@ -132,18 +95,18 @@ hasDescription}) =>{
        relative 
        ${hasDescription ? 'md:w-[50%]' : 'w-[100%]'}`}>
        
-      
+      {/* put overflow hidden here*/}
         <section className='flex relative
         justify-center items-center ml-auto
         mr-auto w-[100vw]
         w-[70vw]
         max-h-[804px]
        h-[95vw]
-        sm:h-[50vw]
+        sm:h-[50vw] 
         max-w-[900px] z-3
         max-h-[420px]
         md:max-h-[520px]
-        overflow-hidden
+  
         '>
 
        
@@ -151,7 +114,8 @@ hasDescription}) =>{
             <>
 
             {/*this dictates the height and width of the image*/}
-   <div className={`w-[90vw] 
+   <div  key={index}
+   className='w-[90vw] 
    sm:w-[70vw]
 h-[80vw]
 sm:h-[50vw]
@@ -161,21 +125,19 @@ sm:h-[50vw]
    mb-auto
    max-h-[390px]
    md:max-h-[520px]
-   absolute  
-
-   ${( updatedImages[index].transformValue === 0 || updatedImages[index].transformValue === 100
-    )? 'transition-transform duration-500' : ''}
+   absolute transition-transform duration-500
 
 
-   `}
-   key={index}
+   '
+  
    style={{
-    transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift : updatedImages[index].transformValue}%)`,
-    // transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
+    transform: `translateX(${image.imageIndex === images.length -1 ? (leftEdgeCaseShift * 100) + ( 100 * shift) + (100 * image.imageIndex)
+    : (shift * 100) + (100 * image.imageIndex)}%)`,
+    transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >
        <img
-       
+       key={image.imageIndex}
         src={image.url}
        className='w-[80%] 
             max-w-[405px]
@@ -192,7 +154,8 @@ sm:h-[50vw]
    </>
    
         ))}
-<div className='relative z-3 
+<div key={0}
+className='relative z-3 
 w-[100vw] flex justify-between
 items-center
 
@@ -225,10 +188,12 @@ md:top-auto
      
        </div>
 
-       {/* {hasDescription && (
-      <AnimatePresence mode='wait'>
+       {hasDescription && (
+      <AnimatePresence
+      key={currentImage}
+       mode='wait'>
       <motion.div
-        key={currentImage}
+        
         className="w-[100%] relative
          md2:w-[50%] md:-translate-y-[5rem]
     ml-auto
@@ -248,7 +213,7 @@ md:top-auto
        ">{images[currentImage].description}</p>
       </motion.div>
     </AnimatePresence>
-       )} */}
+       )}
        </section>
 
 

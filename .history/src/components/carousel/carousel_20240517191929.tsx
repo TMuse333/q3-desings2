@@ -38,12 +38,6 @@ hasDescription}) =>{
         transformValue: (shift * 100) + (100 * image.imageIndex)
     }));
 
-    useEffect(() => {
-        updatedImages.forEach(image => {
-            console.log(`Title: ${image.title}, Transform Value: ${image.transformValue}`);
-        });
-    }, [shift, images, updatedImages]);
-
     //(shift * 100) + (100 * image.imageIndex)
 
     function handlePrevClick(){
@@ -163,8 +157,7 @@ sm:h-[50vw]
    md:max-h-[520px]
    absolute  
 
-   ${( updatedImages[index].transformValue === 0 || updatedImages[index].transformValue === 100
-    )? 'transition-transform duration-500' : ''}
+   ${(leftClicked && updatedImages )? 'transition-transform duration-500' : ''}
 
 
    `}

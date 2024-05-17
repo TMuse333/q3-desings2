@@ -164,7 +164,7 @@ sm:h-[50vw]
    absolute  
 
    ${( updatedImages[index].transformValue === 0 || updatedImages[index].transformValue === 100
-    )? 'transition-transform duration-500' : ''}
+    || leftClicked && currentImage === 0)? 'transition-transform duration-500' : ''}
 
 
    `}

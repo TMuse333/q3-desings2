@@ -23,38 +23,13 @@ hasDescription}) =>{
     const [shift,setShift] = useState<number>(0)
 
     const [currentImage, setCurrentImage] = useState<number>(0)
-
-    const [leftClicked, setLeftClicked] = useState<boolean>(false)
-
-    const [rightClicked, setRightClicked] = useState<boolean>(false)
     
     
     const [leftEdgeShift, setLeftEdgeShift] = useState<number>(-100)
 
     const [leftEdgeCase, setLeftEdgeCase] = useState<boolean>(false)
 
-    const updatedImages = images.map((image, index) => ({
-        ...image,
-        transformValue: (shift * 100) + (100 * image.imageIndex)
-    }));
-
-    useEffect(() => {
-        updatedImages.forEach(image => {
-            console.log(`Title: ${image.title}, Transform Value: ${image.transformValue}`);
-        });
-    }, [shift, images, updatedImages]);
-
-    //(shift * 100) + (100 * image.imageIndex)
-
     function handlePrevClick(){
-
-        setLeftClicked(true)
-        setRightClicked(false)
-
-        if(leftEdgeCase){
-            setLeftEdgeCase(false)
-            console.log('no longer on edge case')
-        }
 
         
 
@@ -75,9 +50,6 @@ hasDescription}) =>{
     }
 
     function handleNextClick(){
-
-        setRightClicked(true)
-        setLeftClicked(false)
         if(shift === -images.length +1){
             setShift(0)
             setCurrentImage(0)
@@ -96,7 +68,7 @@ hasDescription}) =>{
 
             if(leftEdgeCase){
                 setLeftEdgeShift(0)
-                setShift(-images.length + 1);
+                setShift(-images-);
                 return
             }
 
@@ -143,7 +115,7 @@ hasDescription}) =>{
         max-w-[900px] z-3
         max-h-[420px]
         md:max-h-[520px]
-        overflow-hidden
+    
         '>
 
        
@@ -151,7 +123,7 @@ hasDescription}) =>{
             <>
 
             {/*this dictates the height and width of the image*/}
-   <div className={`w-[90vw] 
+   <div className='w-[90vw] 
    sm:w-[70vw]
 h-[80vw]
 sm:h-[50vw]
@@ -161,17 +133,14 @@ sm:h-[50vw]
    mb-auto
    max-h-[390px]
    md:max-h-[520px]
-   absolute  
-
-   ${( updatedImages[index].transformValue === 0 || updatedImages[index].transformValue === 100
-    )? 'transition-transform duration-500' : ''}
+   absolute transition-transform duration-500
 
 
-   `}
+   '
    key={index}
    style={{
-    transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift : updatedImages[index].transformValue}%)`,
-    // transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
+    transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift : (shift * 100) + (100 * image.imageIndex)}%)`,
+    transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >
        <img
