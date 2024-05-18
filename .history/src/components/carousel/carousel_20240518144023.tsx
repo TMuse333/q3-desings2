@@ -33,10 +33,6 @@ hasDescription}) =>{
 
     const [rightClicked, setRightClicked] = useState<boolean>(false)
 
-    const [rightEdgeShift, setRightEdgeShift] = useState(0)
-
-    const [rightEdgeCase, setRightEdgeCase] = useState(false)
-
     const updatedImages = images.map((image, index) => ({
         ...image,
         transformValue: (shift * 100) + (100 * image.imageIndex)
@@ -87,7 +83,7 @@ hasDescription}) =>{
     function handleNextClick(){
 
         setRightClicked(true)
-  
+        setLeftClicked(false)
         if(shift === -images.length +1){
             setShift(0)
             setCurrentImage(0)
@@ -104,28 +100,14 @@ hasDescription}) =>{
 
         useEffect(()=> {
 
-       
-
             if(shift === -images.length + 1){
                 console.log('we are on the right edge case')
-                setRightEdgeCase(true)
                 setLeftEdgeShift(0)
-                setRightEdgeShift(100)
             }
 
-             else if(rightEdgeCase && rightClicked){
-                console.warn('right shift!')
-                setLeftEdgeShift(-100)
-              setRightEdgeShift(0)
-                setRightClicked(false)
-                setRightEdgeCase(false)  
-            }
+            
 
-            else if(!rightEdgeCase){
-                setRightEdgeShift(shift * 100)
-            }
-
-            else if(shift === 0){
+            if(shift === 0){
                 // console.warn('we are on left edge case')
                 setLeftEdgeShift(-100)
             }
@@ -148,10 +130,6 @@ hasDescription}) =>{
                 // console.log('the centered image is',currentImage)
                 
             }
-
-
-
-           
 
             
 
@@ -213,21 +191,19 @@ sm:h-[50vw]
    md:max-h-[520px]
    absolute  
 
-   ${
-    (image.imageIndex === currentImage )
+   ${(image.imageIndex === currentImage )
     || (image.imageIndex === currentImage + 1)
     || (currentImage === images.length -1 && image.imageIndex
         === 0)
-
   ? 'transition-transform duration-500' : ''}
 
 
    `}
    key={index}
    style={{
-    transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift :
-        (image.imageIndex === 0  ) ? rightEdgeShift : 
-         updatedImages[index].transformValue}%)`,
+    transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift : 
+        (currentImage === images.length -1 && image.imageIndex
+            === 0) ? 100 : updatedImages[index].transformValue}%)`,
     // transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >

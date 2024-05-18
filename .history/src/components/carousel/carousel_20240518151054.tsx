@@ -122,7 +122,7 @@ hasDescription}) =>{
             }
 
             else if(!rightEdgeCase){
-                setRightEdgeShift(shift * 100)
+                se
             }
 
             else if(shift === 0){
@@ -213,12 +213,10 @@ sm:h-[50vw]
    md:max-h-[520px]
    absolute  
 
-   ${
-    (image.imageIndex === currentImage )
+   ${(image.imageIndex === currentImage )
     || (image.imageIndex === currentImage + 1)
     || (currentImage === images.length -1 && image.imageIndex
         === 0)
-
   ? 'transition-transform duration-500' : ''}
 
 

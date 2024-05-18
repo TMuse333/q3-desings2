@@ -218,7 +218,6 @@ sm:h-[50vw]
     || (image.imageIndex === currentImage + 1)
     || (currentImage === images.length -1 && image.imageIndex
         === 0)
-
   ? 'transition-transform duration-500' : ''}
 
 

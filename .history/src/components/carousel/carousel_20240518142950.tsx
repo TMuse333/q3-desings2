@@ -33,9 +33,9 @@ hasDescription}) =>{
 
     const [rightClicked, setRightClicked] = useState<boolean>(false)
 
-    const [rightEdgeShift, setRightEdgeShift] = useState(0)
+    const [rightEdgeCase, setRightEdgeCase] = useState<boolean>(false)
 
-    const [rightEdgeCase, setRightEdgeCase] = useState(false)
+    const [rightEdgeShift, setRightEdgeShift] = useState<number>(0)
 
     const updatedImages = images.map((image, index) => ({
         ...image,
@@ -53,13 +53,10 @@ hasDescription}) =>{
     function handlePrevClick(){
 
         setLeftClicked(true)
-        setRightClicked(false)
+       
 
         if(leftEdgeCase){
             setLeftEdgeCase(false)
-           
-            // console.log('no longer on edge case')
-            
         }
 
         
@@ -79,6 +76,7 @@ hasDescription}) =>{
             setCurrentImage(prev => prev -1)
         }
 
+       
         setLeftClicked(false)
       
             
@@ -86,74 +84,58 @@ hasDescription}) =>{
 
     function handleNextClick(){
 
-        setRightClicked(true)
-  
-        if(shift === -images.length +1){
-            setShift(0)
-            setCurrentImage(0)
-        }
 
-        else{
-            setShift(prev => prev - 1);
-            // setCurrentImage(prev => prev + 1)
-        }
+
+        setRightClicked(true)
+
+        setShift(prev => prev - 1)
        
+       if(shift === -images.length +1){
+        console.warn('right edge case!')
+       }
        
+       setRightClicked(false)
 
 }
 
         useEffect(()=> {
 
-       
+            // if(shift === -images.length + 1){
+            //     console.warn('right edge case!')
+            //     setLeftEdgeShift(0)
+            //     setRightEdgeCase(true)
+            //     setRightEdgeShift(100)
+                
+            // }
 
-            if(shift === -images.length + 1){
-                console.log('we are on the right edge case')
-                setRightEdgeCase(true)
+            // if(shift === -images.length ){
+            //     setRightEdgeShift(0)
+            //    console.log('right edge case shift')
+            //    setLeftEdgeShift(-100)
+               
+
+            // }
+
+           if(leftClicked){
+            setCurrentImage(prev => prev + 1)
+           }
+
+            if(leftEdgeCase && leftClicked){
                 setLeftEdgeShift(0)
-                setRightEdgeShift(100)
+                setShift(-images.length + 1);
+                setCurrentImage(images.length -1)
+                // console.log('the centered image is',currentImage)
+                return
             }
 
-             else if(rightEdgeCase && rightClicked){
-                console.warn('right shift!')
-                setLeftEdgeShift(-100)
-              setRightEdgeShift(0)
-                setRightClicked(false)
-                setRightEdgeCase(false)  
-            }
-
-            else if(!rightEdgeCase){
-                setRightEdgeShift(shift * 100)
-            }
-
-            else if(shift === 0){
+            if(shift === 0 && leftClicked){
                 // console.warn('we are on left edge case')
                 setLeftEdgeShift(-100)
             }
             else{
                 // console.warn('not on left edge case')
                 setLeftEdgeShift((shift * 100) + (100 * images.length - 1))
-                
             }
-
-           if(leftClicked){
-            setCurrentImage(prev => prev + 1)
-            // setLeftClicked(false)
-       
-           }
-
-            if(leftEdgeCase){
-                setLeftEdgeShift(0)
-                setShift(-images.length + 1);
-                setCurrentImage(images.length -1)
-                // console.log('the centered image is',currentImage)
-                
-            }
-
-
-
-           
-
-            
 
             console.log('shift',shift)
         },[leftEdgeCase,shift,currentImage,leftClicked])
@@ -193,7 +175,7 @@ hasDescription}) =>{
         max-w-[900px] z-3
         max-h-[420px]
         md:max-h-[520px]
-   
+        
         '>
 
        
@@ -213,12 +195,10 @@ sm:h-[50vw]
    md:max-h-[520px]
    absolute  
 
-   ${
-    (image.imageIndex === currentImage )
+   ${(image.imageIndex === currentImage )
     || (image.imageIndex === currentImage + 1)
     || (currentImage === images.length -1 && image.imageIndex
         === 0)
-
   ? 'transition-transform duration-500' : ''}
 
 
@@ -226,8 +206,9 @@ sm:h-[50vw]
    key={index}
    style={{
     transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift :
-        (image.imageIndex === 0  ) ? rightEdgeShift : 
-         updatedImages[index].transformValue}%)`,
+        image.imageIndex === 0 && rightEdgeCase ? rightEdgeShift : 
+        (currentImage === images.length -1 && image.imageIndex
+            === 0) ? 100 : updatedImages[index].transformValue}%)`,
     // transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >

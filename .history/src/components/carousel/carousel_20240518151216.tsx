@@ -214,11 +214,11 @@ sm:h-[50vw]
    absolute  
 
    ${
-    (image.imageIndex === currentImage )
-    || (image.imageIndex === currentImage + 1)
-    || (currentImage === images.length -1 && image.imageIndex
-        === 0)
-
+    // (image.imageIndex === currentImage )
+    // || (image.imageIndex === currentImage + 1)
+    // || (currentImage === images.length -1 && image.imageIndex
+    //     === 0)
+    !(image.imageIndex === 0)
   ? 'transition-transform duration-500' : ''}
 
 

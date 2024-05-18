@@ -104,7 +104,7 @@ hasDescription}) =>{
 
         useEffect(()=> {
 
-       
+            if()
 
             if(shift === -images.length + 1){
                 console.log('we are on the right edge case')
@@ -118,14 +118,12 @@ hasDescription}) =>{
                 setLeftEdgeShift(-100)
               setRightEdgeShift(0)
                 setRightClicked(false)
-                setRightEdgeCase(false)  
+                setRightEdgeCase(false)
             }
 
-            else if(!rightEdgeCase){
-                setRightEdgeShift(shift * 100)
-            }
+            
 
-            else if(shift === 0){
+          else if(shift === 0){
                 // console.warn('we are on left edge case')
                 setLeftEdgeShift(-100)
             }
@@ -148,10 +146,6 @@ hasDescription}) =>{
                 // console.log('the centered image is',currentImage)
                 
             }
-
-
-
-           
 
             
 
@@ -213,12 +207,10 @@ sm:h-[50vw]
    md:max-h-[520px]
    absolute  
 
-   ${
-    (image.imageIndex === currentImage )
+   ${(image.imageIndex === currentImage )
     || (image.imageIndex === currentImage + 1)
     || (currentImage === images.length -1 && image.imageIndex
         === 0)
-
   ? 'transition-transform duration-500' : ''}
 
 
@@ -226,8 +218,9 @@ sm:h-[50vw]
    key={index}
    style={{
     transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift :
-        (image.imageIndex === 0  ) ? rightEdgeShift : 
-         updatedImages[index].transformValue}%)`,
+        (image.imageIndex === 0 && rightEdgeCase ) ? rightEdgeShift : 
+        (currentImage === images.length -1 && image.imageIndex
+            === 0) ? 100 : updatedImages[index].transformValue}%)`,
     // transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >
