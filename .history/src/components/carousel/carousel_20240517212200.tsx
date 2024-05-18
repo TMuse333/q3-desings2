@@ -191,8 +191,7 @@ sm:h-[50vw]
    key={index}
    style={{
     transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift : 
-        (currentImage === images.length -1 && image.imageIndex
-            === 0) ? 100 : updatedImages[index].transformValue}%)`,
+        updatedImages[index].transformValue}%)`,
     // transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >

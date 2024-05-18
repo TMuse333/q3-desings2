@@ -17,7 +17,6 @@ interface CarouselProps {
 }
 
 
-
 const Carousel:React.FC<CarouselProps> = ({images,
 hasDescription}) =>{
 
@@ -39,11 +38,11 @@ hasDescription}) =>{
         transformValue: (shift * 100) + (100 * image.imageIndex)
     }));
 
-    // useEffect(() => {
-    //     updatedImages.forEach(image => {
-    //         console.log(`Title: ${image.title}, Transform Value: ${image.transformValue}`);
-    //     });
-    // }, [shift, images, updatedImages]);
+    useEffect(() => {
+        updatedImages.forEach(image => {
+            console.log(`Title: ${image.title}, Transform Value: ${image.transformValue}`);
+        });
+    }, [shift, images, updatedImages]);
 
     //(shift * 100) + (100 * image.imageIndex)
 
@@ -76,7 +75,7 @@ hasDescription}) =>{
             setCurrentImage(prev => prev -1)
         }
 
-        setLeftClicked(false)
+        
       
             
     }
@@ -92,7 +91,7 @@ hasDescription}) =>{
 
         else{
             setShift(prev => prev - 1);
-            // setCurrentImage(prev => prev + 1)
+            setCurrentImage(prev => prev + 1)
         }
        
        
@@ -100,10 +99,6 @@ hasDescription}) =>{
 }
 
         useEffect(()=> {
-
-           if(leftClicked){
-            setCurrentImage(prev => prev + 1)
-           }
 
             if(leftEdgeCase){
                 setLeftEdgeShift(0)
@@ -123,7 +118,7 @@ hasDescription}) =>{
             }
 
             console.log('current centered image',currentImage)
-        },[leftEdgeCase,shift,currentImage,leftClicked])
+        },[leftEdgeCase,shift,currentImage])
 
         // ( updatedImages[index].transformValue === 0 || (updatedImages[index].transformValue === 100 && image.imageIndex !== images.length -1)
         // || image.imageIndex === 0 && leftClicked
@@ -180,19 +175,15 @@ sm:h-[50vw]
    md:max-h-[520px]
    absolute  
 
-   ${(image.imageIndex === currentImage )
-    || (image.imageIndex === currentImage + 1)
-    || (currentImage === images.length -1 && image.imageIndex
-        === 0)
-  ? 'transition-transform duration-500' : ''}
+   ${(updatedImages[index].transformValue === 0) && !( ima )  
+  ? 'transition-transform duration-500' : 'transition-transform duration-500'}
 
 
    `}
    key={index}
    style={{
-    transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift : 
-        (currentImage === images.length -1 && image.imageIndex
-            === 0) ? 100 : updatedImages[index].transformValue}%)`,
+    transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift :
+      image.imageIndex === 0 && leftEdgeCase && leftClicked  ? 100   : updatedImages[index].transformValue}%)`,
     // transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >

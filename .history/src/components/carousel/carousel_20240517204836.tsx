@@ -17,7 +17,6 @@ interface CarouselProps {
 }
 
 
-
 const Carousel:React.FC<CarouselProps> = ({images,
 hasDescription}) =>{
 
@@ -39,11 +38,11 @@ hasDescription}) =>{
         transformValue: (shift * 100) + (100 * image.imageIndex)
     }));
 
-    // useEffect(() => {
-    //     updatedImages.forEach(image => {
-    //         console.log(`Title: ${image.title}, Transform Value: ${image.transformValue}`);
-    //     });
-    // }, [shift, images, updatedImages]);
+    useEffect(() => {
+        updatedImages.forEach(image => {
+            console.log(`Title: ${image.title}, Transform Value: ${image.transformValue}`);
+        });
+    }, [shift, images, updatedImages]);
 
     //(shift * 100) + (100 * image.imageIndex)
 
@@ -55,14 +54,14 @@ hasDescription}) =>{
         if(leftEdgeCase){
             setLeftEdgeCase(false)
            
-            // console.log('no longer on edge case')
+            console.log('no longer on edge case')
             
         }
 
         
 
         if(shift === 0 ){
-            // console.warn('LEFT EDGE CASE!')
+            console.warn('LEFT EDGE CASE!')
            
             setLeftEdgeCase(true)
            
@@ -76,7 +75,7 @@ hasDescription}) =>{
             setCurrentImage(prev => prev -1)
         }
 
-        setLeftClicked(false)
+        
       
             
     }
@@ -92,7 +91,7 @@ hasDescription}) =>{
 
         else{
             setShift(prev => prev - 1);
-            // setCurrentImage(prev => prev + 1)
+            setCurrentImage(prev => prev + 1)
         }
        
        
@@ -101,29 +100,25 @@ hasDescription}) =>{
 
         useEffect(()=> {
 
-           if(leftClicked){
-            setCurrentImage(prev => prev + 1)
-           }
-
             if(leftEdgeCase){
                 setLeftEdgeShift(0)
                 setShift(-images.length + 1);
                 setCurrentImage(images.length -1)
-                // console.log('the centered image is',currentImage)
+                console.log('the centered image is',currentImage)
                 return
             }
 
             if(shift === 0){
-                // console.warn('we are on left edge case')
+                console.warn('we are on left edge case')
                 setLeftEdgeShift(-100)
             }
             else{
-                // console.warn('not on left edge case')
+                console.warn('not on left edge case')
                 setLeftEdgeShift((shift * 100) + (100 * images.length - 1))
             }
 
             console.log('current centered image',currentImage)
-        },[leftEdgeCase,shift,currentImage,leftClicked])
+        },[leftEdgeCase,shift,currentImage])
 
         // ( updatedImages[index].transformValue === 0 || (updatedImages[index].transformValue === 100 && image.imageIndex !== images.length -1)
         // || image.imageIndex === 0 && leftClicked
@@ -180,19 +175,16 @@ sm:h-[50vw]
    md:max-h-[520px]
    absolute  
 
-   ${(image.imageIndex === currentImage )
-    || (image.imageIndex === currentImage + 1)
-    || (currentImage === images.length -1 && image.imageIndex
-        === 0)
-  ? 'transition-transform duration-500' : ''}
+   ${(image.imageIndex === currentImage)   ||
+  (leftClicked && currentImage === 0 && image.imageIndex === images.length -1) 
+  && (leftClicked && updatedImages[index].transformValue !== 100? 'transition-transform duration-500' : ''}
 
 
    `}
    key={index}
    style={{
-    transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift : 
-        (currentImage === images.length -1 && image.imageIndex
-            === 0) ? 100 : updatedImages[index].transformValue}%)`,
+    transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift :
+      image.imageIndex === 0 && leftEdgeCase && leftClicked  ? 100   : updatedImages[index].transformValue}%)`,
     // transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >
