@@ -127,12 +127,12 @@ hasDescription}) =>{
                 setLeftClicked(false)
             }
 
-            // if(leftEdgeCase === false
-            //     && rightEdgeCase === false){
-            //     setLeftEdgeShift((shift * 100) + ((images.length -1) * 100))
-            //     setRightEdgeShift(shift * 100)
+            if(leftEdgeCase === false
+                && rightEdgeCase === false){
+                setLeftEdgeShift((shift * 100) + ((images.length -1) * 100))
+                setRightEdgeShift
    
-            // }
+            }
 
 
         

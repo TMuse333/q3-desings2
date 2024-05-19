@@ -127,37 +127,32 @@ hasDescription}) =>{
                 setLeftClicked(false)
             }
 
-            // if(leftEdgeCase === false
-            //     && rightEdgeCase === false){
-            //     setLeftEdgeShift((shift * 100) + ((images.length -1) * 100))
-            //     setRightEdgeShift(shift * 100)
+            if(leftEdgeCase === false){
+                setLeftEdgeShift((shift * 100) + ((images.length -1) * 100))
    
-            // }
-
-
+            }
         
         },[leftEdgeCase,shift,currentImage,rightEdgeCase,leftClicked])
 
-        // useEffect(()=> {
-        //  if(shift === -images.length + 1){
-        //     setRightEdgeCase(true)
-        //     setRightEdgeShift(100)
-        //  }
+        useEffect(()=> {
+         if(shift === -images.length + 1){
+            setRightEdgeCase(true)
+            setRightEdgeShift(100)
+         }
 
-        //  if(rightEdgeCase === true && rightClicked
-        //     === true){
-        //     setRightEdgeShift(0)
-        //     setRightEdgeCase(false)
-        //     // setRightClicked(false)
+         if(rightEdgeCase === true && rightClicked
+            === true){
+            setRightEdgeShift(0)
+            setRightEdgeCase(false)
+            // setRightClicked(false)
 
-        //  }
+         }
 
-        //  if(rightEdgeCase === false 
-        //     && leftEdgeCase === false){
-        //     setRightEdgeShift(shift * 100)
-        //  }
-        //     // console.log('shift',shift)
-        // },[shift,leftEdgeCase,rightEdgeCase])
+         if(rightEdgeCase === false){
+            setRightEdgeShift
+         }
+            // console.log('shift',shift)
+        },[shift,leftEdgeCase])
 
         // ( updatedImages[index].transformValue === 0 || (updatedImages[index].transformValue === 100 && image.imageIndex !== images.length -1)
         // || image.imageIndex === 0 && leftClicked

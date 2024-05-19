@@ -29,7 +29,7 @@ hasDescription}) =>{
     
     const [leftEdgeShift, setLeftEdgeShift] = useState<number>(-100)
 
-    const [leftEdgeCase, setLeftEdgeCase] = useState<boolean>(true)
+    const [leftEdgeCase, setLeftEdgeCase] = useState<boolean>(false)
 
     const [rightClicked, setRightClicked] = useState<boolean>(false)
 
@@ -102,62 +102,59 @@ hasDescription}) =>{
 
 }
 
-//use effect for handling the previous button click
-
         useEffect(()=> {
 
             if(leftEdgeCase === true){
-                setLeftEdgeShift(-100)
-               
+                setLeftEdgeShift(0)
+                setShift(-images.length + 1);
                 setCurrentImage(images.length -1)
                 // console.log('the centered image is',currentImage)
                 console.log('left edge case is true')
-                setLeftClicked(false)
             }
+
+
+     
 
            if(leftEdgeCase === true &&
             leftClicked === true){
                 setRightEdgeShift(100)
                 setLeftEdgeCase(false)
-                setShift(-images.length + 1);
-                setLeftEdgeShift(0)
-               
-                console.warn('no longer edge and here is shift value',shift)
-                
-                setLeftClicked(false)
+            
+                setShift(-images.length + 1)
+                console.log('left edge case and left clicked is true')
             }
 
-            // if(leftEdgeCase === false
-            //     && rightEdgeCase === false){
-            //     setLeftEdgeShift((shift * 100) + ((images.length -1) * 100))
-            //     setRightEdgeShift(shift * 100)
-   
+            else if(leftEdgeCase){
+                setLeftEdgeShift((shift * 100) + (images.length -1 * 100))
+            }
+
+            // if(leftClicked === true){
+            //     setCurrentImage(prev => prev + 1)
+           
+            //     console.log('setting left clicked back to false')
+           
+            //    }
+
+        
+
+         setLeftClicked(false)
+            
+
+            //  if(leftEdgeCase === true && leftClicked  === true){
+            //     setRightEdgeShift(100)
+              
+               
+               
             // }
 
 
+
+           
+
+            
+
         
         },[leftEdgeCase,shift,currentImage,rightEdgeCase,leftClicked])
-
-        // useEffect(()=> {
-        //  if(shift === -images.length + 1){
-        //     setRightEdgeCase(true)
-        //     setRightEdgeShift(100)
-        //  }
-
-        //  if(rightEdgeCase === true && rightClicked
-        //     === true){
-        //     setRightEdgeShift(0)
-        //     setRightEdgeCase(false)
-        //     // setRightClicked(false)
-
-        //  }
-
-        //  if(rightEdgeCase === false 
-        //     && leftEdgeCase === false){
-        //     setRightEdgeShift(shift * 100)
-        //  }
-        //     // console.log('shift',shift)
-        // },[shift,leftEdgeCase,rightEdgeCase])
 
         // ( updatedImages[index].transformValue === 0 || (updatedImages[index].transformValue === 100 && image.imageIndex !== images.length -1)
         // || image.imageIndex === 0 && leftClicked
