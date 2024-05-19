@@ -102,56 +102,63 @@ hasDescription}) =>{
 
 }
 
-useEffect(() => {
-    if (shift === -images.length + 2) {
-        console.log('Condition: shift === -images.length + 2');
-        setLeftEdgeShift(100);
-    } else if (shift === -images.length + 1) {
-        console.log('Condition: shift === -images.length + 1');
-        console.log('we are on the right edge case');
-        setRightEdgeCase(true);
-        setLeftEdgeShift(0);
-        setRightEdgeShift(100);
-    } else if (rightEdgeCase && rightClicked) {
-        console.log('Condition: rightEdgeCase && rightClicked');
-        console.warn('right shift!');
-        setLeftEdgeShift(-100);
-        setRightEdgeShift(0);
-        setRightClicked(false);
-        setRightEdgeCase(false);
-    } else if (!rightEdgeCase) {
-        console.log('Condition: !rightEdgeCase');
-        setRightEdgeShift(shift * 100);
-    } else if (shift === 0) {
-        console.log('Condition: shift === 0');
-        // console.warn('we are on left edge case');
-        setLeftEdgeShift(-100);
-        setRightEdgeShift(0);
-    } else {
-        console.log('Condition: else');
-        // console.warn('not on left edge case');
-        setLeftEdgeShift((shift * 100) + (100 * images.length - 1));
-        setRightEdgeShift(shift * 100);
-        console.log('right shift back to normal');
-    }
+        useEffect(()=> {
 
-    if (leftClicked) {
-        console.log('Condition: leftClicked');
-        setCurrentImage(prev => prev + 1);
-        // setLeftClicked(false)
-    }
+            if(shift === -images.length -2 ){
+                setLeftEdgeShift()
+            }
 
-    if (leftEdgeCase) {
-        console.log('Condition: leftEdgeCase');
-        setLeftEdgeShift(0);
-        setShift(-images.length + 1);
-        setCurrentImage(images.length - 1);
-        // console.log('the centered image is',currentImage)
-    }
+            if(shift === -images.length + 1){
+                console.log('we are on the right edge case')
+                setRightEdgeCase(true)
+                setLeftEdgeShift(0)
+                setRightEdgeShift(100)
+            }
 
-    console.log('shift', shift);
-}, [leftEdgeCase, shift, currentImage, leftClicked, rightEdgeCase]);
+             else if(rightEdgeCase && rightClicked){
+                console.warn('right shift!')
+                setLeftEdgeShift(-100)
+              setRightEdgeShift(0)
+                setRightClicked(false)
+                setRightEdgeCase(false)  
+            }
 
+            else if(!rightEdgeCase){
+                setRightEdgeShift(shift * 100)
+            }
+
+            else if(shift === 0){
+                // console.warn('we are on left edge case')
+                setLeftEdgeShift(-100)
+            }
+            else{
+                // console.warn('not on left edge case')
+                setLeftEdgeShift((shift * 100) + (100 * images.length - 1))
+                
+            }
+
+           if(leftClicked){
+            setCurrentImage(prev => prev + 1)
+            // setLeftClicked(false)
+       
+           }
+
+            if(leftEdgeCase){
+                setLeftEdgeShift(0)
+                setShift(-images.length + 1);
+                setCurrentImage(images.length -1)
+                // console.log('the centered image is',currentImage)
+                
+            }
+
+
+
+           
+
+            
+
+            console.log('shift',shift)
+        },[leftEdgeCase,shift,currentImage,leftClicked])
 
         // ( updatedImages[index].transformValue === 0 || (updatedImages[index].transformValue === 100 && image.imageIndex !== images.length -1)
         // || image.imageIndex === 0 && leftClicked
