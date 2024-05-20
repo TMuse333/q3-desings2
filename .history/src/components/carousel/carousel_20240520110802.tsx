@@ -79,12 +79,9 @@ hasDescription}) =>{
 
         useEffect(()=> {
 
-            if(shift === 0
-                && rightClicked
-                
-                ){
+            if(shift === -images.length + 1
+                && rightClicked){
                     setCarouselWrapping(true)
-                    console.warn('carousel wrapping!')
                 }
                 else{
                     setCarouselWrapping(false)
@@ -189,7 +186,7 @@ hasDescription}) =>{
         '>
 
        
-        {updatedImages.map((image,index) => (
+        {images.map((image,index) => (
             <>
 
             {/*this dictates the height and width of the image*/}
@@ -223,16 +220,9 @@ sm:h-[50vw]
      image.imageIndex === images.length -1) 
      || 
 
-     (shift === 0 && rightClicked &&
-        image.imageIndex !== 0 && image.imageIndex !== images.length - 1
-        )
-
-        || (shift === -1 && rightClicked && image.imageIndex === images.length -1)
-
-        || (shift === -images.length +2 && image.imageIndex === 0
-            && leftClicked)
-
-
+     (carouselWrapping === true && 
+     (image.imageIndex !== 0 && image.imageIndex
+      !== images.length -1))
                 // (
                 //     shift === -images.length + 1 && rightClicked
                 //     && !(image.imageIndex === 0 && image.imageIndex
@@ -244,7 +234,7 @@ sm:h-[50vw]
       
     
   
-  ? '' : 'transition-transform duration-1000'}
+  ? '' : 'transition-transform duration-500'}
 
 
    `}
@@ -253,7 +243,7 @@ sm:h-[50vw]
     transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift : 
         image.imageIndex === 0 ? rightEdgeShift :
           updatedImages[index].transformValue}%)`,
-    // transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
+    transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >
        <img

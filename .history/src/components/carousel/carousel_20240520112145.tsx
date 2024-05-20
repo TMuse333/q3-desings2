@@ -227,11 +227,6 @@ sm:h-[50vw]
         image.imageIndex !== 0 && image.imageIndex !== images.length - 1
         )
 
-        || (shift === -1 && rightClicked && image.imageIndex === images.length -1)
-
-        || (shift === -images.length +2 && image.imageIndex === 0
-            && leftClicked)
-
 
                 // (
                 //     shift === -images.length + 1 && rightClicked

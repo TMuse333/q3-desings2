@@ -48,12 +48,6 @@ const Homepage: React.FC = () => {
             imageIndex:3,
             title:'Lambo',
             description:'dropping the top ona lambo'
-        },
-        {
-            url:village,
-            imageIndex:4,
-            title:'the quantum village',
-            description:'welcome to the quantum village'
         }
     
    ]

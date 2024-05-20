@@ -18,7 +18,7 @@ import { AuroraHero } from "../auroraHero/auroraHero";
 import Navbar from "../navbar/navbar";
 
 import lambo from '../../media/green-lambo-ref-2.svg'
-import village from '../../media/quantum-village.jpg'
+import village from 'src/media/quantum-village.jpg'
 
 const Homepage: React.FC = () => {
 
@@ -48,12 +48,6 @@ const Homepage: React.FC = () => {
             imageIndex:3,
             title:'Lambo',
             description:'dropping the top ona lambo'
-        },
-        {
-            url:village,
-            imageIndex:4,
-            title:'the quantum village',
-            description:'welcome to the quantum village'
         }
     
    ]

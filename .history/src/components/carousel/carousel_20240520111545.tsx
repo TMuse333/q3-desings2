@@ -79,12 +79,9 @@ hasDescription}) =>{
 
         useEffect(()=> {
 
-            if(shift === 0
-                && rightClicked
-                
-                ){
+            if(shift === -images.length + 1
+                && rightClicked){
                     setCarouselWrapping(true)
-                    console.warn('carousel wrapping!')
                 }
                 else{
                     setCarouselWrapping(false)
@@ -223,14 +220,7 @@ sm:h-[50vw]
      image.imageIndex === images.length -1) 
      || 
 
-     (shift === 0 && rightClicked &&
-        image.imageIndex !== 0 && image.imageIndex !== images.length - 1
-        )
-
-        || (shift === -1 && rightClicked && image.imageIndex === images.length -1)
-
-        || (shift === -images.length +2 && image.imageIndex === 0
-            && leftClicked)
+     (carouselWrapping === true )
 
 
                 // (

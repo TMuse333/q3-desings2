@@ -53,7 +53,7 @@ const Homepage: React.FC = () => {
             url:village,
             imageIndex:4,
             title:'the quantum village',
-            description:'welcome to the quantum village'
+            description:'wel'
         }
     
    ]

@@ -79,7 +79,7 @@ hasDescription}) =>{
 
         useEffect(()=> {
 
-            if(shift === 0
+            if(shift === -images.length + 1
                 && rightClicked
                 
                 ){
@@ -223,14 +223,9 @@ sm:h-[50vw]
      image.imageIndex === images.length -1) 
      || 
 
-     (shift === 0 && rightClicked &&
-        image.imageIndex !== 0 && image.imageIndex !== images.length - 1
-        )
-
-        || (shift === -1 && rightClicked && image.imageIndex === images.length -1)
-
-        || (shift === -images.length +2 && image.imageIndex === 0
-            && leftClicked)
+     (carouselWrapping === true && 
+     (image.imageIndex !== 0 && image.imageIndex
+      !== images.length -1))
 
 
                 // (

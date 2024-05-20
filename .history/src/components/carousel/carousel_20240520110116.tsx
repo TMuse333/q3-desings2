@@ -46,6 +46,7 @@ hasDescription}) =>{
     }));
 
  
+
     function handlePrevClick(){
 
         setLeftClicked(true)
@@ -79,12 +80,9 @@ hasDescription}) =>{
 
         useEffect(()=> {
 
-            if(shift === 0
-                && rightClicked
-                
-                ){
+            if(shift === -images.length + 1
+                && rightClicked){
                     setCarouselWrapping(true)
-                    console.warn('carousel wrapping!')
                 }
                 else{
                     setCarouselWrapping(false)
@@ -207,32 +205,19 @@ sm:h-[50vw]
 
    ${ (image.imageIndex === 0 && rightEdgeShift
     === 100 && !leftClicked
-  ) 
-  || 
-  (image.imageIndex === images.length -1 
+  ) || (image.imageIndex === images.length -1 
     && leftEdgeShift === -100 && !rightClicked)
-
     || ( shift === -images.length + 1 && leftClicked
         && !(image.imageIndex === 0 ||
-      image.imageIndex === images.length -1)
-
-     ||(rightEdgeShift === -100 && image.imageIndex
-      === 0 && !rightClicked))
-
-     || (leftEdgeShift === 100 && rightClicked &&
-     image.imageIndex === images.length -1) 
-     || 
-
-     (shift === 0 && rightClicked &&
-        image.imageIndex !== 0 && image.imageIndex !== images.length - 1
-        )
-
-        || (shift === -1 && rightClicked && image.imageIndex === images.length -1)
-
-        || (shift === -images.length +2 && image.imageIndex === 0
-            && leftClicked)
-
-
+            image.imageIndex === images.length -1)
+        ||(rightEdgeShift === -100 && image.imageIndex
+            === 0 && !rightClicked)) || (leftEdgeShift === 100 && rightClicked &&
+                image.imageIndex === images.length -1) || 
+                (carouselWrapping === true && 
+                    (image.imageIndex !== 0 && image.imageIndex
+                        !== images.length -1)
+                      
+                )
                 // (
                 //     shift === -images.length + 1 && rightClicked
                 //     && !(image.imageIndex === 0 && image.imageIndex
@@ -244,7 +229,7 @@ sm:h-[50vw]
       
     
   
-  ? '' : 'transition-transform duration-1000'}
+  ? '' : 'transition-transform duration-500'}
 
 
    `}
