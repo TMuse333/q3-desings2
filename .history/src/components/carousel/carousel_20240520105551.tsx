@@ -220,7 +220,7 @@ sm:h-[50vw]
             === 0 && !rightClicked)) || (leftEdgeShift === 100 && rightClicked &&
                 image.imageIndex === images.length -1) || 
                 (carouselWrapping === true && 
-                    (image.imageIndex !== 0 && image.imageIndex
+                    (image.imageIndex !== 0  image.imageIndex
                         !== images.length -1)
                       
                 )

@@ -33,12 +33,13 @@ hasDescription}) =>{
 
     const [rightClicked, setRightClicked] = useState<boolean>(false)
 
-
+    const [rightEdgeCase, setRightEdgeCase] = useState<boolean>(false)
 
     const [rightEdgeShift, setRightEdgeShift] = useState<number>(0)
 
-    const [carouselWrapping, setCarouselWrapping]
-    = useState<boolean>(false)
+    const [rightGoingToEdge, setRightGoingToEdge] = useState(false)
+
+    const [leftGoingToEdge, setLeftGoingToEdge] = useState<boolean>(true)
 
     const updatedImages = images.map((image, index) => ({
         ...image,
@@ -56,13 +57,10 @@ hasDescription}) =>{
     function handlePrevClick(){
 
         setLeftClicked(true)
-       setRightClicked(false)
+        setShift(prev => prev +1)
 
         if(shift === 0){
             setLeftEdgeCase(true)
-        }
-        else{
-            setShift(prev => prev +1)
         }
     }
 
@@ -86,26 +84,13 @@ hasDescription}) =>{
 
         useEffect(()=> {
 
-            if(shift === -images.length + 1
-                && rightClicked){
-                    setCarouselWrapping(true)
-                }
-                else{
-                    setCarouselWrapping(false)
-                }
-
-            if(leftEdgeCase && rightClicked){
-                setLeftEdgeCase(false)
-            }
-
      
             if(shift === -images.length + 1){
-             
-               setCurrentImage(images.length - 1)
+                setRightGoingToEdge(true)
                 setRightEdgeShift(100)
             }
             else{
-                
+                setRightGoingToEdge(false)
                     setRightEdgeShift(shift * 100)
             }
      
@@ -115,23 +100,16 @@ hasDescription}) =>{
                 
                
                 setLeftEdgeCase(false)
-                setCarouselWrapping(true)
                 setShift(-images.length +1)
-                setCurrentImage(images.length -1)
+           
                setLeftEdgeShift(0)
-         
-            //    setLeftClicked(false)
+               setLeftClicked(false)
 
             }
-
-            else if(leftClicked === true){
-                // setLeftClicked(false)
-              }
 
             if(shift === 0){
                
                 setLeftEdgeShift(-100)
-                setCurrentImage(0)
                
                 
             }
@@ -143,13 +121,11 @@ hasDescription}) =>{
         // console.warn('the left edge case is not longer true')
       }
 
-    
-
-
+      if(leftClicked === true){
+        setLeftClicked(false)
+      }
 
     console.log('shift',shift)
-    // console.log('left edge shift',leftEdgeShift)
-    // console.log('current image',currentImage)
 
 
         },[leftEdgeCase,shift,currentImage,leftClicked])
@@ -209,30 +185,10 @@ sm:h-[50vw]
    md:max-h-[520px]
    absolute  
 
-   ${ (image.imageIndex === 0 && rightEdgeShift
-    === 100 && !leftClicked
-  ) || (image.imageIndex === images.length -1 
-    && leftEdgeShift === -100 && !rightClicked)
-    || ( shift === -images.length + 1 && leftClicked
-        && !(image.imageIndex === 0 ||
-            image.imageIndex === images.length -1)
-        ||(rightEdgeShift === -100 && image.imageIndex
-            === 0 && !rightClicked)) || (leftEdgeShift === 100 && rightClicked &&
-                image.imageIndex === images.length -1) || 
-                (carouselWrapping === true && 
-                    (image.imageIndex !== 0 && image.imageIndex
-                        !== images.length -1)
-                      
-                )
-                // (
-                //     shift === -images.length + 1 && rightClicked
-                //     && !(image.imageIndex === 0 && image.imageIndex
-                //         === images.length -1)
-                // )
-
-
-        
-      
+   ${ (image.imageIndex === 0
+    && rightEdgeShift === 100) ||
+    (image.imageIndex === images.length
+        )
     
   
   ? '' : 'transition-transform duration-500'}

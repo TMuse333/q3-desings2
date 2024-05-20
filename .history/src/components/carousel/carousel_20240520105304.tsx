@@ -119,7 +119,7 @@ hasDescription}) =>{
                 setShift(-images.length +1)
                 setCurrentImage(images.length -1)
                setLeftEdgeShift(0)
-         
+               console.error('oops')
             //    setLeftClicked(false)
 
             }
@@ -219,10 +219,9 @@ sm:h-[50vw]
         ||(rightEdgeShift === -100 && image.imageIndex
             === 0 && !rightClicked)) || (leftEdgeShift === 100 && rightClicked &&
                 image.imageIndex === images.length -1) || 
-                (carouselWrapping === true && 
-                    (image.imageIndex !== 0 && image.imageIndex
-                        !== images.length -1)
-                      
+                (carouselWrapping === true && !(
+                    !(image.imageIndex === 0 && image.imageIndex
+                        //         === images.length -1
                 )
                 // (
                 //     shift === -images.length + 1 && rightClicked

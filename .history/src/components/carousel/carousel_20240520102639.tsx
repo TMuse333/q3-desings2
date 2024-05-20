@@ -56,7 +56,7 @@ hasDescription}) =>{
     function handlePrevClick(){
 
         setLeftClicked(true)
-       setRightClicked(false)
+       
 
         if(shift === 0){
             setLeftEdgeCase(true)
@@ -69,7 +69,7 @@ hasDescription}) =>{
     function handleNextClick(){
 
         setRightClicked(true)
-        setLeftClicked(false)
+  
         if(shift === -images.length +1){
             setShift(0)
             setCurrentImage(0)
@@ -86,17 +86,12 @@ hasDescription}) =>{
 
         useEffect(()=> {
 
-            if(shift === -images.length + 1
-                && rightClicked){
-                    setCarouselWrapping(true)
-                }
-                else{
-                    setCarouselWrapping(false)
-                }
-
-            if(leftEdgeCase && rightClicked){
-                setLeftEdgeCase(false)
-            }
+            // if(shift === 0 && leftClicked
+            //     || shift === -images.length + 1
+            //     && rightClicked){
+            //         setCarouselWrapping(true)
+            //         console.warn('carousel wrap')
+            //     }
 
      
             if(shift === -images.length + 1){
@@ -119,7 +114,6 @@ hasDescription}) =>{
                 setShift(-images.length +1)
                 setCurrentImage(images.length -1)
                setLeftEdgeShift(0)
-         
             //    setLeftClicked(false)
 
             }
@@ -213,24 +207,11 @@ sm:h-[50vw]
     === 100 && !leftClicked
   ) || (image.imageIndex === images.length -1 
     && leftEdgeShift === -100 && !rightClicked)
-    || ( shift === -images.length + 1 && leftClicked
-        && !(image.imageIndex === 0 ||
-            image.imageIndex === images.length -1)
-        ||(rightEdgeShift === -100 && image.imageIndex
-            === 0 && !rightClicked)) || (leftEdgeShift === 100 && rightClicked &&
-                image.imageIndex === images.length -1) || 
-                (carouselWrapping === true && 
-                    (image.imageIndex !== 0 && image.imageIndex
-                        !== images.length -1)
-                      
-                )
-                // (
-                //     shift === -images.length + 1 && rightClicked
-                //     && !(image.imageIndex === 0 && image.imageIndex
-                //         === images.length -1)
-                // )
-
-
+    //  ||
+    // (image.imageIndex === images.length -1
+    //     && image.imageIndex !== 0
+    //     && (leftEdgeShift === -100 
+    //     || leftEdgeShift === 100))
         
       
     
