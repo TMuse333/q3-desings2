@@ -81,12 +81,7 @@ hasDescription}) =>{
         useEffect(()=> {
 
      
-            if(shift === -images.length + 1){
-                setRightEdgeShift(100)
-            }
-            else{
-                    setRightEdgeShift(shift * 100)
-            }
+            if()
      
 
          if(leftEdgeCase === true &&
@@ -171,7 +166,7 @@ hasDescription}) =>{
         max-w-[900px] z-3
         max-h-[420px]
         md:max-h-[520px]
-        overflow-hidden
+
         '>
 
        
@@ -202,7 +197,7 @@ sm:h-[50vw]
    key={index}
    style={{
     transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift : 
-        image.imageIndex === 0 ? rightEdgeShift :
+        image.imageIndex === 0 
           updatedImages[index].transformValue}%)`,
     // transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}

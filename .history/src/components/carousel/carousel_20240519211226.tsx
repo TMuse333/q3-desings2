@@ -85,7 +85,7 @@ hasDescription}) =>{
                 setRightEdgeShift(100)
             }
             else{
-                    setRightEdgeShift(shift * 100)
+                    setRightEdgeShift(0)
             }
      
 
@@ -171,7 +171,7 @@ hasDescription}) =>{
         max-w-[900px] z-3
         max-h-[420px]
         md:max-h-[520px]
-        overflow-hidden
+
         '>
 
        

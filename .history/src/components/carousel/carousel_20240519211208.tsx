@@ -82,10 +82,7 @@ hasDescription}) =>{
 
      
             if(shift === -images.length + 1){
-                setRightEdgeShift(100)
-            }
-            else{
-                    setRightEdgeShift(shift * 100)
+                setRightEdgeCase(100)
             }
      
 
@@ -171,7 +168,7 @@ hasDescription}) =>{
         max-w-[900px] z-3
         max-h-[420px]
         md:max-h-[520px]
-        overflow-hidden
+
         '>
 
        

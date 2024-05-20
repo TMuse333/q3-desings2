@@ -35,8 +35,6 @@ hasDescription}) =>{
 
     const [rightEdgeCase, setRightEdgeCase] = useState<boolean>(false)
 
-    const [rightEdgeShift, setRightEdgeShift] = useState<number>(0)
-
     const updatedImages = images.map((image, index) => ({
         ...image,
         transformValue: (shift * 100) + (100 * image.imageIndex)
@@ -80,45 +78,27 @@ hasDescription}) =>{
 
         useEffect(()=> {
 
-     
-            if(shift === -images.length + 1){
-                setRightEdgeShift(100)
-            }
-            else{
-                    setRightEdgeShift(shift * 100)
-            }
-     
-
-         if(leftEdgeCase === true &&
-            leftClicked === true){
+        // if(leftEdgeCase === true &&
+        //     leftClicked === true){
                 
+        //         setLeftClicked(false)
+        //         setLeftEdgeCase(false)
+        //         setShift(-images.length +1)
                
-                setLeftEdgeCase(false)
-                setShift(-images.length +1)
-             
-               setLeftEdgeShift(0)
-               setLeftClicked(false)
+        //        setLeftEdgeShift(0)
+        //        return
 
-            }
+        //     }
 
-            if(shift === 0){
-                setLeftEdgeShift(-100)
-                console.warn('in edge position')
-                
-            }
+        //     if(leftEdgeCase === false
+        //         ){
+        //         setLeftEdgeShift((shift * 100)
+        //         +(100 * images.length -1))
+        //     }
 
-      if( shift !== 0){
-       
-        setLeftEdgeShift((shift * 100)
-        +(100 * (images.length -1)))
-        // console.warn('the left edge case is not longer true')
-      }
-
-      if(leftClicked === true){
-        setLeftClicked(false)
-      }
-
-    
+        if(leftEdgeCase === true){
+            set
+        }
       
          
 
@@ -202,8 +182,8 @@ sm:h-[50vw]
    key={index}
    style={{
     transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift : 
-        image.imageIndex === 0 ? rightEdgeShift :
-          updatedImages[index].transformValue}%)`,
+        (currentImage === images.length -1 && image.imageIndex
+            === 0) ? 100 : updatedImages[index].transformValue}%)`,
     // transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >

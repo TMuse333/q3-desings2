@@ -26,16 +26,13 @@ hasDescription}) =>{
     const [currentImage, setCurrentImage] = useState<number>(0)
 
     const [leftClicked, setLeftClicked] = useState<boolean>(false)
+
+    const [rightClicked, setRightClicked] = useState<boolean>(false)
+    
     
     const [leftEdgeShift, setLeftEdgeShift] = useState<number>(-100)
 
-    const [leftEdgeCase, setLeftEdgeCase] = useState<boolean>(true)
-
-    const [rightClicked, setRightClicked] = useState<boolean>(false)
-
-    const [rightEdgeCase, setRightEdgeCase] = useState<boolean>(false)
-
-    const [rightEdgeShift, setRightEdgeShift] = useState<number>(0)
+    const [leftEdgeCase, setLeftEdgeCase] = useState<boolean>(false)
 
     const updatedImages = images.map((image, index) => ({
         ...image,
@@ -53,11 +50,35 @@ hasDescription}) =>{
     function handlePrevClick(){
 
         setLeftClicked(true)
-        setShift(prev => prev +1)
+        setRightClicked(false)
 
-        if(shift === 0){
-            setLeftEdgeCase(true)
+        if(leftEdgeCase){
+            setLeftEdgeCase(false)
+           
+            // console.log('no longer on edge case')
+            
         }
+
+        
+
+        if(shift === 0 ){
+            // console.warn('LEFT EDGE CASE!')
+           
+            setLeftEdgeCase(true)
+           
+           
+
+            // setShift(-images.length + 1)
+            // setCurrentImage(images.length -1)
+        }
+        else{
+            setShift(prev => prev + 1);
+            setCurrentImage(prev => prev -1)
+        }
+
+        setLeftClicked(false)
+      
+            
     }
 
     function handleNextClick(){
@@ -80,60 +101,28 @@ hasDescription}) =>{
 
         useEffect(()=> {
 
-     
-            if(shift === -images.length + 1){
-                setRightEdgeShift(100)
-            }
-            else{
-                    setRightEdgeShift(shift * 100)
-            }
-     
+           if(leftClicked){
+            setCurrentImage(prev => prev + 1)
+           }
 
-         if(leftEdgeCase === true &&
-            leftClicked === true){
-                
-               
-                setLeftEdgeCase(false)
-                setShift(-images.length +1)
-             
-               setLeftEdgeShift(0)
-               setLeftClicked(false)
-
+            if(leftEdgeCase){
+                setLeftEdgeShift(0)
+                setShift(-images.length + 1);
+                setCurrentImage(images.length -1)
+                // console.log('the centered image is',currentImage)
+                return
             }
 
             if(shift === 0){
+                // console.warn('we are on left edge case')
                 setLeftEdgeShift(-100)
-                console.warn('in edge position')
-                
+            }
+            else{
+                // console.warn('not on left edge case')
+                setLeftEdgeShift((shift * 100) + (100 * images.length - 1))
             }
 
-      if( shift !== 0){
-       
-        setLeftEdgeShift((shift * 100)
-        +(100 * (images.length -1)))
-        // console.warn('the left edge case is not longer true')
-      }
-
-      if(leftClicked === true){
-        setLeftClicked(false)
-      }
-
-    
-      
-         
-
-         
-
-            // if(shift === 0){
-            //     console.warn('we are on left edge case')
-               
-            // }
-            // else{
-            //     // console.warn('not on left edge case')
-            //     setLeftEdgeShift((shift * 100) + (100 * images.length - 1))
-            // }
-
-
+            console.log('current centered image',currentImage)
         },[leftEdgeCase,shift,currentImage,leftClicked])
 
         // ( updatedImages[index].transformValue === 0 || (updatedImages[index].transformValue === 100 && image.imageIndex !== images.length -1)
@@ -195,15 +184,15 @@ sm:h-[50vw]
     || (image.imageIndex === currentImage + 1)
     || (currentImage === images.length -1 && image.imageIndex
         === 0)
-  ? 'transition-transform duration-500' : 'transition-transform duration-500'}
+  ? 'transition-transform duration-500' : ''}
 
 
    `}
    key={index}
    style={{
     transform: `translateX(${image.imageIndex === images.length - 1 ? leftEdgeShift : 
-        image.imageIndex === 0 ? rightEdgeShift :
-          updatedImages[index].transformValue}%)`,
+        (currentImage === images.length -1 && image.imageIndex
+            === 0) ? 100 : updatedImages[index].transformValue}%)`,
     // transitionTimingFunction: 'cubic-bezier(0.48, -0.25, 0.17, 1.33)',
    }}
 >
