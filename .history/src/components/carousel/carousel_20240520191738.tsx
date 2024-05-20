@@ -37,6 +37,8 @@ hasDescription}) =>{
 
     const [rightEdgeShift, setRightEdgeShift] = useState<number>(0)
 
+    const [carouselWrapping, setCarouselWrapping]
+    = useState<boolean>(false)
 
     const updatedImages = images.map((image, index) => ({
         ...image,
@@ -54,7 +56,6 @@ hasDescription}) =>{
         }
         else{
             setShift(prev => prev +1)
-            setCurrentImage(prev => prev - 1)
         }
     }
 
@@ -69,7 +70,6 @@ hasDescription}) =>{
 
         else{
             setShift(prev => prev - 1);
-            setCurrentImage(prev => prev + 1)
             // setCurrentImage(prev => prev + 1)
         }
        
@@ -83,11 +83,11 @@ hasDescription}) =>{
                 && rightClicked
                 
                 ){
-                   
+                    setCarouselWrapping(true)
                     console.warn('carousel wrapping!')
                 }
                 else{
-                    
+                    setCarouselWrapping(false)
                 }
 
             if(leftEdgeCase && rightClicked){
@@ -111,7 +111,7 @@ hasDescription}) =>{
                 
                
                 setLeftEdgeCase(false)
-               setCurrentImage(images.length -1)
+                setCarouselWrapping(true)
                 setShift(-images.length +1)
                 setCurrentImage(images.length -1)
                setLeftEdgeShift(0)
@@ -120,7 +120,9 @@ hasDescription}) =>{
 
             }
 
-         
+            else if(leftClicked === true){
+                // setLeftClicked(false)
+              }
 
             if(shift === 0){
                

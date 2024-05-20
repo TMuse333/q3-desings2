@@ -111,7 +111,7 @@ hasDescription}) =>{
                 
                
                 setLeftEdgeCase(false)
-               setCurrentImage(images.length -1)
+               set
                 setShift(-images.length +1)
                 setCurrentImage(images.length -1)
                setLeftEdgeShift(0)
