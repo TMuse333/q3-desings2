@@ -64,9 +64,67 @@ const Homepage: React.FC = () => {
     //     console.log('Page load time:', loadTime, 'milliseconds');
     // }, []);
 
-  
-
+    const workLinks = {
+        title: 'Our Work',
+        links: [
+            {
+                destination: 'custom-homes',
+                name: 'Custom Homes'
+            },
+            {
+                destination: 'commercial-construction',
+                name: 'commercial construction'
+            },
+            {
+                destination: 'retail-homes',
+                name: 'Retail Homes'
+            }
+        ],
+        secondaryLinks:[
+            {
+            destination:'dest1',
+            name:'dest1'
+        },
+        {
+            destination:'dest2',
+            name:'dest2'
+        },
+        {
+            destination:'dest3',
+            name:'dest3'
+        },
+    ]
+    };
     
+    const contactLinks = {
+        title: 'Contact',
+        links: [
+            {
+                destination: 'contact',
+                name: 'Email Us',
+               
+            }
+        ],
+        secondaryLinks:[
+            {
+            destination:'dest1',
+            name:'dest1'
+        },
+        {
+            destination:'dest2',
+            name:'dest2'
+        },
+        {
+            destination:'dest3',
+            name:'dest3'
+        },
+    ]
+    };
+
+        const links = [
+            workLinks,
+            contactLinks
+        ]
 
         const navLinks = [
             {
@@ -168,9 +226,9 @@ const Homepage: React.FC = () => {
  <CircleList/> 
 
 
-</div> 
+</div> */}
 
-<div className="relative bg-gradient-to-b from-transparent via-[#043747] to-[#032029] w-screen
+{/* <div className="relative bg-gradient-to-b from-transparent via-[#043747] to-[#032029] w-screen
 flex flex-col justify-center items-center">
 
 <CircleInfoGraphic/>
