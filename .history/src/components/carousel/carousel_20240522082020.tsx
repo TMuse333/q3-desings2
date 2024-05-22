@@ -328,7 +328,6 @@ md:top-auto
         text-center pl-5 pr-5 pt-5
         md2:pr-0 pl-0 md2:text-left
        ">{images[currentImage].description}
-       <br/>
        {images[currentImage].link !== '' &&  (
         <Link to={images[currentImage].link }
         className=''>

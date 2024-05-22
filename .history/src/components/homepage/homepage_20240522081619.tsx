@@ -41,8 +41,7 @@ const Homepage: React.FC = () => {
         url:q3,
         imageIndex:1,
         title:'The original Q3 Logo',
-        description:'Inspired by the many trips the leader of Q3 Designs has taken to the quantum realm',
-        link:''
+        description:'Inspired by the many trips the leader of Q3 Designs has taken to the quantum realm'
         }
     ,
     {
@@ -50,28 +49,25 @@ const Homepage: React.FC = () => {
         imageIndex:2,
         title:'The Quantum Card Game',
         description:'Experience our interactive user interfaces, game tracking and custom made elements all in our Quantum Card game, demonstrating the ability to make highly interactive and complex applications.',
-        link:'https://quantumcardgame.netlify.app'
+        
         },
         {
             url:lambo,
             imageIndex:3,
             title:'Lambo',
-            description:'A logo made for a car detailing company inspired by the quantum realm.',
-            link:''
+            description:'A logo made for a car detailing company inspired by the quantum realm.'
         },
         {
             url:portfolio,
             imageIndex:4,
             title:'Portfolio',
-            description:'This is a digital version of a resume made for Thomas Musial, We can create personalized digital resumes to help you stand out from the competition and highlight how great of a person you really are.',
-            link:'https://thomasmusial.netlify.app'
+            description:'This is a digital version of a resume made for Thomas Musial, We can create personalized digital resumes to help you stand out from the competition and highlight how great of a person you really are.'
         },
         {
             url:saiyan,
             imageIndex:5,
             title:'Super Saiyan Sainey',
-            description:'A logo for a social media influencer, Sainey Take',
-            link:''
+            description:'A logo for a social media influencer, Sainey Take'
         }
     
    ]

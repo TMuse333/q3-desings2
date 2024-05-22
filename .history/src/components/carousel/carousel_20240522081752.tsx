@@ -8,7 +8,7 @@ interface CarouselProps {
         imageIndex:number
         title:string,
         description:string
-        link:string
+        link?:string
      
       
     }[],
@@ -328,9 +328,8 @@ md:top-auto
         text-center pl-5 pr-5 pt-5
         md2:pr-0 pl-0 md2:text-left
        ">{images[currentImage].description}
-       <br/>
-       {images[currentImage].link !== '' &&  (
-        <Link to={images[currentImage].link }
+       {images[currentImage].link && (
+        <Link to={images[currentImage].link | null}
         className=''>
          <button className='mt-5
          text-left'

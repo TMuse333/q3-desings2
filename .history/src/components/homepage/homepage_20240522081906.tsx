@@ -41,8 +41,7 @@ const Homepage: React.FC = () => {
         url:q3,
         imageIndex:1,
         title:'The original Q3 Logo',
-        description:'Inspired by the many trips the leader of Q3 Designs has taken to the quantum realm',
-        link:''
+        description:'Inspired by the many trips the leader of Q3 Designs has taken to the quantum realm'
         }
     ,
     {
@@ -57,7 +56,7 @@ const Homepage: React.FC = () => {
             imageIndex:3,
             title:'Lambo',
             description:'A logo made for a car detailing company inspired by the quantum realm.',
-            link:''
+            link:null
         },
         {
             url:portfolio,
@@ -71,7 +70,7 @@ const Homepage: React.FC = () => {
             imageIndex:5,
             title:'Super Saiyan Sainey',
             description:'A logo for a social media influencer, Sainey Take',
-            link:''
+            link:null
         }
     
    ]

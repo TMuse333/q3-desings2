@@ -8,7 +8,6 @@ interface CarouselProps {
         imageIndex:number
         title:string,
         description:string
-        link:string
      
       
     }[],
@@ -327,19 +326,14 @@ md:top-auto
         <p className="text-white
         text-center pl-5 pr-5 pt-5
         md2:pr-0 pl-0 md2:text-left
-       ">{images[currentImage].description}
-       <br/>
-       {images[currentImage].link !== '' &&  (
-        <Link to={images[currentImage].link }
-        className=''>
-         <button className='mt-5
-         text-left'
-         >Check it out</button>
-        </Link>
-       )}
-</p>
+       ">{images[currentImage].description}</p>
 
-      
+       <Link to=''
+       className=''>
+        <button className='mt-5
+        text-left'
+        >Check it out</button>
+       </Link>
       </motion.div>
 
     </AnimatePresence>
