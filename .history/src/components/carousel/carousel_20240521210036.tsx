@@ -262,7 +262,7 @@ sm:h-[50vw]
             max-h-[424px]
        h-[100%] object-cover
        ${image.imageIndex === 5 ?
-    'object-top' : 'object-bottom'}
+    'object-top'}
       
        
        ml-auto mr-auto`}/>

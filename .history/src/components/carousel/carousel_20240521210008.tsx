@@ -261,11 +261,10 @@ sm:h-[50vw]
             max-w-[405px]
             max-h-[424px]
        h-[100%] object-cover
-       ${image.imageIndex === 5 ?
-    'object-top' : 'object-bottom'}
+       object-bottom
       
        
-       ml-auto mr-auto`}/>
+       ml-auto mr-auto`/>
    </div>
 
 

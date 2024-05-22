@@ -62,10 +62,7 @@ const Homepage: React.FC = () => {
             description:'This is a digital version of a resume made for Thomas Musial, We can create personalized digital resumes to help you stand out from the competition and highlight how great of a person you really are.'
         },
         {
-            url:saiyan,
-            imageIndex:5,
-            title:'Super Saiyan Sainey',
-            description:'A logo for a social media influencer, Sainey Take'
+            url:
         }
     
    ]

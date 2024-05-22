@@ -257,15 +257,14 @@ sm:h-[50vw]
        <img
        
         src={image.url}
-       className={`{w-[80%] 
+       className={}`{w-[80%] 
             max-w-[405px]
             max-h-[424px]
        h-[100%] object-cover
-       ${image.imageIndex === 5 ?
-    'object-top' : 'object-bottom'}
+       object-bottom
       
        
-       ml-auto mr-auto`}/>
+       ml-auto mr-auto`/>
    </div>
 
 

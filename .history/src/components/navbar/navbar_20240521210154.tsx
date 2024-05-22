@@ -239,7 +239,7 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
                         h-[200px] left-0 transition-opacity transition-transform ${hoveredSubMenuIndex === index ? 'opacity-1 z-20 ' : 'opacity-0 z-[-3] -translate-y-[30rem] '}}`}>
 
                         
-                        <p>Coming soon!</p>
+                        <p></p>
                         </div>
                         </>
                     )}

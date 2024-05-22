@@ -64,8 +64,7 @@ const Homepage: React.FC = () => {
         {
             url:saiyan,
             imageIndex:5,
-            title:'Super Saiyan Sainey',
-            description:'A logo for a social media influencer, Sainey Take'
+            title:'Super Saiyan Sainey'
         }
     
    ]

@@ -261,8 +261,7 @@ sm:h-[50vw]
             max-w-[405px]
             max-h-[424px]
        h-[100%] object-cover
-       ${image.imageIndex === 5 ?
-    'object-top' : 'object-bottom'}
+       ${image.im}
       
        
        ml-auto mr-auto`}/>

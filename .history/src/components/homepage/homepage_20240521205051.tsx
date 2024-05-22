@@ -18,22 +18,18 @@ import { AuroraHero } from "../auroraHero/auroraHero";
 import Navbar from "../navbar/navbar";
 
 // import lambo from '../../media/green-lambo-ref-2.svg'
+import village from '../../media/quantum-village.jpg'
 
 
-import lambo from '../../media/likambo-logo-black-bg-final.png'
-import cards from '../../media/card-game2-screenshot.png'
-import portfolio from '../../media/portfolio2-screenshot.png'
-import sainey from '../../media/sainey-media-picture.png'
-import saiyan from '../../media/ss2_sainey.jpg'
 
 const Homepage: React.FC = () => {
 
    const images = [
     {
-        url:sainey,
+        url:moneyBall,
         imageIndex:0,
-        title:'Sainey Media',
-        description:'A landing page made for a media marketing agency that has worked with the NBA, Bleacher Report and fitness influencer accounts with over 70k followers, Sainey Media'
+        title:'The Money Ball',
+        description:'Shooting the money ball like Larry Bird'
         }
     ,
     {
@@ -44,28 +40,22 @@ const Homepage: React.FC = () => {
         }
     ,
     {
-        url:cards,
+        url:nobgLaptop,
         imageIndex:2,
-        title:'The Quantum Card Game',
-        description:'Experience our interactive user interfaces, game tracking and custom made elements all in our Quantum Card game, demonstrating the ability to make highly interactive and complex applications.'
+        title:'A Futuristic Laptop',
+        description:'A smooth futuristic Laptop that shows the modern designs that Q3 Designs like to do'
         },
         {
             url:lambo,
             imageIndex:3,
             title:'Lambo',
-            description:'A logo made for a car detailing company inspired by the quantum realm.'
+            description:'dropping the top ona lambo'
         },
         {
-            url:portfolio,
+            url:village,
             imageIndex:4,
-            title:'Portfolio',
-            description:'This is a digital version of a resume made for Thomas Musial, We can create personalized digital resumes to help you stand out from the competition and highlight how great of a person you really are.'
-        },
-        {
-            url:saiyan,
-            imageIndex:5,
-            title:'Super Saiyan Sainey',
-            description:'A logo for a social media influencer, Sainey Take'
+            title:'the quantum village',
+            description:'welcome to the quantum village'
         }
     
    ]

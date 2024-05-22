@@ -24,7 +24,7 @@ import lambo from '../../media/likambo-logo-black-bg-final.png'
 import cards from '../../media/card-game2-screenshot.png'
 import portfolio from '../../media/portfolio2-screenshot.png'
 import sainey from '../../media/sainey-media-picture.png'
-import saiyan from '../../media/ss2_sainey.jpg'
+import saiyan from 'src/media/ss2_sainey.jpg'
 
 const Homepage: React.FC = () => {
 
@@ -62,10 +62,7 @@ const Homepage: React.FC = () => {
             description:'This is a digital version of a resume made for Thomas Musial, We can create personalized digital resumes to help you stand out from the competition and highlight how great of a person you really are.'
         },
         {
-            url:saiyan,
-            imageIndex:5,
-            title:'Super Saiyan Sainey',
-            description:'A logo for a social media influencer, Sainey Take'
+            url:
         }
     
    ]
