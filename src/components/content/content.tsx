@@ -39,12 +39,12 @@ const Content: React.FC<contentProps> = ({
 
   const imageVariants: Variants = {
     initial: {
-      // x: reverse ? 180 : -150,
-      // opacity: 0,
+      x: reverse ? 180 : -150,
+      opacity: 0,
     },
     animate: {
       opacity: 1,
-      // x: reverse  && !isMobile? 50 : 0,
+      x: 0,
       y: floatingImage ? [0, -5, 0] : 0,
       transition: {
     

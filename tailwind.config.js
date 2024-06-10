@@ -9,10 +9,8 @@ export default {
       screens:{
         'sm':'655px',
         'md':'865px',
-        'sm2':'860px',
         'lg':'900px',
-        'md2':'720px',
-        'xl':'950px'
+        'xl':'1200px'
       },
       colors: {
         'q-blue' : '#00bfff'

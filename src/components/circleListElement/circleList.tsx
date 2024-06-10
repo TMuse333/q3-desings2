@@ -52,8 +52,8 @@ const CircleListElement: React.FC<CircleProps> = ({image,title, description,
 
     return (
         <div className=" relative flex glow justify-center  md:h-[220px] 
-        h-[220px] sm:h-[auto]
-        md:flex-row w-[calc(100vw-5px)]  md:w-[40vw] sm2:w-[40vw] items-center sm:items-start mb-10 md:mt-3 bg-[#011f29] 
+        h-[220px] md:h-[auto]
+        md:flex-row w-[calc(100vw-5px)]  md:w-[40vw] md:w-[40vw] items-center sm:items-start mb-10 md:mt-3 bg-[#011f29] 
         rounded-3xl max-w-[490px] ml-auto mr-auto border border-q-blue">
 <AppearingCircle
 secondCircleComplete={secondCircleComplete}
@@ -95,7 +95,7 @@ const CircleList: React.FC = () => {
         <>
         <h1>We get it done</h1>
  <section className="relative 
-         sm2:grid sm2:grid-cols-2 gap-4 max-w-[1200px] ml-auto
+         sm:grid md:grid-cols-2 gap-4 max-w-[1200px] ml-auto
          mr-auto justify-center items-center 
 ">
             {/* <div className="-translate-x-5"> */}

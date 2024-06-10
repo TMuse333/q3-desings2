@@ -2,7 +2,7 @@
 
 import './App.css'
 
-import Homepage from './components/homepage/homepage'
+import Homepage from './pages/homepage'
 import {Route, Routes} from 'react-router-dom'
 import Contact from './components/contact/contact'
 function App() {

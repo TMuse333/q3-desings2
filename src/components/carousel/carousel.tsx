@@ -260,7 +260,7 @@ sm:h-[50vw]
         src={image.url}
        className={`{w-[80%] 
             max-w-[405px]
-            max-h-[424px]
+            max-h-[424px] 
        h-[100%] object-cover
        ${image.imageIndex === 5 ?
     'object-top' : 'object-bottom'}

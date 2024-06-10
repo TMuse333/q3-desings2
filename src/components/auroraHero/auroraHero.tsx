@@ -9,6 +9,7 @@ import {
   animate,
 } from "framer-motion";
 import { Link } from "react-router-dom";
+import SineWave from "../sineWave/sineWave";
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
@@ -27,6 +28,8 @@ export const AuroraHero = () => {
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
   const border = useMotionTemplate`1px solid ${color}`;
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
+
+  const auroraColors = ['#05475c','#075169','#0c485c','#05475c','#0b6280']
 
   return (
     <motion.section
@@ -67,6 +70,8 @@ A great website can be the difference between your business thriving and having 
           <FiArrowRight className="transition-transform group-hover:-rotate-45 group-active:-rotate-12" />
         </motion.button>
         </Link>
+        <SineWave
+        colors={auroraColors}/>
       </div>
 
       {/* <div className="absolute inset-0 z-0">

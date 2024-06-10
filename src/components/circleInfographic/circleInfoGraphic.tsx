@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import ball from '../../media/futuristic-money-ball-removebg-preview.png'
-// import { motion,Variants} from 'framer-motion'
-// import useIntersectionObserver from "../intersectionObserver/intersectionObserver";
+import { motion} from 'framer-motion'
+import useIntersectionObserver from "../intersectionObserver/intersectionObserver";
 import {circleInfographicDescriptions} from '../../data/data'
 interface CircleProps {
     image:string,
@@ -12,22 +12,33 @@ interface CircleProps {
 const CircleElement: React.FC<CircleProps> = ({image,
 title, description}) => {
 
-    // const [inView, setInView] = useState<boolean>(false)
+    const [inView, setInView] = useState<boolean>(false)
 
-    // const options = {
-    //     root: null,
-    //     rootMargin: '-25px',
-    //     threshold: 0.6,
-    // };
+    const options = {
+        root: null,
+        rootMargin: '-25px',
+        threshold: 0.6,
+    };
 
-    // Apply intersection observer hook to detect when the component is in view
-    // const componentRef = useIntersectionObserver(setInView, options);
 
-  
+    const componentRef = useIntersectionObserver(setInView, options);
+
+  const circleVariants = {
+    initial:{
+        opacity:0,
+        y:-30
+    },
+    animate:{
+        opacity:1,
+        y:0
+    }
+  }
 
     return (
-        <div
-    
+        <motion.div ref={componentRef}
+variants={circleVariants}
+initial='initial'
+animate={inView ? 'animate' : 'initial'}
          className={`mt-5 mb-5 p-0
          overflow-x-hidden
         rounded-full bg-[#071f26] hover:bg-[#0e3a47]
@@ -54,7 +65,7 @@ title, description}) => {
                 {description}
             </p>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
