@@ -53,7 +53,7 @@ const CircleListElement: React.FC<CircleProps> = ({image,title, description,
     return (
         <div className=" relative flex glow justify-center  md:h-[220px] 
         h-[220px] md:h-[auto]
-        md:flex-row w-[calc(100vw-5px)]  md:w-[40vw] md:w-[40vw] items-center sm:items-start mb-10 md:mt-3 bg-[#011f29] 
+        md:flex-col w-[calc(100vw-5px)]  md:w-[40vw] md:w-[40vw] items-center sm:items-start mb-10 md:mt-3 bg-[#011f29] 
         rounded-3xl max-w-[490px] ml-auto mr-auto border border-q-blue">
 <AppearingCircle
 secondCircleComplete={secondCircleComplete}
@@ -63,19 +63,19 @@ index={index}
 
 
 />
-<section className="relative text-left pr-0 flex flex-col bg-[#011f29] rounded-3xl 
-h-auto min-h-0 max-h-full   items-center z-1">
+<section className="relative text-center pr-0 flex flex-col bg-[#011f29] rounded-3xl 
+h-auto min-h-0 max-h-full w-full justify-center  items-center z-1">
 <motion.h1
 onClick={handleDescriptionClick}
 variants={headerVariants}
 initial={'initial'}
 animate={secondCircleComplete ? 'animate' : 'initial'}
- className="text-white text-xl w-[80px]  ml-auto mr-auto mt-5
+ className="text-white text-xl    ml-auto mr-auto mt-5
  "
 >{title}
  </motion.h1>
 
-<p className={`rounded-lg text-left mt-3 pl-3 pr-3 bg-blue-600 transition-height ease-in duration-300 bg-blue-800 ${descriptionClicked ? ' h-[220px] w-[125px] overflow-scroll pt-5  ' : 'h-0 w-[125px]  overflow-hidden pt-0'}`}>
+<p className={`rounded-lg text-center mt-3 pl-3 pr-3  transition-height ease-in duration-300  ${descriptionClicked ? ' h-[220px]  overflow-scroll pt-5  ' : 'h-0 w-[125px]  overflow-hidden pt-0'}`}>
   {description}
 </p>
 </section>

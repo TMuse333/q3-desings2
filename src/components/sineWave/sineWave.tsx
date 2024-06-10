@@ -16,35 +16,35 @@ const SineWave: React.FC<SineWaveProps> = ({ colors }) => {
 
     const waves = [
       {
-        amplitude: 35,
+        amplitude: 15,
         frequency: 0.02,
         speed: 0.035,
         xOffset: 0,
         color: colors[0], // Using colors prop
       },
       {
-        amplitude: 30,
+        amplitude: 20,
         frequency: 0.02,
         speed: 0.03,
         xOffset: 0,
         color: colors[1], // Using colors prop
       },
       {
-        amplitude: 20,
+        amplitude: 10,
         frequency: 0.05,
         speed: 0.04,
         xOffset: 0,
         color: colors[2], // Using colors prop
       },
       {
-        amplitude: 40,
+        amplitude: 10,
         frequency: 0.015,
         speed: 0.025,
         xOffset: 0,
         color: colors[3], // Using colors prop
       },
       {
-        amplitude: 25,
+        amplitude: 15,
         frequency: 0.025,
         speed: 0.035,
         xOffset: 0,
